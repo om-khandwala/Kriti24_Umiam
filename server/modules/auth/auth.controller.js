@@ -49,12 +49,12 @@ export const redirect = async (req, res) => {
     const existingUser = await User.findOne({ rollNumber: userData.rollNumber});
     console.log(existingUser);
 
-    if(!existingUser){
+    if(existingUser.length !== 0){
         const newUser = new User(userData);
         newUser.save();
-        console.log('I am inside loop')
+       // console.log('I am inside loop')
     }
-    console.log(userData);
+    //console.log(userData);
 
     res.cookie("token", accessToken, {
       maxAge: 107360,
