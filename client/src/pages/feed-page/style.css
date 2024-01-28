@@ -1,0 +1,55 @@
+.main-container {
+    display: flex;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: top;
+    width: 100%;
+    padding: 1rem 3rem;
+    gap: 2rem;
+    height: 120vh;
+    overflow-y: hidden;
+}
+.left-section {
+    margin: 0;
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    width: 21%;
+    gap: 1rem;
+    align-items: top;
+}
+
+.middle-section {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    height: auto;
+    gap: 1rem;
+    overflow: scroll;
+    scrollbar-width: none;
+}
+
+.right-section {
+    margin: 0;
+    display: flex;
+    width: 25%;
+    flex-direction: column;
+    gap: 1rem;
+}
+.right-section h2 {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: .5rem;
+}
+.top-projects, .top-groups {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: #2C2B40;
+    border-radius: 0.5rem;
+    height: auto;
+    padding: 0em 1em;
+}
+  
+  
