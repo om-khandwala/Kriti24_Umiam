@@ -1,39 +1,73 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 const schema = mongoose.Schema;
 
 
-const Project = new schema({
-    projectname:{
-        type: String
+const projectSchema = new schema({
+    projectName:{
+        type: String,
+        required: true
     },
-    Description:{
-        type: string,
+    description:{
+        type: String,
+        required: true
     },
-    Rating:{
+    tags:{
+        type: String,
+        required: true
+    },
+    logo:{
+        type: String,
+    },
+    links:[
+        {
+            image:{
+                type: String,
+                default: ""
+            },
+            documents:{
+                type: String,
+                default: ""
+            },
+            videos:{
+                type: String,
+                default: ""
+            },
+        }
+    ],
+    repository:{
+        type: String,
+        required: true
+    },
+    rating:{
         type:Number,
+        default: 0
     },
-    NumberofRatings:{
-        type:Number
+    numberofRatings:{
+        type:Number,
+        default: 0
     },
-    Comments:[
+    comments:[
         {
             username:{
-                type:string
+                type:String
             },
             comment:{
-                type:string
+                type:String
             },
-            stars:{
-                type:number
+            likes:{
+                type:Number,
+                default: 0
             }
         }
     ],
-    Author:{
+    author:{
         type:schema.Types.ObjectId
     },
-    Collabrators:[{
+    collaborators:[{
         type:schema.Types.ObjectId
     }],
 })
 
-module.exports = mongoose.model("User",User);
+const Project = mongoose.model("Project",projectSchema);
+
+export default Project;
