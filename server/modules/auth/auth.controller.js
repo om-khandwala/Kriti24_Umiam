@@ -41,13 +41,12 @@ export const redirect = async (req, res) => {
     const user = await getUserFromToken(accessToken);
     const userBranch = await getBranch(accessToken);
 
-    
     const userData = {
         ...user,
         branch: userBranch
     }
     
-    const existingUser = await User.find({ name: userData.name});
+    const existingUser = await User.findOne({ rollNumber: userData.rollNumber});
     console.log(existingUser);
 
     if(!existingUser){
