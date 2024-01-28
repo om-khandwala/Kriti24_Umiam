@@ -3,17 +3,16 @@ import cors from "cors";
 import mongoose from "mongoose";
 import authRoutes from './modules/auth/auth.routes.js';
 import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
 
 const app = express();
 dotenv.config();
 
+app.use(cookieParser());
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect(process.env.ATLAS_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-});
+mongoose.connect(process.env.ATLAS_URI);
 mongoose.connection.once("open", () => {
     console.log("MongoDB database connection established successfully");
 });

@@ -8,9 +8,6 @@ import User from "../../Models/User.js";
 
 const projectRouter = express.Router();
 
-const projectSchema = zod.object({
-
-})
 
 projectRouter.post('/postProject', userMiddleware, async function(req, res){
     try{
