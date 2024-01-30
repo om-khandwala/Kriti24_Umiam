@@ -2,7 +2,8 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import authRoutes from './modules/auth/auth.routes.js';
-import groupRoutes from './modules/groups/groups.routes.js'
+import groupRoutes from './modules/groups/groups.routes.js';
+import doubtRoutes from './modules/doubts/doubts.routes.js';
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 
@@ -20,6 +21,7 @@ mongoose.connection.once("open", () => {
 
 app.use('/', authRoutes);
 app.use('/api/groups', groupRoutes);
+app.use('/api/doubts', doubtRoutes);
 
 const port = process.env.PORT || 5050;
 app.listen(port, () => {
