@@ -6,6 +6,7 @@ import groupRoutes from './modules/groups/groups.routes.js';
 import doubtRoutes from './modules/doubts/doubts.routes.js';
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
+import signuploadformRouter from "./routes/signuploadform.route.js";
 
 const app = express();
 dotenv.config();
@@ -22,6 +23,7 @@ mongoose.connection.once("open", () => {
 app.use('/', authRoutes);
 app.use('/api/groups', groupRoutes);
 app.use('/api/doubts', doubtRoutes);
+app.use('/api/signuploadform', signuploadformRouter)
 
 const port = process.env.PORT || 5050;
 app.listen(port, () => {
