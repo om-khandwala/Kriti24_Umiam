@@ -1,5 +1,12 @@
 import { v2 as cloudinary } from 'cloudinary';
-import '../../public/config.js';
+
+cloudinary.config({
+  cloud_name: 'dlc5erxkj',
+  api_key: '822196862469827',
+  api_secret: '_L65yMKn-jr_UHUPyMzRtlHNjAs',
+  secure: true
+});
+
 const apiSecret = cloudinary.config().api_secret;
 
 // Server-side function used to sign an upload with a couple of

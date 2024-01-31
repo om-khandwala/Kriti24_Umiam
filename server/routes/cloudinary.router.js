@@ -1,9 +1,8 @@
 import { Router } from 'express';
 const router = Router();
-import signuploadform from '../modules/cloudinary/signuploadform.js';
-import '../public/config.js';
-
+import signuploadform from '../modules/cloudinary/apisignreq.js';
 import { v2 as cloudinary } from 'cloudinary';
+
 const cloudName = cloudinary.config().cloud_name;
 const apiKey = cloudinary.config().api_key;
 

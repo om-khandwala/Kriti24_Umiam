@@ -12,7 +12,7 @@ const FileUpload = () => {
       alert('Please select a file');
       return;
     }
-    const signResponse = await fetch('http://localhost:5050/api/signuploadform');
+    const signResponse = await fetch('http://localhost:5050/api/apisignreq');
     const signData = await signResponse.json();
     const url = "https://api.cloudinary.com/v1_1/" + signData.cloudname + "/auto/upload";
 
