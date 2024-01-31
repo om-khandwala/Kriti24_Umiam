@@ -1,6 +1,5 @@
 import * as msal from '@azure/msal-node';
 import { getUserFromToken, getBranch } from '../user/user.controller.js';
-import axios from 'axios';
 import User from '../../Models/User.js';
 
 const msalConfig = {
@@ -57,10 +56,10 @@ export const redirect = async (req, res) => {
     //console.log(userData);
 
     res.cookie("token", accessToken, {
-      maxAge: 107360,
+      maxAge: 3073600,
       sameSite: "lax",
       secure: false,
-      expires: new Date(Date.now() + 107360),
+      expires: new Date(Date.now() + 3073600),
       httpOnly: true,
     });
 
@@ -74,6 +73,7 @@ export const redirect = async (req, res) => {
 export const logout = (req, res) => {
   try {
     res.clearCookie("token");
+    res.redirect('https://login.microsoftonline.com/common/oauth2/v2.0/logout');
     res.send('Logout Successfully');
   } catch (error) {
     console.error('Logout Error:', error);
