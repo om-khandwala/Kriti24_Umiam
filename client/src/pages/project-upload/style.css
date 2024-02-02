@@ -13,7 +13,7 @@
     font-weight: 400;
 }
   
-input[type="text"],
+.upload-project-form [type="text"],
 textarea,
 input[type="file"] {
     width: 100%;
