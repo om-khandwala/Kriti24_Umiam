@@ -1,0 +1,15 @@
+.profile-page {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 2em;
+}
+
+.profile-header {
+    display: flex;
+    gap:1em;
+}
+
+.profile-header .profile {
+    width: 70%;
+}
