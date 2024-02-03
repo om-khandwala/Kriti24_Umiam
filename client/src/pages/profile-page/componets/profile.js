@@ -1,19 +1,17 @@
 import './component.css';
 
-function Profile(){
+function Profile({userData}){
     return(
         <div className="profile">
-            <img src='/images/cover.webp' alt='user background img' className='bg-img'/>
-            <img src= '/images/user.jpg'  className="user-img" alt = 'user-img'/>
-            <div className="user-details">
-                <div className="left">
-                    <h2>Name</h2>
-                    <h4>Short Description</h4>
-                </div>
-                <div className="right">
-                    <button>Edit Profile</button>
-                </div>
+            <div class='profile-bg'></div>
+            <div className = 'user-image'>
+                 <img src= '/images/user.jpg'  className="user-img" alt = 'user-img'/>
             </div>
+            <div className="user-details">
+                <h2>{userData.name}</h2>
+                <h4>{userData.shortDescription}</h4>        
+            </div>
+            
         </div>
     )
 };

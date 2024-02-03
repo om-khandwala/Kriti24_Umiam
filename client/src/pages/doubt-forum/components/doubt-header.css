@@ -35,7 +35,8 @@
     display: flex;
     flex-direction: column;
     gap:.5em;
-    background-color: black;
+    background-color: white;
+    color: black;
     padding: 2em;
     border-radius: .5em;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -46,6 +47,7 @@
 
 .modal-content .body {
     height: 8em;
+    border: 1px solid black;
 }
 
 .modal-content select {
@@ -53,6 +55,7 @@
     border: none;
     width: 15em;
     background-color: white;
+    border: 1px solid black;
     border-radius: .5em;
 }
 
@@ -65,8 +68,10 @@
 }
 
 .modal-content ul li {
+    background: #67A4BE;
+    color: white;
     border-radius: 1em;
-    border: 1px solid white;
+    border: 1px solid black;
     padding: .25em 1.5em;
 }
 

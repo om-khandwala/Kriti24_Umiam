@@ -10,8 +10,8 @@ function App() {
     <div className="App">
      {/* <Button size="small" backgroundColor={'black'} onClick={() => console.log('Small button clicked')}>Small Button</Button> */}
      {/* <ProjectUploadPage /> */}
-     {/* <ProfilePage /> */}
-     <DoubtForum />
+     <ProfilePage />
+     {/* <DoubtForum /> */}
     </div>
   );
 }

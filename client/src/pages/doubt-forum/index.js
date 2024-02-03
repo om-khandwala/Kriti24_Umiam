@@ -3,6 +3,7 @@ import './style.css';
 import Doubt from './components/doubt';
 import DoubtHeader from './components/doubt-header';
 import { allDoubts } from '../../api/doubt';
+import Navbar from '../../componets/navbar/navbar';
 
 
 function DoubtForum() {
@@ -12,6 +13,7 @@ function DoubtForum() {
         const fetchDoubts = async () => {
             try {
                 const allDoubtsData = await allDoubts();
+                allDoubtsData.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
                 setDoubts(allDoubtsData);
             } catch (error) {
                 console.error('Error fetching doubts:', error);
@@ -24,6 +26,7 @@ function DoubtForum() {
 
     return (
         <>
+            <Navbar />
             <DoubtHeader />
             <div className="doubt-forum">
                 <div className="left">

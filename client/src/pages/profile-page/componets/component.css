@@ -1,12 +1,12 @@
 /* about-me css */
 
 .about-section {
+    padding: 1em 0;
     width: 100%;
-    padding: 1em;
     display: flex;
     flex-direction: column;
     gap: 1em;
-    background-color: white;
+    background-color: #eee;
     border-radius: .5em;
 }
 
@@ -15,66 +15,98 @@
 }
 
 .about-section h4 {
+    padding-left: 1em;
     font-size: 1.2em;
     font-weight: 500;
+}
+
+.about-section p {
+    padding-left: 1em;
 }
 
 /* profile css */
 
 .profile {
     box-sizing: border-box;
+    border-bottom: 2px solid black;
     width: 100%;
-    padding: 1em;
+    height: 23em;
     display: flex;
     flex-direction: column;
     gap:1em;
     background-color: white;
-    border-radius: .5em;
+}
+
+.profile .profile-bg {
+    overflow: hidden;
+    width: 100%;
+    height: 8em;
+    background-color: #001B79;
 }
 
 
 .user-img {
-    height: 5em;
-    width: 5em;
-    margin-top: -3.5em;
-    margin-left: 2em;
+    height: 7em;
+    width: 7em;
 }
 
-.user-details {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
+.profile-header .user-image {
+    overflow: hidden;
+    border: 4px solid white;
+    background-color: url('');
+    border-radius: 50%;
+    height: 7em;
+    width: 7em;
+    margin: 0 auto;
+    margin-top: -3.5em;
+}
+
+.user-details  h2, .user-details h4{
+    padding: 0 10em;
+    text-align: center;
+}
+
+.user-details h4 {
+    margin-top: 1em;
+    font-weight: 400;
 }
 
 .left {
     display: flex;
     gap:.2em;
     flex-direction: column;
-    margin-left: 2em;
 }
 
 /* user-details css */
 
 .user-info {
-    background-color: white;
-    padding: .8em;
-    padding-top: 1.5em;
+    background-color: #eee;
+    padding-top: .5em;
+    padding-bottom: 1.5em;
     display: flex;
     flex-direction: column;
     gap: 1em;
-    width: 100%;
+    width: 40%;
     border-radius: .5em;
 }
 
 
 .user-info h4 {
+    padding: .8em;
     font-size: 1.5em;
     margin: 0;
 }
 
 .user-info p {
+    padding-left: .8em;
     margin-top: 1em;
+}
+
+.user-info p strong {
+    color:rgb(130, 0, 251);
+    font-weight: 600;
+    font-size: 1.1em;
+    margin-right: .5em;
 }
 
 
@@ -84,9 +116,13 @@
     display: flex;
     flex-direction: column;
     gap: 1em;
-    padding: 1em;
-    background-color: white;
+    padding: 1em 0;
+    background-color: #eee;
     border-radius: .5em;
+}
+
+.course-section h4{
+    padding-left: 1em;
 }
 
 /* course css */
@@ -101,19 +137,39 @@
 .user-projects {
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: 3em;
     padding: 1em;
-    background-color: white;
-    border-radius: .5em;
+    padding-top: 4em;
 }
 
-.user-projects > div {
-    display: flex;
-    gap : 2em;
-}
 
 /* project */
 
 .project-component {
+    display: flex;
+    gap: 2em;
     width: 100%;
+    background-color: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0 0.5em 2em 0;
+}
+
+
+.project-component h4 {
+    margin: 1em 0;
+    font-size: 1.5em;
+}
+
+.project-component .learn-more {
+    margin-top: 1em;
+    font-weight: 600;
+    color: rgb(130, 0, 251);
+}
+
+.project-component .type {
+    font-weight: 600;
+    color: #808080;
+}
+
+.project-component img {
+    width: 25em;
 }

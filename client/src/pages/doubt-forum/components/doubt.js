@@ -5,8 +5,6 @@ import './doubt.css';
 import ReplyForm from './reply';
 
 function Doubt({ doubt }) {
-    console.log(document.cookie);
-
     const [replies, setReplies] = useState([]);
     const [showAllReplies, setShowAllReplies] = useState(false);
 
