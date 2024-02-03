@@ -1,0 +1,27 @@
+.left{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    color: black;
+    padding-left: 40px;
+    width: 400px;
+}
+
+.all_com {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:20px;
+}
+
+.my_com {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:20px;
+}
+
+.lists {
+    margin-top: 0%;
+    margin-left: 71px;
+}

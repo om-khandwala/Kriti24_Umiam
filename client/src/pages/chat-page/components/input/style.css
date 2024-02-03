@@ -1,8 +1,14 @@
 .message-input {
     display: flex;
-    padding: 20px;
+    /* padding: 20px; */
     background-color: #f9f9f9;
     border-top: 1px solid #ccc;
+    margin-bottom: 20px;
+    /* width: 500px; */
+    align-items: center;
+    margin-left: 100px;
+    margin-right: 100px;
+    border-radius: 5px;
 }
   
 .message-input input {
@@ -15,6 +21,7 @@
   
 .message-input button {
     padding: 10px 20px;
+    margin-right: 2px;
     background-color: #007bff;
     color: #fff;
     border: none;

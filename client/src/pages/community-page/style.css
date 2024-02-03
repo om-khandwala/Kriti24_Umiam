@@ -1,0 +1,18 @@
+.karta {
+    background-color: rgb(238, 232, 232);
+}
+.main_container {
+    display: flex;
+    /* align-items: center; */
+    padding-top: 50px;
+    justify-content: space-between;
+    flex-direction: row;
+    gap:20px;
+    
+}
+.mid_main {
+    display: flex;
+    align-items: flex-start;
+    gap : 30px;
+    flex-direction: column;
+}

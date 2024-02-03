@@ -5,10 +5,18 @@ import './style.css'
 
 function ChatPage (){
     return(
-        <div className='body'>
-            <Navbar />
-            <Sidebar />
-            <ChatWindow />
+        <div className="container">
+            <div className="members">
+                <Sidebar />
+            </div>
+            <div className="navChat">
+            <div className="nav">
+                <Navbar />
+            </div>
+            <div className="chat">
+                <ChatWindow />
+            </div>
+            </div>
         </div>
     )
 }
