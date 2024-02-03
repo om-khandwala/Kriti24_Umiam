@@ -1,6 +1,6 @@
 import express from 'express';
 const router = express.Router();
-import {createGroup, deleteGroupById, updateGroupById, getGroupById, getAllGroups} from './groups.controller.js';
+import {createGroup, deleteGroupById, updateGroupById, getGroupById, getAllGroups} from '../modules/groups/groups.controller.js';
 
 router.post('/create', createGroup);
 router.get('/:groupId', getGroupById);

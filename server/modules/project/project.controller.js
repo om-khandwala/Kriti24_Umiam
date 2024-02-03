@@ -1,15 +1,7 @@
-import axios from "axios";
-import express from 'express';
-// import zod from 'zod';
-import Project from '../../Models/Project.js';
-import userMiddleware from "../middleware/user.auth.js";
+import Project from "../../Models/Project.js";
 import User from "../../Models/User.js";
-// const multer = require("multer");
 
-const projectRouter = express.Router();
-
-
-projectRouter.post('/postProject', userMiddleware, async function(req, res){
+export const createProject =  async (req, res) => {
     try{
         const parsedProject = req.body;
         const roll = req.userRollNumber;
@@ -26,9 +18,9 @@ projectRouter.post('/postProject', userMiddleware, async function(req, res){
     catch(err){
         res.status(411).json({msg: err});
     }
-});
+}
 
-projectRouter.get("/getProject", async function(req, res){
+export const getProject = async (req, res) => {
     let filter = req.query.filter || "";
     const projects = await Project.find({
         $or: [{
@@ -45,9 +37,9 @@ projectRouter.get("/getProject", async function(req, res){
         projects
     })
 
-});
+}
 
-projectRouter.put("/updateProject/:id", userMiddleware, async function(req, res){
+export const putProject = async (req, res) => {
     const projectId = req.params.id;
     const parsedProject = req.body;
 
@@ -58,9 +50,9 @@ projectRouter.put("/updateProject/:id", userMiddleware, async function(req, res)
     res.json({
         msg: "Updated successfully"
     });
-});
+}
 
-projectRouter.delete("/deleteProject/:id", userMiddleware, async function(req, res){
+export const deleteProject = async (req, res) => {
     const projectId = req.params.id;
 
     await Project.deleteOne({_id: projectId});
@@ -68,6 +60,4 @@ projectRouter.delete("/deleteProject/:id", userMiddleware, async function(req, r
     res.json({
         msg: "Deleted successfully"
     });
-});
-
-export default projectRouter;
+}

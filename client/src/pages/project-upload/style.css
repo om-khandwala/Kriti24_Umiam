@@ -1,0 +1,70 @@
+.upload-project-form {
+    max-width: 50em;
+    margin: 0 auto;
+    padding: 1em;
+}
+.upload-project-form h2 {
+    text-align: center;
+}
+  
+.upload-project-form label {
+    display: block;
+    margin-bottom: .5em;
+    font-weight: 400;
+}
+  
+.upload-project-form [type="text"],
+textarea,
+input[type="file"] {
+    width: 100%;
+    padding: .6em;
+    margin-bottom: 0.8em;
+    border: 1px solid white;
+    border-radius: .3em;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.upload-project-form select {
+    width: 20em;
+    height: 2.5em;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+}
+  
+.upload-project-form textarea {
+    height: 8em; 
+    outline: none;
+}
+
+.upload-project-form ul {
+    background-color: black;
+    overflow: hidden;
+    padding: .5em;
+    /* margin-left: -2.2em; */
+    display: flex;
+    list-style: none;
+    gap: 1em;
+}
+
+.upload-project-form ul li {
+    border: 1px solid white;
+    color: white;
+    border-radius: 10em;
+    padding: .5em;
+}
+  
+button {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+  
+button[type="submit"] {
+    width: 100%;
+}
+  

@@ -14,6 +14,9 @@ const UserSchema = new schema({
     degree:{
         type: String
     },
+    discription:{
+        type: String
+    },
     rollNumber:{
         type: Number,
         required:true

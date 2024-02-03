@@ -1,12 +1,18 @@
 import './App.css';
 // import Community_Page from './pages/community-page';
 import ChatPage from './pages/chat-page';
-// import FeedPage from './pages/feed-page';
-
+import DoubtForum from './pages/doubt-forum';
+import FeedPage from './pages/feed-page';
+import ProfilePage from './pages/profile-page';
+import ProjectUploadPage from './pages/project-upload';
+import FileUpload from './pages/test';
 function App() {
   return (
     <div className="App">
-      <ChatPage />
+     {/* <Button size="small" backgroundColor={'black'} onClick={() => console.log('Small button clicked')}>Small Button</Button> */}
+     {/* <ProjectUploadPage /> */}
+     <ProfilePage />
+     {/* <DoubtForum /> */}
     </div>
   );
 }
