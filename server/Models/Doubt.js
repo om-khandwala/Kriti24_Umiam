@@ -1,11 +1,11 @@
 import mongoose from 'mongoose';
 
 const doubtSchema = new mongoose.Schema({
-    heading: {
+    title: {
         type: String,
         required: true
     },
-    text: {
+    description: {
         type: String
     },
     tags: {
@@ -16,7 +16,7 @@ const doubtSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    creator: {
+    author: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },

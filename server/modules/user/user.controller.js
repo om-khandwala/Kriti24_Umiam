@@ -1,50 +1,46 @@
-import axios from "axios";
+import { getUserFromToken, getBranch } from "./user.util.js";
+import User from "../../Models/User.js";
 
-export const getUserFromToken = async function (accessToken) {
+export const userData = async (req, res) => {
     try {
-        const config = {
-            method: "get",
-            url: "https://graph.microsoft.com/v1.0/me",
-            headers: {
-                Authorization: `Bearer ${accessToken}`,
-            },
-        };
+        const token = req.cookies.token;
+      //  console.log(token);
+        const user = await getUserFromToken(token);
+            
+        const rollNumber = user.rollNumber;
+        const reqUser = await User.find({ rollNumber: rollNumber });
 
-        const response = await axios(config);
-
-        const userData = {
-            name: response.data.displayName,
-            email: response.data.mail,
-            rollNumber: response.data.surname,
-            branch: response.data.jobTitle
-        };
-
-        return userData;
+        res.status(200).json({ user: reqUser }); 
     } catch (error) {
-        console.error('Error fetching user information:', error);
-        return null; // Return null or handle the error appropriately
+        console.log(error);
+        res.status(500).json({ msg: 'Internal Server error' });
     }
-};
+}
 
-export const getBranch = async (accessToken) => {
+export const updateUser = async (req, res) => {
     try {
-        var config = {
-            method: "get",
-            url: "https://graph.microsoft.com/beta/me/profile",
-            headers: {
-                Authorization: `Bearer ${accessToken}`,
-            },
-        };
+        const userId = req.params.userId;
+        console.log(userId);
+        const user = await User.findById(userId);
 
-        const response = await axios(config);
+        const updatedUserData = req.body;
 
-        if (response.data.positions && response.data.positions.length > 0) {
-            const department = response.data.positions[0].detail.company.department;
-            return department;
-        } else {
-            throw new Error('No positions found in the user profile');
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
         }
+
+        user.name = updatedUserData.name || user.name;
+        user.email = updatedUserData.email || user.email; 
+        user.branch = updatedUserData.branch || user.branch;
+        user.description = updatedUserData.description || user.description;
+        user.shortDescription = updatedUserData.shortDescription || user.shortDescription;
+      
+        const updatedUser = await user.save();
+
+        res.status(200).json({ message: 'User updated successfully', user: updatedUser });
     } catch (error) {
-        console.error('Error getting user branch:', error);
+        console.error('Error updating user:', error);
+        res.status(500).json({ message: 'Internal server error' });
     }
 };
+

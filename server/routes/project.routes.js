@@ -6,7 +6,7 @@ import { createProject, deleteProject, getProject, putProject } from "../modules
 const projectRouter = express.Router();
 
 
-projectRouter.post('/postProject', userMiddleware, createProject);
+projectRouter.post('/create', createProject);
 projectRouter.get("/getProject", getProject);
 projectRouter.put("/updateProject/:id", userMiddleware, putProject);
 projectRouter.delete("/deleteProject/:id", userMiddleware, deleteProject);

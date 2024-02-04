@@ -1,5 +1,5 @@
 import * as msal from '@azure/msal-node';
-import { getUserFromToken, getBranch } from '../user/user.controller.js';
+import { getUserFromToken, getBranch } from '../user/user.util.js';
 import User from '../../Models/User.js';
 
 const msalConfig = {
@@ -44,26 +44,27 @@ export const redirect = async (req, res) => {
         ...user,
         branch: userBranch
     }
+
+    console.log(userData.rollNumber)
     
     const existingUser = await User.findOne({ rollNumber: userData.rollNumber});
     console.log(existingUser);
 
-    if(existingUser.length !== 0){
+    if(existingUser === null){
         const newUser = new User(userData);
         newUser.save();
-       // console.log('I am inside loop')
+        console.log('I am inside loop')
     }
     //console.log(userData);
 
     res.cookie("token", accessToken, {
       maxAge: 3073600,
-      sameSite: "lax",
       secure: false,
       expires: new Date(Date.now() + 3073600),
-      httpOnly: true,
+      httpOnly: false,
     });
-
-    res.send('Login Successful!');
+    res.redirect('http://localhost:3000')
+    //res.send('Login Successful!');
   } catch (error) {
     console.error('Error during redirect:', error);
     res.status(500).send('Error during login process');

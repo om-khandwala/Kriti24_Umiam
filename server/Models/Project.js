@@ -11,29 +11,31 @@ const projectSchema = new schema({
         type: String,
         required: true
     },
-    tags:{
+
+    outcomes: {
         type: String,
+    },
+    tags:{
+        type: [String],
         required: true
     },
     logo:{
         type: String,
     },
-    links:[
-        {
+    links:{
             image:{
-                type: String,
-                default: ""
+                type: [String],
+                default: []
             },
             documents:{
                 type: String,
                 default: ""
             },
             videos:{
-                type: String,
-                default: ""
+                type: [String],
+                default: []
             },
-        }
-    ],
+    },
     repository:{
         type: String,
         required: true

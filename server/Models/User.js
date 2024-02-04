@@ -14,7 +14,10 @@ const UserSchema = new schema({
     degree:{
         type: String
     },
-    discription:{
+    shortDescription: {
+        type: String
+    },
+    description:{
         type: String
     },
     rollNumber:{
