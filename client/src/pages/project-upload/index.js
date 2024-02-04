@@ -1,12 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState} from 'react';
 import './style.css';
+import FileUpload from './file-upload';
+import LogoUpload from './logo-upload';
+import { createProject } from '../../api/project';
 
 function ProjectUploadPage() {
+  const [logo, setLogo] = useState('');
   const [projectName, setProjectName] = useState('');
   const [description, setDescription] = useState('');
-  const [projectDirectory, setProjectDirectory] = useState(null);
-  const [projectImages, setProjectImages] = useState(null);
+  const [projectImages, setProjectImages] = useState([]);
   const [selectedTags, setSelectedTags] = useState([]);
+  const [githubLink , setGithubLink] = useState('');
+  const [projectOutcomes, setProjectOutcomes] = useState([]);
+
 
   const handleProjectName = (e) => {
     setProjectName(e.target.value);
@@ -16,18 +22,7 @@ function ProjectUploadPage() {
     setDescription(e.target.value);
   };
 
-  const handleProjectDirectory = (e) => {
-    const file = e.target.files[0];
-    setProjectDirectory(file);
-  };
-
-  const handleImages = (e) => {
-    const file = e.target.files[0];
-    setProjectImages(file);
-  };
-
   const handleTagChange = (e) => {
-    console.log(e.target.selectedOptions);
     const selectedOptions = Array.from(e.target.selectedOptions, (option) => option.value);
     setSelectedTags(prevSelectedTags => [...prevSelectedTags, ...selectedOptions]);
   };
@@ -36,88 +31,115 @@ function ProjectUploadPage() {
     setSelectedTags(prevSelectedTags => prevSelectedTags.filter(tag => tag !== tagToRemove));
   };
 
-  const handleSubmit = (e) => {
+  const handleOutcomeChange = (e) => {
+    const outcomes = e.target.value;
+    setProjectOutcomes(outcomes);
+  };
+
+  const handleRepoLink = (e) => {
+    const link = e.target.value;
+    setGithubLink(link);
+  };
+
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // use cloudinary here 
+    if (!projectName || !description || !projectImages.length || !selectedTags.length || !githubLink || !projectOutcomes) {
+      alert('Please fill in all required fields');
+      return;
+    }
 
-    setProjectName('');
-    setDescription('');
-    setProjectDirectory(null);
-    setProjectImages(null);
-    setSelectedTags([]);
+    const data = {
+      projectName: projectName,
+      description: description,
+      links: {
+        image: projectImages,
+      },
+      repository: githubLink,
+      tags: selectedTags,
+      logo: logo,
+      outcomes: projectOutcomes
+    };
+
+    try {
+      console.log(data);
+      const response = await createProject(data);
+      // console.log(response);
+    } catch (error) {
+      console.error('Error creating project:', error);
+    }
   };
 
   return (
     <div className='upload-project-form'>
         <h2>Create Project</h2>
-        <form onSubmit={handleSubmit} >
-        <div>
-            <label htmlFor="projectName">Project Name:</label>
+        <form>
+          <div>
+            <label htmlFor="projectName">Project Name</label>
             <input
-            type="text"
-            id="projectName"
-            placeholder='Enter Project Name'
-            value={projectName}
-            onChange={handleProjectName}
-            required
+              type="text"
+              id="projectName"
+              placeholder='Enter Project Name'
+              value={projectName}
+              onChange={handleProjectName}
+              required
             />
-        </div>
-        <div>
-            <label htmlFor="description">Description:</label>
+          </div>
+          <div>
+            <label htmlFor="description">Description</label>
             <textarea
-            id="description"
-            value={description}
-            placeholder='Enter Description'
-            onChange={handleDescription}
-            required
+              id="description"
+              value={description}
+              placeholder='Enter Description'
+              onChange={handleDescription}
+              required
             />
-        </div>
-        <div>
-            <label htmlFor="tags">Tags:</label>
+          </div>
+          <div>
+            <label htmlFor="projectOutcomes">Project Outcomes </label>
+            <textarea
+              type="text"
+              id="projectOutcomes"
+              onChange={handleOutcomeChange}
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="tags">Tags</label>
             <select
-            id="tags"
-            onChange={handleTagChange}
-            value={selectedTags}
+              id="tags"
+              onChange={handleTagChange}
+              value={selectedTags}
             >
-            <option value="react">React</option>
-            <option value="javascript">JavaScript</option>
-            <option value="css">CSS</option>
-            <option value="monogodb">Mongo DB</option>
-            <option value="svelte">Svelte</option>
-            <option value="express">Express</option>
+              <option value="react">React</option>
+              <option value="javascript">JavaScript</option>
+              <option value="css">CSS</option>
+              <option value="mongodb">Mongo DB</option>
+              <option value="svelte">Svelte</option>
+              <option value="express">Express</option>
             </select>
-        </div>
-        <div>
+          </div>
+          <div>
             <ul>
-            {selectedTags.map((tag, index) => (
+              {selectedTags.map((tag, index) => (
                 <li key={index} onClick={() => removeTag(tag)}>{tag}</li>
-            ))}
+              ))}
             </ul>
-        </div>
-        <div>
-            <label htmlFor="projectDirectory">Project Directory:</label>
+          </div>
+          <div>
+            <label htmlFor="projectDirectory">Github Repository Link</label>
             <input
-            type="file"
-            className='upload'
-            id="projectDirectory"
-            onChange={handleProjectDirectory}
-            required
+              type="text"
+              className='upload'
+              onChange={handleRepoLink}
+              id="projectDirectory"
+              required
             />
-        </div>
-        <div>
-            <label htmlFor="imgesUpload">Images of Project:</label>
-            <input
-            type="file"
-            className='upload'
-            id="imageUpload"
-            onChange={handleImages}
-            multiple
-            required
-            />
-        </div>
-
-        <button type="submit">Upload Project</button>
+          </div>
+          <FileUpload setProjectImages={setProjectImages} />
+          <LogoUpload setLogo= {setLogo}/>
+          <button type="submit" onClick={handleSubmit}>Upload Project</button>
         </form>
     </div>
   );

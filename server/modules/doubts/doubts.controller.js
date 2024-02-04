@@ -61,7 +61,7 @@ export const deleteDoubt = async (req, res) => {
 export const allDoubts = async (req, res) => {
     try {
         const doubts = await Doubt.find();
-        res.status(200).json({ data: doubts });
+        res.status(200).json({doubts});
     } catch (error) {
         console.log(error);
         res.status(500).json({ error: 'Internal Server Error' });
@@ -82,13 +82,16 @@ export const allDoubtsOfUser = async (req, res) => {
 export const allRepliesOfDoubt = async (req, res) => {
     try {
         const { doubt_id } = req.params;
+       // console.log(doubt_id);
         const requiredReplies = await DoubtReply.find({ doubt_id: doubt_id })
 
-        if (!requiredReplies || requiredReplies.length === 0) {
-            return res.status(404).json({ error: 'Doubt replies not found' });
-        }
+        // if (!requiredReplies || requiredReplies.length === 0) {
+        //     return res.status(404).json({ error: 'Doubt replies not found' });
+        // }
 
-        res.status(200).json({ data: requiredReplies });
+       // console.log(requiredReplies)
+
+        res.status(200).json({requiredReplies });
     } catch (error) {
         console.log(error);
         res.status(500).json({ error: 'Internal Server Error' });

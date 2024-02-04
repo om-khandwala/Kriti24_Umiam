@@ -1,11 +1,11 @@
 import './component.css';
 
-function AboutSection(){
+function AboutSection({userData}){
     return (
         <div className = 'about-section'>
             <h4>About Me</h4>
             <hr/>
-            <p>Dummy Text</p>
+            <p>{userData.description}</p>
         </div>
     )
 }

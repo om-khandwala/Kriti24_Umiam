@@ -1,0 +1,28 @@
+.create-project-upload input {
+    border: none;
+    width: 20em;
+    display: none;
+}
+
+.create-project-upload .flex label {
+    background-color: #eee;
+    padding: .5em 1em;;
+}
+
+.create-project-upload .flex {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.create-project-upload .btn {
+    background-color: black;
+    padding: .5em 1em;
+    color: white;
+    border-radius: .5em;
+}
+
+.create-project-upload .loading {
+    font-weight: 600;
+}

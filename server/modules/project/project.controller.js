@@ -4,18 +4,16 @@ import User from "../../Models/User.js";
 export const createProject =  async (req, res) => {
     try{
         const parsedProject = req.body;
-        const roll = req.userRollNumber;
+        const roll = 220122045;
         const user = await User.findOne({rollNumber: roll});
         const project = await Project.create({
-            projectName: parsedProject.projectName,
-            description: parsedProject.description,
-            repository: parsedProject.repository,
-            tags: parsedProject.tags,
+            ...parsedProject,
             author: user._id,
         })
         res.status(200).json({msg: "Project created!"});
     }
     catch(err){
+        console.log(err);
         res.status(411).json({msg: err});
     }
 }

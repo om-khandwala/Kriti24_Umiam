@@ -1,4 +1,4 @@
-import { getUserFromToken } from "../user/user.controller.js";
+import { getUserFromToken } from "../user/user.util.js";
 
 const userMiddleware = async function(req, res, next){
     try{

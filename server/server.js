@@ -1,8 +1,6 @@
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
-import http from "http";
-import { Server } from "socket.io";
 import authRoutes from "./routes/auth.routes.js";
 import groupRoutes from "./routes/groups.routes.js";
 import doubtRoutes from "./routes/doubts.routes.js";
@@ -20,8 +18,14 @@ const io = new Server(server, {
 });
 dotenv.config();
 
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    credentials: true,
+  })
+);
+
 app.use(cookieParser());
-app.use(cors());
 app.use(express.json());
 
 io.on("connection", (socket) => {
@@ -48,7 +52,6 @@ mongoose.connect(process.env.ATLAS_URI);
 mongoose.connection.once("open", () => {
   console.log("MongoDB database connection established successfully");
 });
-
 app.use("/api/apisignreq", router);
 app.use("/project", projectRouter);
 app.use("/", authRoutes);
