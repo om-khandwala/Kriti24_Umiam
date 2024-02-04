@@ -1,22 +1,26 @@
-import React, { useState } from 'react';
-import './style.css';
-
-function MessageInput({ sendMessage }) {
-  const [message, setMessage] = useState('');
-
+import React, { useState } from "react";
+import "./style.css";
+// import queryString from "query-string";
+function MessageInput({ sendMessage, socket, paramValue }) {
+  const [message, setMessage] = useState("");
+  console.log("The param value is ", paramValue);
   const handleMessageChange = (event) => {
     setMessage(event.target.value);
   };
 
   const handleSendMessage = () => {
-    if (message.trim() !== '') {
+    if (message.trim() !== "") {
       sendMessage(message);
-      setMessage('');
+      setMessage("");
     }
+    socket.emit("send_msg", {
+      msg: message,
+      id: paramValue,
+    });
   };
 
   const handleKeyPress = (event) => {
-    if (event.key === 'Enter') {
+    if (event.key === "Enter") {
       handleSendMessage();
     }
   };

@@ -1,37 +1,61 @@
 // ChatWindow.js
-import React, { useState } from 'react';
-import MessageInput from '../input';
-import Message from '../message';
+import React, { useEffect, useState } from "react";
+import MessageInput from "../input";
+import Message from "../message";
+import { useLocation } from "react-router-dom";
+function ChatWindow({ socket }) {
+  const [messages, setMessages] = useState([]);
 
-function ChatWindow() {
-  // Simulated messages (replace with actual messages from your backend)
-  const [messages, setMessages] = useState([
-    { id: 1, text: 'Hello!', sender: 'John' },
-    { id: 2, text: 'Hi there!', sender: 'Jane' },
-    { id: 3, text: 'How are you?', sender: 'John' },
-  ]);
-
+  const location = useLocation();
+  const data = new URLSearchParams(location.search);
+  const paramValue = data.get("id");
+  console.log(paramValue);
   const sendMessage = (messageText) => {
-    const newMessage = {
-      id: messages.length + 1, // In a real app, use unique IDs from your backend
-      text: messageText,
-      sender: 'You', // Simulating that the current user sends the message
-    };
-    setMessages([...messages, newMessage]);
+    socket.emit("send_msg", { msg: messageText });
   };
+  // console.log(messages);
+
+  useEffect(() => {
+    const handleReceivedMessage = (data) => {
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        {
+          message: data.msg,
+          id: prevMessages.length + 1,
+          sender: "OtherUser",
+        },
+      ]);
+    };
+
+    socket.on("msg_rcvd", handleReceivedMessage);
+    socket.emit("join", { id: paramValue });
+    return () => {
+      socket.off("msg_rcvd", handleReceivedMessage);
+    };
+  }, [socket, paramValue]);
 
   return (
     <div className="chat-window">
       <div className="message-list">
-        {messages.map((message) => (
-          <Message key={message.id} text={message.text} sender={message.sender} />
-        ))}
+        {messages.length > 0 &&
+          messages.map((message) => {
+            return (
+              <Message
+                key={message.id}
+                text={message.message}
+                sender={message.sender}
+              />
+            );
+          })}
       </div>
       {/* Input field for typing messages */}
-      <MessageInput sendMessage={sendMessage} />
+      <MessageInput
+        sendMessage={sendMessage}
+        socket={socket}
+        paramValue={paramValue}
+      />
     </div>
   );
 }
 
 export default ChatWindow;
-
