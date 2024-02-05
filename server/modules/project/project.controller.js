@@ -28,6 +28,22 @@ export const allProject = async (req,res) => {
         }
 }
 
+export const recentProject = async (req, res) => {
+    try {
+        const twentyFourHoursAgo = new Date();
+        twentyFourHoursAgo.setDate(twentyFourHoursAgo.getDate() - 1);
+
+        const projects = await Project.find({
+            createdAt: { $gte: twentyFourHoursAgo }
+        });
+
+        res.status(200).json(projects);
+    } catch (error) {
+        console.log('Error in project controller', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
+
 export const getProject = async (req, res) => {
     let filter = req.query.filter || "";
     const projects = await Project.find({

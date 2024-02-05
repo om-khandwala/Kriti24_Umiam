@@ -21,7 +21,7 @@ export const createGroup = async (req,res) =>{
 export const getAllGroups = async (req,res) => {
     try{
         const groups = await Group.find();
-        res.status(200).json({data: groups});
+        res.status(200).json({groups});
     }catch(error){
         console.log("Error in group controller",error);
         res.send(500).json({message: 'Internal Server Error'})
