@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./style.css";
 // import queryString from "query-string";
-function MessageInput({ sendMessage, socket, paramValue }) {
+function MessageInput({ sendMessage, socket, id }) {
   const [message, setMessage] = useState("");
-  console.log("The param value is ", paramValue);
+  console.log("The param value is ", id);
   const handleMessageChange = (event) => {
     setMessage(event.target.value);
   };
@@ -15,7 +15,7 @@ function MessageInput({ sendMessage, socket, paramValue }) {
     }
     socket.emit("send_msg", {
       msg: message,
-      id: paramValue,
+      id: id,
     });
   };
 

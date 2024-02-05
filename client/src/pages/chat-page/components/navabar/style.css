@@ -1,17 +1,16 @@
-.circle1 {
-    height: 40px;
-    width: 40px;
+.navbar-chat-page .circle1 {
+    height: 2.5em;
+    width: 2.5em;
     border-radius: 50%;
     background-color: white;
-    margin-top: 3px;
-    margin-left: 3px;
-    margin-bottom: 3px;
 }
-.navbar {
+.navbar-chat-page {
+    padding: 0 4em;
     display: flex;
-    flex-direction: row;
-    gap:5px;
+    justify-content: space-between;
     align-items: center;
     background-color: #292949;
-    height: 56px;
+    height: 4.6em;
+    color: white;
+    font-size: 1.2em;
 }

@@ -1,36 +1,29 @@
+import HorizontalLine from '../../../../componets/line';
 import './style.css'
 import React from 'react';
-function Sidebar() {
+function Sidebar({group}) {
+    
   return (
     <div className="sidebar">
-      <div className="headingofside">
+      <div className="heading-of-side">
         <div className="circle"></div>
-        <div className="Projectname"><strong>Project</strong></div>
+        <h2 className="project-name"><strong>{group.name}</strong></h2>
       </div>
-      <p className='member'>Members</p>
+
+      <HorizontalLine />
+
       <div className="members">
-        <div className="name">
+      {group.members && group.members.map((member, index) => (
+
+      <div className="name" key={index}>
           <div className="circle1"></div>
-          <p>Faiz</p>
-        </div>
-        <div className="name">
-          <div className="circle1"></div>
-          <p>Faiz</p>
-        </div>
-        <div className="name">
-          <div className="circle1"></div>
-          <p>Faiz</p>
-        </div>
-        <div className="name">
-          <div className="circle1"></div>
-          <p>Faiz</p>
-        </div>
-        <div className="name">
-          <div className="circle1"></div>
-          <p>Faiz</p>
-        </div>
+          <p>{member}</p>
       </div>
-      {/* Display contacts or conversations */}
+    
+      ))}
+
+      </div>
+
     </div>
   );
 }

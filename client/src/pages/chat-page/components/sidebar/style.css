@@ -1,41 +1,54 @@
 .sidebar {
-    height: 740px;
-    width: 250px;
-    background-color: #f0f0f0;
-    border-right: 1px solid #ccc;
-    padding: 20px;
+    height: 100vh;
+    width: 22em; 
     background-color: #5c55d5;
-}
-.circle {
-    height: 70px;
-    width: 70px;
-    border-radius: 50%;
-    background-color: white;
-    margin-left: 5px;
-    margin-top: 5px;
-}
-
-.headingofside {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 8px;
-    color: pink;
-    font-size: 2rem;
-}
-.member {
-    margin-top: 40px;
+    border-right: 0.0625em solid #ccc; 
     color: white;
 }
-.members {
+
+.heading-of-side .circle {
+    height: 2.5em;
+    width: 2.5em;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.heading-of-side h2 {
+    margin-left: 1em;
+    font-size: 1em;
+    font-weight: 500;
+}
+
+.heading-of-side {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.2rem; 
+    margin-bottom: 1em;
+    padding: 1em;
+    padding-bottom: 0;
+}
+
+.members{
     display: flex;
     flex-direction: column;
 }
-.name {
-    display: flex;
-    flex-direction: row;
-    gap:8px;
-    color: white;
+
+.members .circle1 {
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    background: white;
 }
 
+.members .name {
+    display: flex;
+    padding: 1em 1em;
+    align-items: center;
+    gap: 0.5em; 
+    border-bottom: 1px solid white;
+}
 
+.members .name:hover {
+    background-color: #1d1a60;
+}

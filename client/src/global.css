@@ -27,6 +27,10 @@ p {
   gap: 1em;
 }
 
+.flex-gap-0 {
+  display: flex;
+}
+
 .space-between {
   display: flex;
   align-items: center;

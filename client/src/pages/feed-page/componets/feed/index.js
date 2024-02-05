@@ -2,29 +2,29 @@ import React from "react";
 import Language from "../../../../componets/language";
 import "./style.css";
 
-function Feed() {
+function Feed({project}) {
   return (
     <div className="feed-container">
       <div className="heading">
         <div className="flex">
-        <img src="/images/js_logo.png" alt="Logo" />
-          <h3>Beyond Javascript</h3>
+        <img src={project.logo} alt="Logo" />
+          <h3>{project.projectName}</h3>
         </div>
+        
         <div className="flex">
-          <Language name={"Java"} />
-          <Language name={"Html"} />
+            {project.tags.map((tag, index) => (
+                <Language key={index} name={tag} />
+            ))}
         </div>
+
       </div>
       <div className="description">
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Necessitatibus repudiandae deserunt nobis!
-          Necessitatibus repudiandae deserunt nobis!
+          {project.description}
         </p>
       </div>
       <div className="body-image">
-        <img src="https://media.licdn.com/dms/image/D5612AQFlxMRpK-On8g/article-cover_image-shrink_720_1280/0/1670602482212?e=2147483647&v=beta&t=1HWOX81_1_mfqzP2kdHty9dnCVgb-dmVsMuYhBKCnRQ" alt="body-image" />
+        <img src={project.links.image[0]} alt="body-image" />
       </div>
       <div className="footer">
         <div className="like">
