@@ -18,6 +18,16 @@ export const createProject =  async (req, res) => {
     }
 }
 
+export const allProject = async (req,res) => {
+        try{
+            const project = await Project.find();
+            res.status(200).json({project});
+        }catch(error){
+            console.log(error,"Error is project controller");
+            res.status(500).json({})
+        }
+}
+
 export const getProject = async (req, res) => {
     let filter = req.query.filter || "";
     const projects = await Project.find({

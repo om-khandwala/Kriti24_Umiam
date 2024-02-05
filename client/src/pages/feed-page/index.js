@@ -4,8 +4,13 @@ import MyProject from './componets/my-project';
 import Profile from './componets/profile';
 import Feed from './componets/feed';
 import Project from './componets/project';
+import { useState } from 'react';
+import { allProject } from '../../api/project';
 
 function FeedPage() {
+    useState(()=>{
+        allProject();
+    },[])
     return (
         <div>
             <Navbar />

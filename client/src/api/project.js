@@ -5,3 +5,9 @@ export const createProject = async (data) => {
     const response = await axios.post('http://localhost:5050/api/project/create', data); 
     return response.data; 
 }
+
+export const allProject = async () => {
+    const response = await axios.get('http://localhost:5050/api/project/'); 
+    console.log(response.data);
+    return response.data; 
+}

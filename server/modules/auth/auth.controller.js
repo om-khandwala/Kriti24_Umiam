@@ -1,12 +1,6 @@
-<<<<<<< HEAD
 import * as msal from "@azure/msal-node";
-import { getUserFromToken, getBranch } from "../user/user.controller.js";
+import { getUserFromToken, getBranch } from "../user/user.util.js";
 import User from "../../Models/User.js";
-=======
-import * as msal from '@azure/msal-node';
-import { getUserFromToken, getBranch } from '../user/user.util.js';
-import User from '../../Models/User.js';
->>>>>>> refs/remotes/origin/main
 
 const msalConfig = {
   auth: {
@@ -51,7 +45,6 @@ export const redirect = async (req, res) => {
     const userBranch = await getBranch(accessToken);
 
     const userData = {
-<<<<<<< HEAD
       ...user,
       branch: userBranch,
     };
@@ -65,21 +58,6 @@ export const redirect = async (req, res) => {
       const newUser = new User(userData);
       newUser.save();
       // console.log('I am inside loop')
-=======
-        ...user,
-        branch: userBranch
-    }
-
-    console.log(userData.rollNumber)
-    
-    const existingUser = await User.findOne({ rollNumber: userData.rollNumber});
-    console.log(existingUser);
-
-    if(existingUser === null){
-        const newUser = new User(userData);
-        newUser.save();
-        console.log('I am inside loop')
->>>>>>> refs/remotes/origin/main
     }
     //console.log(userData);
 
@@ -89,13 +67,8 @@ export const redirect = async (req, res) => {
       expires: new Date(Date.now() + 3073600),
       httpOnly: false,
     });
-<<<<<<< HEAD
-    res.redirect("http://localhost:3001/btn");
-    // res.send('Login Successful!');
-=======
-    res.redirect('http://localhost:3000')
-    //res.send('Login Successful!');
->>>>>>> refs/remotes/origin/main
+    res.redirect('http://localhost:3000/feed')
+   // res.send('Login Successful!');
   } catch (error) {
     console.error("Error during redirect:", error);
     res.status(500).send("Error during login process");

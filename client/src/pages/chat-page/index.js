@@ -3,33 +3,14 @@ import Navbar from "./components/navabar";
 import Sidebar from "./components/sidebar";
 import "./style.css";
 
-<<<<<<< HEAD
-function ChatPage({ socket }) {
+function ChatPage() {
   return (
     <div className="body">
       <Navbar />
       <Sidebar />
-      <ChatWindow socket={socket} />
+      <ChatWindow  />
     </div>
   );
-=======
-function ChatPage (){
-    return(
-        <div className="container">
-            <div className="members">
-                <Sidebar />
-            </div>
-            <div className="navChat">
-            <div className="nav">
-                <Navbar />
-            </div>
-            <div className="chat">
-                <ChatWindow />
-            </div>
-            </div>
-        </div>
-    )
->>>>>>> refs/remotes/origin/main
 }
 
 export default ChatPage;
