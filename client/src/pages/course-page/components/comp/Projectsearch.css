@@ -1,0 +1,48 @@
+.serach_navbar{
+    display: flex;
+    background-color: #302E2D;
+    padding: 1.8vw 2vw 1.8vw 2vw;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+}
+
+.profile_user{
+    width: 1.7vw;
+    height: auto;
+    cursor: pointer;
+}
+
+.project_option{
+    color: white;
+    font-size: 1.5vw;
+    margin-left: 1vw;
+    cursor: pointer;
+}
+
+.search-int{
+    margin-left: 46vw;
+    width: 22vw;
+    height: 2.6vw;
+    border: white ;
+    border-radius: 8px;
+    font-size: 1.5vw;
+    outline: none;
+    padding-left: 1.4vw;
+    align-items: center;
+}
+
+.search_img{
+    margin-left: -2.7vw;
+    width: 1.7vw;
+    cursor: pointer;
+}
+
+.create-project-btn{
+    width: 12vw;
+    height: 3vw;
+    font-size: 1.3vw;
+    border-radius: 8px;
+    border: white;
+    margin-left: 3.5vw;
+    cursor: pointer;
+}

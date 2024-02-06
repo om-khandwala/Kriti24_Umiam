@@ -1,0 +1,86 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    color: black;
+    padding-left: 2vw;
+    padding-right: 6vw;
+    padding-top: 0.9vw;
+    padding-bottom: 0.9vw;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .navbar-nav {
+    display: flex;
+    list-style: none;
+    padding-left: 9vw;
+    /* margin: 0; */
+    /* padding: 0; */
+  }
+
+  .navbar-brand{
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+  }
+
+  .logo{
+    width: 4vw;
+    height: auto;
+
+  }
+
+  .project-name{
+    font-size: 1.4vw;
+    font-weight: 600;
+    padding-left: 2vw;
+  }
+  
+  .nav-item {
+    margin-right: 3vw;
+    font-size: 1.2vw;
+  }
+  
+  .nav-link {
+    /* color: #fff; */
+    text-decoration: none;
+  }
+  
+  .nav-link:hover {
+    color: #ccc;
+  }
+  
+  .navbar-search {
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-input {
+    width: 14vw;
+    height: 1.9vw;
+    margin-left: 9vw;
+    /* margin-right: 10px; */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #D9D9D9;
+  }
+
+  .message-notif{
+    padding-left: 2vw;
+    width: 1.8vw;
+    height: auto;
+  }
+
+  .directbox-notif{
+    width: 1.8vw;
+    height: auto;
+  }
+
+  .profile-pic {
+    width: 3.2vw;
+    height: auto;
+    border-radius: 50%;
+  }
+  
