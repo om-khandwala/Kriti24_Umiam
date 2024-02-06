@@ -10,6 +10,7 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import router from "./routes/cloudinary.router.js";
 import projectRouter from "./routes/project.routes.js";
+import courseRoutes from "./routes/courses.routes.js";
 
 const app = express();
 
@@ -61,6 +62,7 @@ app.use("/api/project", projectRouter);
 app.use("/", authRoutes);
 app.use("/api/groups", groupRoutes);
 app.use("/api/doubts", doubtRoutes);
+app.use("/api/courses", courseRoutes);
 
 const port = process.env.PORT || 5050;
 server.listen(port, () => {
