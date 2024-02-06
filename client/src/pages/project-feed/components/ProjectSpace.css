@@ -1,0 +1,44 @@
+.project-options{
+    padding-left: 3vw;
+    padding-top: 5vw;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+}
+
+.allprojects, .myprojects{
+    display: flex;
+    align-items: center;
+}
+
+.myprojects{
+    margin-top: -1.3vw;
+}
+
+.all_proj{
+    font-size: 1.4vw;
+    font-weight: 700;
+    margin-left: 1.3vw;
+}
+
+.my_proj{
+    font-size: 1.4vw;
+    font-weight: 700;   
+    margin-left: 1.3vw;
+}
+
+.profile-circle{
+    width: 2.2vw;
+    height: auto;
+}
+
+.tags{
+    font-size: 1.2vw;
+    list-style-type: none;
+    padding-left: 3.6vw;
+    margin-top: -0.5vw;
+}
+
+.tags-title{
+    margin-top: 0.3vw;
+}
