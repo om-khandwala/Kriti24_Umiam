@@ -1,8 +1,8 @@
 import React from 'react';
 
-function HorizontalLine() {
+function HorizontalLine({color}) {
     return (
-        <hr style={{ margin: '0', border: 'none', borderBottom: '1px solid white' }} />
+        <hr style={{ margin: '0', border: 'none', borderBottom: `1px solid ${color}` }} />
     );
 }
 

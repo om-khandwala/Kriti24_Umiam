@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import "./style.css";
 function Profile({user}) {
   return (
@@ -6,7 +7,9 @@ function Profile({user}) {
       <div className="circle"></div>
       <h3>{user.name}</h3>
       <p>{user.shortDescription}</p>
-      <p>visit profile</p>
+      <Link to='/profile'>
+        <button>Visit profile</button>
+      </Link>
     </div>
   );
 }

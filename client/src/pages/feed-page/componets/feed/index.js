@@ -1,6 +1,7 @@
 import React from "react";
 import Language from "../../../../componets/language";
 import "./style.css";
+import Star from "../../../../componets/star";
 
 function Feed({project}) {
   return (
@@ -28,11 +29,11 @@ function Feed({project}) {
       </div>
       <div className="footer">
         <div className="like">
-          <img src="https://example.com/like-logo.png" alt="Like Logo" />
-          <p>Like</p>
+          <Star />
+          <p>{project.rating}</p>
         </div>
         <div className="comment">
-          <img src="https://example.com/comment-logo.png" alt="Comment Logo" />
+          <i class="fa-regular fa-comment"></i>
           <p>Comment</p>
         </div>
       </div>

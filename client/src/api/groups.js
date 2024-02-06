@@ -11,3 +11,15 @@ export const getGroup = async (id) => {
   console.log(response.data);
   return response.data; 
 }
+
+export const createChat = async (data) => {
+  console.log(data);
+  const response = await axios.post(`http://localhost:5050/api/groups/group-chat`,data); 
+  return response.data; 
+}
+
+export const getGroupChat = async (id) => {
+  const response = await axios.get(`http://localhost:5050/api/groups/group-chat/${id}`); 
+ // console.log(response.data);
+  return response.data.groupChat[0].chats; 
+}

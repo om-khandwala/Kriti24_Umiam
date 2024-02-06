@@ -7,7 +7,7 @@ function Language(props) {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        color: "white",
+        color: "black",
       }}
     >
       <div
@@ -15,7 +15,7 @@ function Language(props) {
           height: "10px",
           width: "10px",
           borderRadius: "50%",
-          backgroundColor: "white",
+          backgroundColor: "black",
           marginRight: "5px",
         }}
       ></div>

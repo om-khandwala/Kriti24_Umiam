@@ -1,4 +1,6 @@
+import GroupChat from '../../Models/Group-chat.js';
 import Group from '../../Models/Groups.js';
+
 
 export const createGroup = async (req,res) =>{
     try {
@@ -17,6 +19,38 @@ export const createGroup = async (req,res) =>{
         res.status(500).json({ error: 'Failed to create group' });
     }
 }
+
+export const createChat = async (req, res) => {
+  try {
+    const { groupId, chats } = req.body;
+
+    let groupChat = await GroupChat.findOne({ groupId });
+
+    if (!groupChat) { 
+      groupChat = new GroupChat({ groupId, chats });
+    } else {
+      groupChat.chats.push(...chats);
+    }
+
+    await groupChat.save();
+
+    res.status(200).json({ message: "Chat added successfully" });
+  } catch (error) {
+    console.log('Error in group controller', error);
+    res.status(500).json({ message: 'Internal Server Error' }); 
+  }
+};
+
+export const getGroupChat = async (req, res) => {
+  try {
+    const groupId = req.params.id;
+    const groupChat = await GroupChat.find({ groupId: groupId });
+    res.status(200).json({ groupChat });
+  } catch (error) {
+    console.log('There is an error in group controller', error);
+    res.status(500).json({ msg: 'Internal Server Error' });
+  }
+};
 
 export const getAllGroups = async (req,res) => {
     try{

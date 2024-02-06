@@ -1,19 +1,25 @@
-import React from 'react'
-import './style.css'
-function MyProject() {
+import React from 'react';
+import { Link } from 'react-router-dom'
+import './style.css';
+
+function MyProject({ userProject }) {
   return (
     <div className='myproject-container'>
       <div className="heading">
-        <h3>Your Project</h3>
-        <button>New</button>
+        <h3>Your Projects</h3>
+        <Link to='/upload'><button>New</button></Link>
       </div>
-      <input type="text"/>
-      <div className='project'>
-        <img src="/images/js_logo.png" alt="Logo" />
-        <p>Modern Javascript</p>
+      <input type="text" />
+      <div className='projects'>
+        {userProject.map(project => (
+          <div className='project' key={project._id}>
+            <img src={project.logo} />
+            <p>{project.projectName}</p>
+          </div>
+        ))}
       </div>
     </div>
-  )
+  );
 }
 
-export default MyProject
+export default MyProject;

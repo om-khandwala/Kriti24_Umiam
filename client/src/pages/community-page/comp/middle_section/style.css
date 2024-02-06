@@ -1,4 +1,4 @@
-.container {
+.community-container {
     color: black;
     width: 55em;
     background-color: white;
@@ -6,7 +6,17 @@
     border-radius: .5em;
     padding: 1em;
 }
-.lang {
+
+.community-container .post {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.community-container i {
+    font-size: 1.5em;
+}
+.community-container .lang {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -14,33 +24,46 @@
     gap: .5em;
 }
 
-.lang p {
+.community-container .lang p {
     border: 1px solid black;
     border-radius: 5em;
     padding: .25em 1em;
 }
-.foot{
+.community-container .foot{
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     color: black;
 }
 
-.enter {
+.community-container .enter {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap:20px;
+    gap:2em;
 }
-.Join{
+.community-container .Join{
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap:20px;
+    gap: 2em;
+    margin-top: 1em;
 }
-.right_foot{
+
+.community-container .Join button {
+    margin-left: .5em;
+}
+
+.community-container button {
+    padding: .5em 1.5em;
+    background-color: black;
+    color: white;
+    border-radius: .25em;
+    border: none;
+}
+.community-container .right_foot{
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap:20px;
+    gap: 2em;
 }

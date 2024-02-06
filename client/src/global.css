@@ -1,3 +1,11 @@
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --body-background: #e5e5e5;
+  --box-shawdow: rgba(100, 100, 111, 0.2) 0 .5em 2em 0;
+}
+
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:wght@300;400;500;600;700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 * {
   padding: 0;
@@ -18,7 +26,7 @@ body {
 p {
   font-weight: 300;
   line-height: 1.4;
-  color: #808080;
+  color: #454545;
 }
 
 .flex {

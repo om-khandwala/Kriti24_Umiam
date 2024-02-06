@@ -10,7 +10,7 @@ function Sidebar({group}) {
         <h2 className="project-name"><strong>{group.name}</strong></h2>
       </div>
 
-      <HorizontalLine />
+      <HorizontalLine color={'black'}/>
 
       <div className="members">
       {group.members && group.members.map((member, index) => (

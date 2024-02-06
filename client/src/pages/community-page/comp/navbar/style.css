@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.25rem 1.5rem;
+    padding: 0.8rem 1.5rem;
     background-color: #211b39;
     color: #fff;
 }
@@ -25,6 +25,7 @@
 }
 
 .search-bar input {
+    outline: none;
     width: 16rem;
     padding: 0.5rem;
     border: none;
@@ -33,10 +34,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 30px;
+    gap: 2em;
 }
 
 .community_search {
-    height: 31.5px;
-    width: 200px;
+    height: 2.3em;
+    width: 10em;
+    border:none;
+    border-radius: .3em;
 }

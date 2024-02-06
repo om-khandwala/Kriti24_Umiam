@@ -1,26 +1,33 @@
 import React from "react";
 import Star from "../../../../componets/star";
 import Language from "../../../../componets/language";
+import HorizontalLine from '../../../../componets/line';
 import "./style.css";
-function Project() {
+function Project({project, condition}) {
+  console.log(project)
   return (
     <div className="project-container">
-      <h3 className="project-name">Project name</h3>
+      {condition === 'group' ? (
+        <h3 className="project-name">{project.name}</h3>
+      ) : (
+        <h3 className="project-name">{project.projectName}</h3>
+      )}
       <p className="project-description">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus
-        modi doloribus nobis.
+        {project.description.split(' ').slice(0, 8).join(' ')}{project.description.split(' ').length > 10 ? '...' : ''}
       </p>
+
       <div className="box">
         <div className="rating">
           <Star />
-          <p>2.5k</p>
+          <p>{project.rating}</p>
         </div>
         <div className="language-total">
-          <Language name={"Java"} />
-          <Language name={"PHP"} />
+          {project.tags.map((tag, index) => (
+              <Language key={index} id={index} name={tag} />
+          ))}
         </div>
       </div>
-      <div className="line"></div>
+      <HorizontalLine color={'black'}/>
     </div>
   );
 }

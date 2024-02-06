@@ -5,16 +5,33 @@ import Message from "../message";
 import Navbar from "../navabar";
 import Cookies from 'js-cookie';
 import './style.css'
+import { getGroupChat } from "../../../../api/groups";
 
 function ChatWindow({ socket }) {
   const userName = Cookies.get('user');
   const user = (JSON.parse(userName.slice(2)));
   const [messages, setMessages] = useState([]);
+  const [oldMsg, setOldMsg] = useState([]);
   const { id } = useParams();
 
   const sendMessage = (messageText) => {
     socket.emit("send_msg", { msg: messageText });
   };
+
+ // console.log('gdgkfdgnjfnd',oldMsg);
+
+  useEffect(() => {
+    const fetchMsg = async () => {
+        try {
+            const allMsg = await getGroupChat(id);
+            setOldMsg(allMsg);
+        } catch (error) {
+            console.error('Error fetching messages:', error);
+        }
+    };
+
+    fetchMsg();
+}, [id]);
 
   useEffect(() => {
     const handleReceivedMessage = (data) => {
@@ -38,6 +55,17 @@ function ChatWindow({ socket }) {
     <div className="chat-window">
       <Navbar />
       <div className="message-list">
+          {oldMsg.length > 0 &&
+            oldMsg.map((msg,index) => {
+              return (
+                <Message
+                  key={index}
+                  text={msg.message}
+                  sender={msg.userName}
+                />
+              );
+          })}
+
         {messages.length > 0 &&
           messages.map((message) => {
             return (
@@ -51,6 +79,7 @@ function ChatWindow({ socket }) {
       </div>
       {/* Input field for typing messages */}
       <MessageInput
+        user={user} 
         sendMessage={sendMessage}
         socket={socket}
         id= {id}

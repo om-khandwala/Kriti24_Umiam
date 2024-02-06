@@ -5,8 +5,8 @@ import "./style.css";
 function MiddleSection({groups}) {
   console.log(groups)
   return (
-    <div className='container'>
-      <div className="first">
+    <div className='community-container'>
+      <div className="post">
         <h4>{groups[0].name}</h4>
         <p>{groups[0].description}</p>
         <div className="lang">
@@ -19,20 +19,20 @@ function MiddleSection({groups}) {
         <div className="foot">
           <div className="left_foot">
             <div className="enter">
-                <img src="logo.png" alt="Logo" />
+                <i class="fa-solid fa-people-arrows"></i>
                 <Link to={`./${groups[0]._id}`}>
                   <button>Enter Descussin</button>
                 </Link>
             </div>
             <div className="Join">
-                <img src="logo.png" alt="Logo" />
+                <i class="fa-solid fa-right-to-bracket"></i>
                 <Link to={`./${groups[0]._id}`}>
                   <button>Join</button>
                 </Link>
             </div>
           </div>
           <div className="right_foot">
-                <img src="logo.png" alt="Logo" />
+                <i class="fa-solid fa-share"></i>
                 <h4>Share</h4>
           </div>
         </div>

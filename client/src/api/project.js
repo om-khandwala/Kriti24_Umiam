@@ -17,3 +17,9 @@ export const recentProject = async () => {
   //  console.log(response.data);
     return response.data; 
 }
+
+export const userProjects = async (id) => {
+  const response = await axios.get(`http://localhost:5050/api/project/user/${id}`); 
+ // console.log('dfklgdfklgkldfgkdfgklfdkg',response.data);
+  return response.data.projects; 
+}

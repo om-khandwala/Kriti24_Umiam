@@ -2,11 +2,11 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    background-color: rgb(238, 232, 232);;
 }
   
 .message-list {
     flex: 1;
     overflow-y: auto;
-    padding: 20px;
-    
+    padding: 20px;   
 }

@@ -1,16 +1,26 @@
 import React, { useState } from "react";
 import "./style.css";
+import { createChat } from "../../../../api/groups";
 // import queryString from "query-string";
-function MessageInput({ sendMessage, socket, id }) {
+function MessageInput({ sendMessage, socket, id, user }) {
   const [message, setMessage] = useState("");
   console.log("The param value is ", id);
   const handleMessageChange = (event) => {
     setMessage(event.target.value);
   };
 
-  const handleSendMessage = () => {
+  const handleSendMessage = async () => {
+    const data = {
+      groupId: id,
+      chats: [{
+        userName: user.name,
+        message: message
+      }
+      ]
+    }
+    await createChat(data)
     if (message.trim() !== "") {
-      sendMessage(message);
+      sendMessage(data);
       setMessage("");
     }
     socket.emit("send_msg", {

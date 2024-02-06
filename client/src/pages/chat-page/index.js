@@ -6,7 +6,7 @@ import "./style.css";
 import { useEffect, useState } from "react";
 import { getGroup } from "../../api/groups";
 
-function ChatPage({socket}) {
+function ChatPage({socket, user}) {
   const [group,  setGroup] = useState([]);
   const { id } = useParams();
   useEffect(() => {
@@ -26,7 +26,7 @@ function ChatPage({socket}) {
     <div className="body">
       <div className="flex-gap-0">
         <Sidebar group={group}/>
-        <ChatWindow socket={socket}  />
+        <ChatWindow socket={socket} />
       </div>
     </div>
   );

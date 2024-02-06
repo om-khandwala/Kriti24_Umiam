@@ -28,6 +28,18 @@ export const allProject = async (req,res) => {
         }
 }
 
+export const userProjects = async (req, res) => {
+    try {
+        const userID = req.params.id;
+        const projects = await Project.find({ author: userID });
+
+        res.status(200).json({ projects });
+    } catch (error) {
+        console.log('There is some error in project controller', error);
+        res.status(500).json({ message: 'Internal Server Error' });
+    }
+};
+
 export const recentProject = async (req, res) => {
     try {
         const twentyFourHoursAgo = new Date();
