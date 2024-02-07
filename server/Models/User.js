@@ -23,10 +23,7 @@ const UserSchema = new schema({
     rollNumber:{
         type: Number,
         required:true
-    },
-    ProjectID:[{
-        type:schema.Types.ObjectId
-    }]
+    }
 })
 
 const User = mongoose.model("User",UserSchema);

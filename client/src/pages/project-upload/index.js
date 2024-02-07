@@ -2,6 +2,7 @@ import React, { useEffect, useState} from 'react';
 import './style.css';
 import FileUpload from './file-upload';
 import LogoUpload from './logo-upload';
+import { Link } from 'react-router-dom'
 import { createProject } from '../../api/project';
 
 function ProjectUploadPage() {
@@ -45,8 +46,28 @@ function ProjectUploadPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!projectName || !description || !projectImages.length || !selectedTags.length || !githubLink || !projectOutcomes) {
-      alert('Please fill in all required fields');
+    if (!projectName) {
+      alert('Please fill in project name');
+      return;
+    }
+    if(!description){
+      alert('desc');
+      return;
+    }
+    if(!projectImages.length){
+      alert('project image');
+      return;
+    }
+    if(!selectedTags.length){
+      alert('tags');
+      return;
+    }
+    if(!githubLink){
+      alert('githublink');
+      return;
+    }
+    if(!projectOutcomes){
+      alert('outcome');
       return;
     }
 
@@ -65,7 +86,7 @@ function ProjectUploadPage() {
     try {
       console.log(data);
       const response = await createProject(data);
-      // console.log(response);
+      alert("Project Uploaded");
     } catch (error) {
       console.error('Error creating project:', error);
     }
@@ -139,6 +160,7 @@ function ProjectUploadPage() {
           </div>
           <FileUpload setProjectImages={setProjectImages} />
           <LogoUpload setLogo= {setLogo}/>
+          <p>{projectImages}  {logo}</p>
           <button type="submit" onClick={handleSubmit}>Upload Project</button>
         </form>
     </div>

@@ -1,5 +1,5 @@
 import axios from "axios";
-
+axios.defaults.withCredentials = true;
 export const allDoubts = async () => {
   const response = await axios.get("http://localhost:5050/api/doubts");
   console.log(response.data.doubts);

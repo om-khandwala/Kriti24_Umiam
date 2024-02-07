@@ -43,10 +43,6 @@ const projectSchema = new schema({
         type: String,
         required: true
     },
-    rating:{
-        type:Number,
-        default: 0
-    },
     numberofRatings:{
         type:Number,
         default: 0
@@ -65,6 +61,9 @@ const projectSchema = new schema({
             }
         }
     ],
+    rating:[{
+        type:schema.Types.ObjectId
+    }],
     author:{
         type:schema.Types.ObjectId
     },

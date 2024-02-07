@@ -4,8 +4,8 @@ import User from "../../Models/User.js";
 export const createProject = async (req, res) => {
   try {
     const parsedProject = req.body;
-    const roll = 220122045;
-    const user = await User.findOne({ rollNumber: roll });
+    const user = await User.findOne({ rollNumber: req.userRollNumber });
+    console.log(user);
     const project = await Project.create({
       ...parsedProject,
       author: user._id,

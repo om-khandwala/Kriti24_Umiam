@@ -1,4 +1,5 @@
 import express from "express";
+import cookieParser from "cookie-parser";
 import cors from "cors";
 import { Server } from "socket.io";
 import http from "http";
@@ -7,12 +8,12 @@ import authRoutes from "./routes/auth.routes.js";
 import groupRoutes from "./routes/groups.routes.js";
 import doubtRoutes from "./routes/doubts.routes.js";
 import dotenv from "dotenv";
-import cookieParser from "cookie-parser";
 import router from "./routes/cloudinary.router.js";
 import projectRouter from "./routes/project.routes.js";
 import courseRoutes from "./routes/courses.routes.js";
 import userRoutes from "./routes/user.routes.js";
 const app = express();
+app.use(cookieParser());
 
 const server = http.createServer(app);
 
@@ -29,7 +30,6 @@ app.use(
   })
 );
 
-app.use(cookieParser());
 app.use(express.json());
 
 io.on("connection", (socket) => {

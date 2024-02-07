@@ -13,12 +13,12 @@ import {
 } from "../modules/project/project.controller.js";
 const projectRouter = express.Router();
 
-projectRouter.post("/create", createProject);
+projectRouter.post("/create", userMiddleware, createProject);
 projectRouter.get("/", allProject);
 projectRouter.get("/recent", recentProject);
 projectRouter.get("/user/:id", userProjects);
 projectRouter.get("/getProject", getProject);
-projectRouter.put("/updateProject/:id", putProject);
+projectRouter.put("/update/:id", putProject);
 projectRouter.delete("/deleteProject/:id", deleteProject);
 
 export default projectRouter;
