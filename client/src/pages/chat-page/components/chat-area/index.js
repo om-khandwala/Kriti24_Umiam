@@ -7,18 +7,18 @@ import Cookies from 'js-cookie';
 import './style.css'
 import { getGroupChat } from "../../../../api/groups";
 
-function ChatWindow({ socket }) {
+function ChatWindow({ socket, group }) {
   const userName = Cookies.get('user');
   const user = (JSON.parse(userName.slice(2)));
   const [messages, setMessages] = useState([]);
   const [oldMsg, setOldMsg] = useState([]);
   const { id } = useParams();
 
+ // console.log(group)
+
   const sendMessage = (messageText) => {
     socket.emit("send_msg", { msg: messageText });
   };
-
- // console.log('gdgkfdgnjfnd',oldMsg);
 
   useEffect(() => {
     const fetchMsg = async () => {
@@ -77,9 +77,10 @@ function ChatWindow({ socket }) {
             );
           })}
       </div>
-      {/* Input field for typing messages */}
+
       <MessageInput
-        user={user} 
+        user={user}
+        group = {group} 
         sendMessage={sendMessage}
         socket={socket}
         id= {id}

@@ -4,7 +4,7 @@ import FileUpload from './file-upload';
 import LogoUpload from './logo-upload';
 import { createProject } from '../../api/project';
 
-function ProjectUploadPage() {
+function ProjectUploadPage({user}) {
   const [logo, setLogo] = useState('');
   const [projectName, setProjectName] = useState('');
   const [description, setDescription] = useState('');
@@ -57,6 +57,7 @@ function ProjectUploadPage() {
         image: projectImages,
       },
       repository: githubLink,
+      author: user._id,
       tags: selectedTags,
       logo: logo,
       outcomes: projectOutcomes
@@ -66,6 +67,16 @@ function ProjectUploadPage() {
       console.log(data);
       const response = await createProject(data);
       // console.log(response);
+
+      alert('Project created successfully!');
+      setProjectName('');
+      setDescription('');
+      setProjectImages([]);
+      setSelectedTags([]);
+      setGithubLink('');
+      setLogo('');
+      setProjectOutcomes('');
+
     } catch (error) {
       console.error('Error creating project:', error);
     }

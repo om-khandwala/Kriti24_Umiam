@@ -1,13 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './style.css';
 
 const CommunityModal = () => {
+  const [alluser , setAllUser] = useState([]);
   const [communityData, setCommunityData] = useState({
     name: '',
     description: '',
     tags: '',
     members: []
   });
+
+  // useEffect(()=>{
+  //   const users = async () => {
+  //     const fetchedUser = await 
+  //   }
+
+  //   users()
+  // },[])
 
   const handleChange = (e) => {
     const { name, value } = e.target;

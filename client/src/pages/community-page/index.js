@@ -6,7 +6,7 @@ import MiddleSection from './comp/middle_section';
 import Right_sec from './comp/right_section/Right_sec';
 import { allGroups } from '../../api/groups';
 
-function CommunityPage() {
+function CommunityPage({user}) {
   const [groups, setGroups] = useState([]);
 
   useEffect(() => {
@@ -28,7 +28,7 @@ function CommunityPage() {
       <div className="main_container">
         <Left />
         <div className="mid_main">
-           {groups.length > 0 && <MiddleSection groups={groups} />}
+           {groups.length > 0 && <MiddleSection groups={groups} user={user}/>}
         </div>
         <Right_sec />
       </div>

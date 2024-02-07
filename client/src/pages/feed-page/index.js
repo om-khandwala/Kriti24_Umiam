@@ -34,7 +34,9 @@ function FeedPage({user}) {
         };
 
         fetchData();
-    }, []);
+    }, [user._id]);
+
+    console.log('dgfdgdhhdf', userProject)
 
     return (
         <div>

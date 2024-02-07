@@ -11,6 +11,7 @@ import ProjectUploadPage from "./pages/project-upload";
 import Home from "./pages/home-page/index.js";
 import Btn from "./pages/btn-test/btn.js";
 import Cookies from 'js-cookie';
+import UserForm from "./pages/user-form/index.js";
 // import FileUpload from "./pages/test";
 const socket = io.connect("http://localhost:5050");
 function App() {
@@ -20,10 +21,10 @@ function App() {
   return (
     <Router>
       <div className="App">
-        {/* Use the Route component with corrected paths */}
         <Routes>
-          <Route path="/upload" element={<ProjectUploadPage />} />
-          <Route path="/communities" element={<CommunityPage />} />
+          <Route path="/user-form" element = {<UserForm user={user}/>} />
+          <Route path="/upload" element={<ProjectUploadPage user={user} />} />
+          <Route path="/communities" element={<CommunityPage user={user} />} />
           <Route path="/communities/:id" element={<ChatPage socket={socket}/>} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/doubt" element={<DoubtForum />} />

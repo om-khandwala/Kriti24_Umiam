@@ -23,3 +23,11 @@ export const getGroupChat = async (id) => {
  // console.log(response.data);
   return response.data.groupChat[0].chats; 
 }
+
+export const joinGroup = async (data) => {
+  console.log(data);
+  const response = await axios.post(`http://localhost:5050/api/groups/group-join`, data); 
+  console.log(data);
+  return response.data; 
+}
+

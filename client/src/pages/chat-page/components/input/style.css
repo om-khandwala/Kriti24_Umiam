@@ -1,31 +1,26 @@
 .message-input {
     display: flex;
-    background-color: #f9f9f9;
     margin-bottom: 1.25em;
     align-items: center;
-    margin: 1em 6em;
+    margin: 2em 6em;
     border-radius: 0.3125em;
 }
   
 .message-input input {
     flex: 1;
     padding: 0.625em;
-    border: 1px solid black;
+    height: 3em;
+    border: none;
     outline: none;
-    border-radius: 0.3125em;
-    margin-right: 0.625em;
+    border-radius: 0.3em 0 0 .3em;
 }
   
 .message-input button {
-    padding: 0.625em 1.25em;
-    margin-right: 0.125em;
-    background-color: #007bff;
-    color: #fff;
+    padding: 0.9em 1.5em;
+    background-color: black;
+    color: white;
     border: none;
     border-radius: 0.3125em;
     cursor: pointer;
 }
-  
-.message-input button:hover {
-    background-color: #0056b3;
-}
+

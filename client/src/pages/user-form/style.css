@@ -1,0 +1,52 @@
+.user-form form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.user-form form div {
+    margin-bottom: 10px;
+}
+
+.user-form form label {
+    display: block;
+    font-weight: bold;
+}
+
+.user-form form input[type="text"],
+.user-form form input[type="email"],
+.user-form form input[type="number"],
+.user-form form textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.user-form form textarea {
+    height: 100px;
+}
+
+.user-form form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.user-form form button:hover {
+    background-color: #45a049;
+}
+
+.user-form .error {
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}

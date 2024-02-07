@@ -16,6 +16,10 @@
     align-items: center;
     justify-content: space-between;
 }
+
+.feed-container .heading img {
+    height: 3em;
+}
   
 .feed-container .flex {
     display: flex;

@@ -1,32 +1,37 @@
 import React, { useState } from "react";
 import "./style.css";
 import { createChat } from "../../../../api/groups";
-// import queryString from "query-string";
-function MessageInput({ sendMessage, socket, id, user }) {
+
+function MessageInput({ sendMessage, socket, id, user, group }) {
   const [message, setMessage] = useState("");
-  console.log("The param value is ", id);
+
   const handleMessageChange = (event) => {
     setMessage(event.target.value);
   };
 
   const handleSendMessage = async () => {
-    const data = {
-      groupId: id,
-      chats: [{
-        userName: user.name,
-        message: message
+    if (group.members.includes(user._id)) {
+      const data = {
+        groupId: id,
+        chats: [{
+          userName: user.name,
+          message: message
+        }]
+      };
+      
+      await createChat(data);
+
+      if (message.trim() !== "") {
+        sendMessage(message);
+        setMessage("");
+        socket.emit("send_msg", {
+          msg: message,
+          id: id,
+        });
       }
-      ]
+    } else {
+      alert("You are not allowed to send messages to this group.");
     }
-    await createChat(data)
-    if (message.trim() !== "") {
-      sendMessage(data);
-      setMessage("");
-    }
-    socket.emit("send_msg", {
-      msg: message,
-      id: id,
-    });
   };
 
   const handleKeyPress = (event) => {
@@ -44,7 +49,7 @@ function MessageInput({ sendMessage, socket, id, user }) {
         onChange={handleMessageChange}
         onKeyPress={handleKeyPress}
       />
-      <button onClick={handleSendMessage}>Send</button>
+      <button onClick={handleSendMessage}><i class="fa-solid fa-arrow-right"></i></button>
     </div>
   );
 }

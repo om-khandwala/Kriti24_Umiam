@@ -20,8 +20,8 @@ export const getUser = async (storedToken) => {
 }
 
 
-export const updateUser = async (userId) => {
+export const updateUser = async (userId,data) => {
     console.log(userId)
-    const response = await axios.get(`http://localhost:5050/api/user/update/${userId}`); 
+    const response = await axios.put(`http://localhost:5050/api/user/update/${userId}`, data); 
     return response.data 
 }
