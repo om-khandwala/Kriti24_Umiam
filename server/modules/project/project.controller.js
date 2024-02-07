@@ -4,11 +4,10 @@ import User from "../../Models/User.js";
 export const createProject =  async (req, res) => {
     try{
         const parsedProject = req.body;
-        const roll = 220122045;
-        const user = await User.findOne({rollNumber: roll});
+      //  const roll = 220122045;
+      //  const user = await User.findOne({rollNumber: roll});
         const project = await Project.create({
             ...parsedProject,
-            author: user._id,
         })
         res.status(200).json({msg: "Project created!"});
     }
@@ -30,8 +29,10 @@ export const allProject = async (req,res) => {
 
 export const userProjects = async (req, res) => {
     try {
-        const userID = req.params.id;
-        const projects = await Project.find({ author: userID });
+        const id = req.params.id;
+        console.log(id)
+        const projects = await Project.find({ author: id });
+     //   console.log(projects)
 
         res.status(200).json({ projects });
     } catch (error) {

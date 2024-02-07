@@ -52,6 +52,25 @@ export const getGroupChat = async (req, res) => {
   }
 };
 
+export const joinMember = async (req, res) => {
+  try {
+    const { userId, groupId } = req.body;
+    console.log(userId,groupId)
+    const group = await Group.findById(groupId);
+
+    if (group.members.includes(userId)) {
+      return res.status(200).json({ msg: 'You are already a member of this group use Enter Descussion for chats' });
+    } else {
+      group.members.push(userId);
+      await group.save(); 
+      return res.status(200).json({ msg: 'User joined the group successfully' });
+    }
+  } catch (error) {
+    console.log("There is some error in group controller", error);
+    return res.status(500).json({ msg: 'Internal server Error' });
+  }
+};
+
 export const getAllGroups = async (req,res) => {
     try{
         const groups = await Group.find();

@@ -52,12 +52,13 @@ export const redirect = async (req, res) => {
     const existingUser = await User.findOne({
       rollNumber: userData.rollNumber,
     });
-    console.log(existingUser);
+  //  console.log(existingUser);
 
-    if (existingUser.length !== 0) {
+    if (existingUser === null) {
       const newUser = new User(userData);
       newUser.save();
-      // console.log('I am inside loop')
+      console.log('Server is creating user in database');
+      res.redirect('http://localhost:3000/user-form');
     }
     //console.log(userData);
 
