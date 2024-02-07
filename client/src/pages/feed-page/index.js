@@ -20,11 +20,11 @@ function FeedPage({user}) {
     useEffect(() => {
         const fetchData = async () => {
             const fetchedAllProjects = await allProject();
-            fetchedAllProjects.sort((a,b) => b.rating - a.rating);
+            fetchedAllProjects.sort((a,b) => b.numberofRatings - a.numberofRatings);
             setAllProjects(fetchedAllProjects);
 
             const fetchedRecentProjects = await recentProject();
-            setRecentProjects(fetchedRecentProjects);
+            setRecentProjects(fetchedRecentProjects.toReversed());
 
             const fetchedAllGroups = await allGroups();
             setGroups(fetchedAllGroups);
@@ -46,15 +46,15 @@ function FeedPage({user}) {
                 </div>
                 <div className="middle-section">
                     {recentProjects.length > 0 && recentProjects.map((project, index) => (
-                        <Feed key={index} project={project} />
+                        <Feed key={index} pos={index} project={project} user={user}/>
                     ))}
                 </div>
                 <div className="right-section">
                     <div className="top-projects">
                         <h2>Top Project</h2>
-                        {allProjects.length > 0 && <Project project={allProjects[0]}/>}
-                        {allProjects.length > 1 && <Project project={allProjects[1]}/>}
-                        {allProjects.length > 2 && <Project project={allProjects[2]}/>}
+                        {allProjects.length > 0 && <Project user={user} project={allProjects[0]}/>}
+                        {allProjects.length > 1 && <Project user={user} project={allProjects[1]}/>}
+                        {allProjects.length > 2 && <Project user={user} project={allProjects[2]}/>}
                      
                         <p>Explore More</p>
                     </div>

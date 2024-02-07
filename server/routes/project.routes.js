@@ -11,7 +11,7 @@ projectRouter.get('/', allProject);
 projectRouter.get('/recent', recentProject);
 projectRouter.get('/user/:id', userProjects);
 projectRouter.get("/getProject", getProject);
-projectRouter.put("/updateProject/:id", putProject);
+projectRouter.put("/update/:id", putProject);
 projectRouter.delete("/deleteProject/:id",  deleteProject);
 
 export default projectRouter;

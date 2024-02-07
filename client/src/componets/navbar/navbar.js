@@ -2,7 +2,7 @@ import './style.css'
 
 function Navbar(){
     return(
-        <div class="main-navbar">
+        <div className="main-navbar">
             <div className="left flex">
                 <img/>
                 <h4>Project Alpha</h4>
