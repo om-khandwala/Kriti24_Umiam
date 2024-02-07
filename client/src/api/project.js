@@ -13,7 +13,7 @@ export const updateProject = async (data,id) => {
 
 export const allProject = async () => {
     const response = await axios.get('http://localhost:5050/api/project/'); 
-   console.log(response.data);
+    console.log(response.data);
     return response.data.project; 
 }
 

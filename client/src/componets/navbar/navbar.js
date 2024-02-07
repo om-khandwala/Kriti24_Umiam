@@ -15,9 +15,7 @@ function Navbar() {
     const fetchData = async () => {
       try {
         const users = await findAllUsers();
-
         const projects = await allProject();
-
         const groups = await allGroups();
 
         // Now that all data is fetched, update filtered results

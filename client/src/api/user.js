@@ -24,3 +24,9 @@ export const updateUser = async (userId,data) => {
     const response = await axios.put(`http://localhost:5050/api/user/update/${userId}`, data); 
     return response.data 
 }
+
+export const findAllUsers = async () => {
+  const response = await axios.get(`http://localhost:5050/api/user`); 
+  console.log(response.data);
+  return response.data.users; 
+}

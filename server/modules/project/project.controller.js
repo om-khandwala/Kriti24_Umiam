@@ -28,17 +28,11 @@ export const allProject = async (req, res) => {
 };
 
 export const userProjects = async (req, res) => {
-<<<<<<< HEAD
     try {
         const id = req.params.id;
         console.log(id)
         const projects = await Project.find({ author: id });
      //   console.log(projects)
-=======
-  try {
-    const userID = req.params.id;
-    const projects = await Project.find({ author: userID });
->>>>>>> refs/remotes/origin/main
 
     res.status(200).json({ projects });
   } catch (error) {

@@ -22,15 +22,16 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/upload" element={<ProjectUploadPage />} />
+          <Route path="/upload" element={<ProjectUploadPage user = {user}/>} />
           <Route
             path="/communities"
-            element={<CommunityPage userId={userId} />}
+            element={<CommunityPage user={user} />}
           />
           <Route
             path="/communities/:id"
             element={<ChatPage socket={socket} />}
           />
+          <Route path="/user-form" element={<UserForm user={user} />} />
           <Route path="/profile" element={<ProfilePage user={user} />} />
           <Route path="/doubt" element={<DoubtForum id={userId} />} />
           <Route path="/chat" element={<ChatPage socket={socket} />} />

@@ -2,12 +2,12 @@ import express from "express";
 import {
   userData,
   updateUser,
-  getAlluser,
+  getAllUser,
 } from "../modules/user/user.controller.js";
 
 const router = express.Router();
 
-router.get("/", getAlluser);
+router.get("/", getAllUser);
 router.put("/update/:userId", updateUser);
 
 export default router;

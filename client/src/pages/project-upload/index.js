@@ -87,7 +87,6 @@ function ProjectUploadPage({user}) {
     try {
       console.log(data);
       const response = await createProject(data);
-<<<<<<< HEAD
       // console.log(response);
 
       alert('Project created successfully!');
@@ -99,9 +98,6 @@ function ProjectUploadPage({user}) {
       setLogo('');
       setProjectOutcomes('');
 
-=======
-      alert("Project Uploaded");
->>>>>>> refs/remotes/origin/main
     } catch (error) {
       console.error('Error creating project:', error);
     }
