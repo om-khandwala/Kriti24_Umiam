@@ -62,12 +62,12 @@ export const redirect = async (req, res) => {
     }
     //console.log(userData);
 
-    res.cookie('user', existingUser,{
+    res.cookie("user", existingUser, {
       maxAge: 3073600,
       secure: false,
       expires: new Date(Date.now() + 3073600),
       httpOnly: false,
-    })
+    });
 
     res.cookie("token", accessToken, {
       maxAge: 3073600,
@@ -75,8 +75,8 @@ export const redirect = async (req, res) => {
       expires: new Date(Date.now() + 3073600),
       httpOnly: false,
     });
-    res.redirect('http://localhost:3000/feed');
-   // res.send('Login Successful!');
+    res.redirect("http://localhost:3000/feed");
+    // res.send('Login Successful!');
   } catch (error) {
     console.error("Error during redirect:", error);
     res.status(500).send("Error during login process");
@@ -86,7 +86,7 @@ export const redirect = async (req, res) => {
 export const logout = (req, res) => {
   try {
     res.clearCookie("token");
-    res.clearCookie("user")
+    res.clearCookie("user");
     res.redirect("https://login.microsoftonline.com/common/oauth2/v2.0/logout");
     res.send("Logout Successfully");
   } catch (error) {

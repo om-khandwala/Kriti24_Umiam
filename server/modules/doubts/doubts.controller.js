@@ -2,98 +2,111 @@ import DoubtReply from "../../Models/Doubt-reply.js";
 import Doubt from "../../Models/Doubt.js";
 
 export const createDoubt = async (req, res) => {
-    try {
-        const data = req.body;
-        const doubt = new Doubt(data);
-        await doubt.save();
-        res.status(201).json({ message: 'Doubt created successfully', doubt });
-    } catch (error) {
-        console.log("There is some error in doubts controller", error);
-        res.status(500).json({ error: 'Internal server error occurred' });
-    }
+  try {
+    const data = req.body;
+    const doubt = new Doubt(data);
+    await doubt.save();
+    res.status(201).json({ message: "Doubt created successfully", doubt });
+  } catch (error) {
+    console.log("There is some error in doubts controller", error);
+    res.status(500).json({ error: "Internal server error occurred" });
+  }
 };
 
 export const createDoubtReply = async (req, res) => {
-    try {
-        const { doubt_id } = req.params;
-        const { user_id, text_body } = req.body;
+  try {
+    const { doubt_id } = req.params;
+    const { user_id, text_body } = req.body;
 
-        const replyData = {
-            user_id,
-            text_body,
-            doubt_id
-        };
+    const replyData = {
+      user_id,
+      text_body,
+      doubt_id,
+    };
 
-        const reply = new DoubtReply(replyData);
-        await reply.save();
-        res.status(201).json({ message: 'Reply created successfully', reply });
-    } catch (error) {
-        console.log("There is some error in creating doubt reply", error);
-        res.status(500).json({ error: 'Internal server error occurred' });
-    }
+    const reply = new DoubtReply(replyData);
+    await reply.save();
+    res.status(201).json({ message: "Reply created successfully", reply });
+  } catch (error) {
+    console.log("There is some error in creating doubt reply", error);
+    res.status(500).json({ error: "Internal server error occurred" });
+  }
+};
+
+export const getDoubtOfUser = async (req, res) => {
+  try {
+    const userId = req.params.id;
+    console.log(userId, "ffa"); // Debugging log
+    const doubts = await Doubt.find({ author: userId });
+    console.log(doubts);
+    res.status(200).json({ doubts });
+  } catch (error) {
+    console.log("There is an error in the doubt controller:", error); // Debugging log
+    res.status(500).json({ msg: "Internal Server Error" });
+  }
 };
 
 export const getDoubtById = async (req, res) => {
-    try {
-        const doubtId = req.params.doubtId;
-        const doubt = await Doubt.findById(doubtId);
-        if (!doubt) {
-            return res.status(404).json({ error: 'Doubt not found' });
-        }
-        res.status(200).json(doubt);
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'Internal Server Error' });
+  try {
+    const doubtId = req.params.doubtId;
+    const doubt = await Doubt.findById(doubtId);
+    if (!doubt) {
+      return res.status(404).json({ error: "Doubt not found" });
     }
-}
+    res.status(200).json(doubt);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
 
 export const deleteDoubt = async (req, res) => {
-    try {
-        const doubtId = req.params.doubtId;
-        await Doubt.findByIdAndDelete(doubtId);
-        res.status(204).json({ message: "Doubt has been deleted successfully" });
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({ error: 'Internal Server Error' });
-    }
-}
+  try {
+    const doubtId = req.params.doubtId;
+    await Doubt.findByIdAndDelete(doubtId);
+    res.status(204).json({ message: "Doubt has been deleted successfully" });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
 
 export const allDoubts = async (req, res) => {
-    try {
-        const doubts = await Doubt.find();
-        res.status(200).json({doubts});
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({ error: 'Internal Server Error' });
-    }
-}
+  try {
+    const doubts = await Doubt.find();
+    res.status(200).json({ doubts });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
 
 export const allDoubtsOfUser = async (req, res) => {
-    try {
-        const { user_id } = req.params;
-        const doubts = await Doubt.find({ user_id: user_id });
-        res.status(200).json({ data: doubts });
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({ error: 'Internal Server Error' });
-    }
-}
+  try {
+    const { user_id } = req.params;
+    const doubts = await Doubt.find({ user_id: user_id });
+    res.status(200).json({ data: doubts });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
 
 export const allRepliesOfDoubt = async (req, res) => {
-    try {
-        const { doubt_id } = req.params;
-       // console.log(doubt_id);
-        const requiredReplies = await DoubtReply.find({ doubt_id: doubt_id })
+  try {
+    const { doubt_id } = req.params;
+    // console.log(doubt_id);
+    const requiredReplies = await DoubtReply.find({ doubt_id: doubt_id });
 
-        // if (!requiredReplies || requiredReplies.length === 0) {
-        //     return res.status(404).json({ error: 'Doubt replies not found' });
-        // }
+    // if (!requiredReplies || requiredReplies.length === 0) {
+    //     return res.status(404).json({ error: 'Doubt replies not found' });
+    // }
 
-       // console.log(requiredReplies)
+    // console.log(requiredReplies)
 
-        res.status(200).json({requiredReplies });
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({ error: 'Internal Server Error' });
-    }
-}
+    res.status(200).json({ requiredReplies });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};

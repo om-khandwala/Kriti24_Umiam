@@ -1,26 +1,25 @@
 import express from "express";
+import cookieParser from "cookie-parser";
 import cors from "cors";
-import { Server } from 'socket.io';
-import http from 'http';
+import { Server } from "socket.io";
+import http from "http";
 import mongoose from "mongoose";
 import authRoutes from "./routes/auth.routes.js";
 import groupRoutes from "./routes/groups.routes.js";
 import doubtRoutes from "./routes/doubts.routes.js";
 import dotenv from "dotenv";
-import cookieParser from "cookie-parser";
 import router from "./routes/cloudinary.router.js";
 import projectRouter from "./routes/project.routes.js";
 import courseRoutes from "./routes/courses.routes.js";
 import userRoutes from "./routes/user.routes.js";
-
 const app = express();
+app.use(cookieParser());
 
 const server = http.createServer(app);
 
-const io = new Server(server,{
-  cors: {origin: 'http://localhost:3000'}
-})
-
+const io = new Server(server, {
+  cors: { origin: "http://localhost:3000" },
+});
 
 dotenv.config();
 
@@ -31,15 +30,14 @@ app.use(
   })
 );
 
-app.use(cookieParser());
 app.use(express.json());
 
 io.on("connection", (socket) => {
-  console.log('⚡: ${socket.id} user just connected!');
+  console.log("⚡: ${socket.id} user just connected!");
 
   socket.on("join", ({ id }) => {
     socket.join(id);
-    console.log('User with ID ${id} joined the room');
+    console.log("User with ID ${id} joined the room");
   });
 
   socket.on("send_msg", (data) => {
@@ -49,10 +47,9 @@ io.on("connection", (socket) => {
   });
 
   socket.on("disconnect", () => {
-    console.log("🔥: A user disconnected");
+    console.log("🔥: A suser disconnected");
   });
 });
-
 
 mongoose.connect(process.env.ATLAS_URI);
 mongoose.connection.once("open", () => {

@@ -26,9 +26,21 @@
     align-items: center;
     gap: .5rem;
 }
-  
-.feed-container .body-image img{
+
+.feed-container .heading .flex img{
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+}
+.feed-container .body-image {
     width: 41.5rem;
+    height: 30rem;
+    align-content: center;
+}
+.feed-container .body-image img{
+    width:100%;
+    height: 100%;
+    align-self: center;
 }
   
 .feed-container .footer {

@@ -1,34 +1,77 @@
 .main-navbar {
-    padding: 0 1em;
-    background-color: #6A6293;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 4em;
-    color: white;
-    width: 100%;
+  padding: 0 1em;
+  padding-right: 2em;
+  background-color: #6a6293;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4em;
+  color: white;
+  width: 100%;
 }
 
 .main-navbar ul {
-    list-style: none;
-    display: flex;
-    gap:1em;
-    transition: .3s;
+  list-style: none;
+  display: flex;
+  gap: 1em;
+  transition: 0.3s;
 }
-
+.main-navbar ul a {
+  color: white;
+  text-decoration: none;
+}
+.main-navbar ul a:active {
+  color: white;
+}
 .main-navbar ul li {
-    padding: .2em .5em;
+  padding: 0.2em 0.5em;
 }
 
-.main-navbar ul li:hover {
-    cursor: pointer;
-    padding: .2em .5em;
-    background-color: black;
-    color: white;
-    border-radius: .5em;
+.main-navbar .middle ul li:hover {
+  cursor: pointer;
+  padding: 0.2em 0.5em;
+  background-color: black;
+  color: white;
+  border-radius: 0.5em;
 }
 
 .main-navbar input {
-    width: 15em;
-    height: 2em;
+  width: 15em;
+  height: 2em;
+  outline: none;
+}
+
+.main-navbar input:active {
+  width: 70em;
+}
+
+.main-navbar .right {
+  max-width: 70em;
+  overflow: hidden;
+}
+
+.main-navbar input:focus {
+  width: 70em;
+}
+
+.main-navbar .dialog-box {
+  z-index: 30;
+  border-radius: 0.25em;
+  background-color: white;
+  color: black;
+  font-size: 1em;
+  position: absolute;
+  top: 3.5em;
+  right: 2em;
+  max-height: 15em;
+  overflow: scroll;
+  padding: 1em 2em;
+  width: 53em;
+}
+
+.main-navbar .dialog-box ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  font-size: 0.8em;
 }

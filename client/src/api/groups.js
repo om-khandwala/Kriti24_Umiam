@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+axios.defaults.withCredentials = true
 export const allGroups = async () => {
     const response = await axios.get('http://localhost:5050/api/groups/'); 
   //  console.log(response.data.groups);
