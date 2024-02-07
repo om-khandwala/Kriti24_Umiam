@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+axios.defaults.withCredentials = true
 export const createProject = async (data) => {
     // console.log(data);
     const response = await axios.post('http://localhost:5050/api/project/create', data); 

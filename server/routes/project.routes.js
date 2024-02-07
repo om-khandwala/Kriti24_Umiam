@@ -6,7 +6,7 @@ import { allProject, createProject, deleteProject, getProject, putProject, recen
 const projectRouter = express.Router();
 
 
-projectRouter.post('/create', createProject);
+projectRouter.post('/create',userMiddleware,createProject);
 projectRouter.get('/', allProject);
 projectRouter.get('/recent', recentProject);
 projectRouter.get('/user/:id', userProjects);
