@@ -1,11 +1,18 @@
 .message {
     margin-bottom: 1em;
-    padding: 10px;
-    background-color: #fff;
+    display: flex;
+    background: rgb(206,90,103);
+    background: linear-gradient(90deg, rgba(206,90,103,1) 0%, rgba(206,90,103,1) 4%, rgba(244,191,150,1) 100%);
+    padding: 1em .5em;
     color: black;
-    border: 1px solid #ccc;
+    color: white;
     border-radius: 5px;
-    margin-left: 50em;
+    margin-left: 40em;
+}
+
+.message p {
+    margin-left: .5em;
+    color: white;
 }
   
 .message strong {

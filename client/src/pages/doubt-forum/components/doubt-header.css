@@ -1,5 +1,5 @@
 .doubt-header {
-    background-color: black;
+    background-color: var(--secondary-color);
     color: white;
     width: 100%;
     display: flex;
@@ -8,14 +8,33 @@
     padding: .5em 3em;
 }
 
+.doubt-header h3 {
+    margin: 0;
+    color: white;
+
+}
+
 .doubt-header input {
-    width: 15em;
-    padding: .5em;
+    height: 2.5em;
+    border: 1px solid var(--black-color);
+    border-radius: .25em;
     outline: none;
 }
 
+.doubt-header input:hover , .doubt-header textarea:hover {
+    border: 1px solid var(--secondary-color);
+}
+
+.doubt-header input:focus , .doubt-header textarea:focus {
+    border: 1px solid var(--secondary-color);
+}
+
 .doubt-header button {
-    background-color: coral;
+    cursor: pointer;
+    border: none;
+    padding: .8em 3em;
+    color: white;
+    background-color: var(--black-color);
 }
 
 .modal {
@@ -35,7 +54,7 @@
     display: flex;
     flex-direction: column;
     gap:.5em;
-    background-color: white;
+    background-color: var(--body-background);
     color: black;
     padding: 2em;
     border-radius: .5em;
@@ -68,7 +87,7 @@
 }
 
 .modal-content ul li {
-    background: #67A4BE;
+    background: var(--secondary-color);
     color: white;
     border-radius: 1em;
     border: 1px solid black;

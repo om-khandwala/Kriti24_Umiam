@@ -1,6 +1,6 @@
 .doubt {
     width: 100%;
-    background-color: #EF904B;
+    background-color: var(--primary-color);
     border-radius: .5em;
     padding: 1.5em 2em;
     display: flex;
@@ -22,7 +22,7 @@
 .doubt .tags p {
     font-size: .8em;
     font-weight: 400;
-    background-color: #67A4BE;
+    background-color: var(--secondary-color);
     color: white;
     padding: .2em .5em;
     border: 1px solid black;

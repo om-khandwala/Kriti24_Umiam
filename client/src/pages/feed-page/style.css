@@ -42,6 +42,7 @@
 .right-section h2 {
     font-size: 1.2rem;
     margin-bottom: .5rem;
+    color: var(--secondary-color);
 }
 .top-projects, .top-groups {
     display: flex;

@@ -1,10 +1,53 @@
+.user-form {
+    display: flex;
+    height: 100vh;
+    background-color: var(--body-background);
+}
+
+.user-form .img {
+    position: relative;
+    background: url('https://images.unsplash.com/photo-1592355591829-aaae33fcff1d?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    width: 50%;
+}
+
+.user-form .img::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ce5a6851;
+}
+
+
+.user-form .form {
+    width: 50%;
+}
+
+.user-form .text {
+    margin-top: 7em;
+}
+
+.user-form h2, .user-form p {
+    text-align: center;
+    padding-top: .2em;
+}
+
+.user-form h2 {
+    margin: 0;
+}
+
 .user-form form {
-    max-width: 400px;
+    width: 80%;
     margin: 0 auto;
     padding: 20px;
-    border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #f9f9f9;
+}
+
+.user-form form label {
+    margin-bottom: .5em;
 }
 
 .user-form form div {
@@ -22,10 +65,12 @@
 .user-form form textarea {
     width: 100%;
     padding: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid black;
+    color: #969595;
     border-radius: 4px;
     box-sizing: border-box;
 }
+
 
 .user-form form textarea {
     height: 100px;
@@ -34,19 +79,23 @@
 .user-form form button {
     width: 100%;
     padding: 10px;
-    background-color: #4caf50;
+    margin-bottom: 2em;
+    background-color: var(--secondary-color);
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
 }
 
-.user-form form button:hover {
-    background-color: #45a049;
+.user-form a {
+    padding-left: 8.5em;
+    text-align: center;
+    color: var(--secondary-color);
+    text-decoration: none;
 }
 
-.user-form .error {
-    color: red;
-    font-size: 0.8rem;
-    margin-top: 5px;
+.user-form a:active {
+    color: black;
 }
+
+

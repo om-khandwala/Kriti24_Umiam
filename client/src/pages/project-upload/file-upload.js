@@ -61,7 +61,7 @@ const FileUpload = ({setProjectImages}) => {
   return (
     <div className="create-project-upload">
       <div className='flex'>
-        <label for='images'>Click here to select images</label>
+        <label for='images'>Click here to select media</label>
         <input id= 'images' name='images' type="file" onChange={handleFileChange} multiple />
         <div onClick={handleUploadButtonClick} className='btn'>Upload Images</div>
         {isUploading && <div className='loading'>Loading...</div>}

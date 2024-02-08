@@ -4,7 +4,8 @@ import './style.css'
 function Message({ text, sender }) {
   return (
     <div className="message">
-      <strong>{sender}:</strong> {text}
+      <strong>{sender.toLowerCase()}</strong> 
+      <p>{text}</p>
     </div>
   );
 }

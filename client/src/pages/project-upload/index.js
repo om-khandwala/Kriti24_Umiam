@@ -13,7 +13,16 @@ function ProjectUploadPage({user}) {
   const [selectedTags, setSelectedTags] = useState([]);
   const [githubLink , setGithubLink] = useState('');
   const [projectOutcomes, setProjectOutcomes] = useState([]);
+  const [isLogo, setIsLogo] = useState(false);
+  const [isImages, setIsImages] = useState(false);
 
+  useEffect(() => {
+    setIsLogo(logo !== '');
+  }, [logo]);
+
+  useEffect(() => {
+    setIsImages(projectImages.length > 0)
+  },[projectImages])
 
   const handleProjectName = (e) => {
     setProjectName(e.target.value);
@@ -105,7 +114,12 @@ function ProjectUploadPage({user}) {
 
   return (
     <div className='upload-project-form'>
-        <h2>Create Project</h2>
+      <div className='left'>
+        <h2>Upload Project</h2>
+        <p>
+          "Transform ideas into reality; craft innovative solutions 
+          that inspire and empower users worldwide."
+        </p>
         <form>
           <div>
             <label htmlFor="projectName">Project Name</label>
@@ -170,10 +184,16 @@ function ProjectUploadPage({user}) {
             />
           </div>
           <FileUpload setProjectImages={setProjectImages} />
+          <input type="checkbox" checked={isImages} readOnly />
           <LogoUpload setLogo= {setLogo}/>
-          <p>{projectImages}  {logo}</p>
+          <input type="checkbox" checked={isLogo} readOnly />
+          {/* <p>{projectImages}  {logo}</p> */}
           <button type="submit" onClick={handleSubmit}>Upload Project</button>
         </form>
+      </div>
+      <div className='right'>
+
+      </div>
     </div>
   );
 }
