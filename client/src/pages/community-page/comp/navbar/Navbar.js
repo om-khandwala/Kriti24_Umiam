@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './style.css';
 import CommunityModal from '../modal';
 
-const Navbar = (user) => {
+const NavbarSecondary = (user) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleModal = () => {
