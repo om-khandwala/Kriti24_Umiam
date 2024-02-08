@@ -2,7 +2,8 @@
     display: flex;
     justify-content: center;
     box-shadow: var(--box-shawdow);
-    padding: 1em;
+    padding:.5em;
+    padding-bottom: 1em;
     border-radius: .5rem;
     align-items: center;
     flex-direction: column;
@@ -13,6 +14,7 @@
 
 .profile-container h3 {
   margin-top: .5rem;
+  text-transform: capitalize;
 }
   
 .profile-container p {
@@ -20,20 +22,41 @@
     text-align: center;
 }
 
+.profile-container .bg {
+  height: 6em;
+  width: 100%;
+  background: url('https://images.unsplash.com/photo-1530103043960-ef38714abb15?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFlc3RoZXRpY3xlbnwwfHwwfHx8MA%3D%3D');
+  background-size: cover;
+  border-radius: .5em;
+  position: relative;
+}
+
+.profile-container .bg::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:  linear-gradient(90deg, rgba(206,90,103,.5) 0%, rgba(206,90,103,.5) 44%, rgba(244,191,150,.5) 100%);
+}
+
 .profile-container button {
   cursor: pointer;
   padding: .5em 1.5em;
-  background-color: black;
+  background-color: var(--secondary-color);
   border: none;
   margin-top: .8em;
   border-radius: .5em;
   color: white;
 }
 .profile-container .circle {
-    height: 3em;
-    width: 3em;
+    height: 4em;
+    width: 4em;
     border-radius: 50%;
+    margin-top: -2em;
     background-color: black;
     border: 2px solid white;
+    z-index: 500;
 }
   

@@ -53,7 +53,7 @@ function ChatWindow({ socket, group }) {
   }, [socket, id, user.name]); 
   return (
     <div className="chat-window">
-      <Navbar />
+      <Navbar user={user}/>
       <div className="message-list">
           {oldMsg.length > 0 &&
             oldMsg.map((msg,index) => {

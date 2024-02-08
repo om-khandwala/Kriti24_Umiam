@@ -3,7 +3,7 @@
     height: 80vh;
     flex-direction: column;
     width: 100%;
-    background-color: #302E2D;
+    background-color: var(--body-background);
     border-radius: 0 1em 1em 0;
 }
   
@@ -11,5 +11,4 @@
     flex: 1;
     overflow-y: scroll;
     padding: 3em 1.5em;   
-
 }
