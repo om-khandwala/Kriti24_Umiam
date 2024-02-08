@@ -1,13 +1,31 @@
 import React, { useState } from 'react';
 import './addcoursepopup.css'; // Import CSS file for styling
+import { allCourses, createCourse, currentUser } from '../../../../api/course';
+import { useEffect } from 'react';
 
-const CreateCourseForm = ({ onClose }) => {
+const CreateCourseForm = ({ onClose, setCourses }) => {
   const [courseTitle, setCourseTitle] = useState('');
   const [courseDescription, setCourseDescription] = useState('');
+  const [user, setUser] = useState({});
 
-  const handleSubmit = (event) => {
+  useEffect(()=>{
+    const get = async() => {
+      const response = await currentUser();
+      setUser(response.user[0]);
+    }
+    get();
+  },[])
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
     // Perform form submission logic here
+    await createCourse({
+      title: courseTitle,
+      description: courseDescription,
+      author: user._id
+    })
+    const all = await allCourses();
+    setCourses(all);
     console.log('Submitted:', courseTitle, courseDescription);
     // Reset input fields after submission
     setCourseTitle('');

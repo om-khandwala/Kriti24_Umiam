@@ -1,14 +1,29 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './usercomment.css';
+import { allFeedbacks, createFeedback, currentUser } from '../../../../api/course';
 
-const CommentBox = ({ onCancel, onSubmit }) => {
+const CommentBox = ({ course, setComments, onCancel, onSubmit }) => {
   const [comment, setComment] = useState('');
-
+  const [user, setUser] = useState({});
+  useEffect(()=>{
+    const get = async() => {
+      const response = await currentUser();
+      setUser(response.user[0]);
+    }
+    get();
+  },[])
   const handleChange = (event) => {
     setComment(event.target.value);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async() => {
+    const data = {
+      user_id: user._id,
+      text_body: comment
+    }
+    await createFeedback(course._id, data)
+    const fetchedComments = await allFeedbacks(course._id);
+    setComments(fetchedComments.feedbacks);
     onSubmit(comment);
     setComment('');
   };
@@ -17,6 +32,7 @@ const CommentBox = ({ onCancel, onSubmit }) => {
     onCancel();
     setComment('');
   };
+  
 
   return (
     <div className="comment-box">

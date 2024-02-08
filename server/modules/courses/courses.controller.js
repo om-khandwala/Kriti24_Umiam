@@ -35,19 +35,7 @@ export const createCourseFeedback = async (req, res) => {
 
 export const getCourses = async (req, res) => {
     try {
-        let filter = req.params.filter || "";
-        console.log(filter)
-        const courses = await Course.find({
-            $or: [{
-                title: { "$regex": filter, '$options': 'i'}
-            },{
-                description: { "$regex": filter, '$options': 'i'}
-            }
-            ]
-        })
-        if (!courses) {
-            return res.status(404).json({ error: 'Course not found' });
-        }
+        const courses = await Course.find({})
         res.status(200).json(courses);
     } catch (error) {
         console.error(error);

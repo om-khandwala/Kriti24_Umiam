@@ -1,10 +1,11 @@
 import User from "../../Models/User.js";
+import { getUserFromToken } from "./user.util.js";
 
 export const userData = async (req, res) => {
   try {
     const token = req.cookies.token;
     const user = await getUserFromToken(token);
-
+    
     const rollNumber = user.rollNumber;
     const reqUser = await User.find({ rollNumber: rollNumber });
 
