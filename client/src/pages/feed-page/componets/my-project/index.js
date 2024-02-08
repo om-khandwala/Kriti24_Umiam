@@ -9,7 +9,7 @@ function MyProject({ userProject }) {
         <h3>Your Projects</h3>
         <Link to='/upload'><button>New</button></Link>
       </div>
-      <input type="text" />
+      <input type="text" placeholder='Find your projects'/>
       <div className='projects'>
         {userProject.map(project => (
           <div className='project' key={project._id}>

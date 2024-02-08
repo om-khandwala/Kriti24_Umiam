@@ -1,5 +1,6 @@
 import GroupChat from '../../Models/Group-chat.js';
 import Group from '../../Models/Groups.js';
+import User from '../../Models/User.js';
 
 
 export const createGroup = async (req,res) =>{
@@ -81,19 +82,34 @@ export const getAllGroups = async (req,res) => {
     }
 }
 
-export const getGroupById = async (req,res) => {
-    try {
-        const groupId = req.params.groupId;
-        const group = await Group.findById(groupId);
-        if (!group) {
-          return res.status(404).json({ error: 'Group not found' });
-        }
-        res.status(200).json(group);
-      } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'Failed to fetch group' });
+export const getGroupById = async (req, res) => {
+  try {
+    const groupId = req.params.groupId;
+    const group = await Group.findById(groupId);
+
+    if (!group) {
+      return res.status(404).json({ error: 'Group not found' });
     }
-}
+
+    const memberPromises = group.members.map(async (member) => {
+      const user = await User.findById(member);
+      return user.name;
+    });
+
+    const membersName = await Promise.all(memberPromises);
+
+    const data = {
+      ...group.toObject(),
+      membersName: membersName,
+    };
+
+    res.status(200).json(data);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Failed to fetch group' });
+  }
+};
+
 
 export const updateGroupById = async (req,res) => {
     try {

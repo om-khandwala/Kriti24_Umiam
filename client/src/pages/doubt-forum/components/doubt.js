@@ -3,6 +3,7 @@ import DoubtAnswer from "./answer";
 import { getRepliesOfDoubt } from "../../../api/doubt";
 import "./doubt.css";
 import ReplyForm from "./reply";
+import HorizontalLine from '../../../componets/line';
 
 function Doubt({ doubt }) {
   const [replies, setReplies] = useState([]);
@@ -42,11 +43,11 @@ function Doubt({ doubt }) {
       </div>
       <p className="description">{doubt.description}</p>
       <p>
-        Asked by <span className="bold">{doubt.author}</span>,{" "}
+        Asked by <span className="bold">{doubt.authorName.toLowerCase()}</span>,{" "}
         <span className="bold">{(time / (1000 * 60)).toFixed(0)}</span> minutes
         ago
       </p>
-      <hr />
+      <HorizontalLine color={'white'}/>
       <ReplyForm doubtId={doubt._id} setReplies={setReplies} doubt={doubt} />
 
       {replies.length > 0 && (

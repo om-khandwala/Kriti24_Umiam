@@ -1,5 +1,5 @@
 .karta {
-    background-color: rgb(238, 232, 232);
+    background-color: var(--body-background);
     height: 100vh;
 }
 .main_container {

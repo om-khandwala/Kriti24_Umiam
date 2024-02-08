@@ -1,7 +1,8 @@
 :root {
-  --primary-color: #007bff;
-  --secondary-color: #6c757d;
-  --body-background: #e5e5e5;
+  --primary-color: #f4bf96;
+  --secondary-color: #ce5a67;
+  --body-background: #fcf5ed;
+  --black-color: #1f1717;
   --box-shawdow: rgba(100, 100, 111, 0.2) 0 .5em 2em 0;
 }
 
@@ -43,4 +44,12 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+button {
+  border: none;
+  border-radius: .25em;
+  padding: .8em 2.5em;
+  color: white;
+  background-color: var(--black-color);
 }

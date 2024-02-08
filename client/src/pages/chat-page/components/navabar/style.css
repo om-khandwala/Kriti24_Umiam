@@ -10,8 +10,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: black;
-    height: 4.1em;
+    background-color: var(--secondary-color);
+    height: 3.9em;
     color: white;
     font-size: 1.2em;
+}
+
+.navbar-chat-page .navbar-title {
+    text-transform: capitalize;
 }

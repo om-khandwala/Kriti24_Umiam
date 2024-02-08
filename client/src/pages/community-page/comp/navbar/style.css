@@ -3,7 +3,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 0.8rem 1.5rem;
-    background-color: #211b39;
+    background-color: var(--secondary-color);
     color: #fff;
 }
 
@@ -18,24 +18,15 @@
     gap: 1.5rem;
 }
 
-.search-bar {
-    display: flex;
-    align-items: center;
-    gap: 2px;
-}
 
-.search-bar input {
-    outline: none;
-    width: 16rem;
-    padding: 0.5rem;
-    border: none;
-}
 .right_nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 2em;
+    width: 10em;
 }
+
 
 .community_search {
     height: 2.3em;

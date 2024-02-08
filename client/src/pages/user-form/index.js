@@ -6,12 +6,10 @@ import {Link} from 'react-router-dom';
 function UserForm({ user }) {
     const [formData, setFormData] = useState({
         name: `${user.name}`,
-        email: `${user.email}`,
         branch: `${user.branch}`,
         degree: "",
         shortDescription: "",
         description: "",
-        rollNumber: `${user.rollNumber}`,
     });
 
     const handleChange = (e) => {
@@ -44,74 +42,63 @@ function UserForm({ user }) {
 
     return (
         <div className="user-form">
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Name:</label>
-                    <input
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                    />
+            <div className="form">
+                <div className="text">
+                     <h2>Welcome to Our Community</h2>
+                     <p>Provide some details for better exprience</p>
                 </div>
-                <div>
-                    <label>Email:</label>
-                    <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        readOnly
-                    />
-                </div>
-                <div>
-                    <label>Branch:</label>
-                    <input
-                        type="text"
-                        name="branch"
-                        value={formData.branch}
-                        onChange={handleChange}
-                    />
-                </div>
-                <div>
-                    <label>Degree:</label>
-                    <input
-                        type="text"
-                        name="degree"
-                        value={formData.degree}
-                        onChange={handleChange}
-                    />
-                </div>
-                <div>
-                    <label>Short Description:</label>
-                    <input
-                        type="text"
-                        name="shortDescription"
-                        value={formData.shortDescription}
-                        onChange={handleChange}
-                    />
-                </div>
-                <div>
-                    <label>Description:</label>
-                    <textarea
-                        name="description"
-                        value={formData.description}
-                        onChange={handleChange}
-                    />
-                </div>
-                <div>
-                    <label>Roll Number:</label>
-                    <input
-                        type="number"
-                        name="rollNumber"
-                        value={formData.rollNumber}
-                        onChange={handleChange}
-                        readOnly
-                    />
-                </div>
-                <button type="submit">Submit</button>
-                <Link to='/feed'>Skip for now</Link>
-            </form>
+                <form onSubmit={handleSubmit}>
+                    <div>
+                        <label>Name:</label>
+                        <input
+                            type="text"
+                            name="name"
+                            value={formData.name}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div>
+                        <label>Branch:</label>
+                        <input
+                            type="text"
+                            name="branch"
+                            value={formData.branch}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div>
+                        <label>Degree:</label>
+                        <input
+                            type="text"
+                            name="degree"
+                            value={formData.degree}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div>
+                        <label>Short Description:</label>
+                        <input
+                            type="text"
+                            name="shortDescription"
+                            value={formData.shortDescription}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div>
+                        <label>Description:</label>
+                        <textarea
+                            name="description"
+                            value={formData.description}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <button type="submit">Submit</button>
+                    <Link to='/feed'>Skip for now, continue to feed page</Link>
+                </form>
+            </div>
+            <div className="img">
+
+            </div>
         </div>
     );
 }

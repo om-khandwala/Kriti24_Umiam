@@ -1,8 +1,13 @@
 .sidebar {
+    overflow: scroll;
     height: 80vh;
     width: 25em; 
-    background: white;
+    background: var(--primary-color);
     border-radius: 1em 0 0 1em ;
+}
+
+.members p {
+    text-transform: capitalize;
 }
 
 .heading-of-side .circle {
@@ -46,9 +51,9 @@
     padding: 1em 1.3em;
     align-items: center;
     gap: 0.5em; 
-    border-bottom: 1px solid #bababa;
+    border-bottom: 1px solid white;
 }
 
 .members .name:hover {
-    background-color: #1d1a60;
+    background-color: #f2af7c;
 }

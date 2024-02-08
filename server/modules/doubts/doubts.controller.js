@@ -1,5 +1,6 @@
 import DoubtReply from "../../Models/Doubt-reply.js";
 import Doubt from "../../Models/Doubt.js";
+import User from "../../Models/User.js";
 
 export const createDoubt = async (req, res) => {
   try {
@@ -36,12 +37,26 @@ export const createDoubtReply = async (req, res) => {
 export const getDoubtOfUser = async (req, res) => {
   try {
     const userId = req.params.id;
-    console.log(userId, "ffa"); // Debugging log
+    //console.log(userId, "ffa"); // Debugging log
     const doubts = await Doubt.find({ author: userId });
     console.log(doubts);
-    res.status(200).json({ doubts });
+
+    const userPromises = doubts.map(async (doubt) => {
+      // console.log(doubt.author)
+       const user = await User.findById(doubt.author);
+       return user.name;
+     });
+ 
+     const authorNames = await Promise.all(userPromises);
+ 
+     const doubtsWithAuthors = doubts.map((doubt, index) => ({
+       ...doubt.toObject(),
+       authorName: authorNames[index]
+     }));
+
+    res.status(200).json({ doubts: doubtsWithAuthors });
   } catch (error) {
-    console.log("There is an error in the doubt controller:", error); // Debugging log
+    console.log("There is an error in the doubt controller:", error);
     res.status(500).json({ msg: "Internal Server Error" });
   }
 };
@@ -74,33 +89,33 @@ export const deleteDoubt = async (req, res) => {
 export const allDoubts = async (req, res) => {
   try {
     const doubts = await Doubt.find();
-    res.status(200).json({ doubts });
+
+    const userPromises = doubts.map(async (doubt) => {
+     // console.log(doubt.author)
+      const user = await User.findById(doubt.author);
+      return user.name;
+    });
+
+    const authorNames = await Promise.all(userPromises);
+
+    const doubtsWithAuthors = doubts.map((doubt, index) => ({
+      ...doubt.toObject(),
+      authorName: authorNames[index]
+    }));
+
+    res.status(200).json({ doubts: doubtsWithAuthors });
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
 
-export const allDoubtsOfUser = async (req, res) => {
-  try {
-    const { user_id } = req.params;
-    const doubts = await Doubt.find({ user_id: user_id });
-    res.status(200).json({ data: doubts });
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-};
 
 export const allRepliesOfDoubt = async (req, res) => {
   try {
     const { doubt_id } = req.params;
     // console.log(doubt_id);
     const requiredReplies = await DoubtReply.find({ doubt_id: doubt_id });
-
-    // if (!requiredReplies || requiredReplies.length === 0) {
-    //     return res.status(404).json({ error: 'Doubt replies not found' });
-    // }
 
     // console.log(requiredReplies)
 

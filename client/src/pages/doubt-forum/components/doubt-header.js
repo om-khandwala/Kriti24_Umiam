@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./doubt-header.css";
 import { allDoubts, createDoubt } from "../../../api/doubt";
+import HorizontalLine from '../../../componets/line';
 
 function DoubtHeader({ setDoubts, id }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -65,9 +66,8 @@ function DoubtHeader({ setDoubts, id }) {
 
   return (
     <div className="doubt-header">
-      <p>Doubt Forum</p>
+      <h3>Doubts Forum</h3>
       <div className="flex">
-        <input type="text" placeholder="Search doubts" />
         <button onClick={openModal}>Ask question</button>
       </div>
 
@@ -80,7 +80,7 @@ function DoubtHeader({ setDoubts, id }) {
                 &times;
               </span>
             </div>
-            <hr />
+            <HorizontalLine color={'black'}/>
             <label htmlFor="title">Title</label>
             <input type="text" name="title" onChange={handleInputChange} />
 
@@ -109,7 +109,7 @@ function DoubtHeader({ setDoubts, id }) {
               ))}
             </ul>
 
-            <hr />
+            <HorizontalLine color={'black'}/>
 
             <div className="footer">
               <i class="fa-solid fa-paperclip"></i>

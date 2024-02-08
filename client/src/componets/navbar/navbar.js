@@ -32,7 +32,6 @@ function Navbar() {
   const handleChange = (e) => {
     setQuery(e.target.value);
     const results = filteredResults.filter((item) => {
-      // Check if projectName and name properties exist and then apply toLowerCase()
       const projectName = item.projectName
         ? item.projectName.toLowerCase()
         : "";
@@ -66,7 +65,7 @@ function Navbar() {
   return (
     <div class="main-navbar">
       <div className="left flex">
-        <img />
+        <img src='/images/logo-light.png' alt='logo'/>
         <h4>Project Alpha</h4>
       </div>
 
@@ -102,7 +101,7 @@ function Navbar() {
               <ul>
                 {searchResults.map((item, index) => (
                   <li key={index}>
-                    <h3>{item.name}</h3>
+                    <h4>{item.name}</h4>
                     <h4>{item.projectName}</h4>
                   </li>
                 ))}
@@ -110,6 +109,9 @@ function Navbar() {
             </div>
           )}
         </div>
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <i class="fa-regular fa-message"></i>
+        <div className="user-profile"></div>
       </div>
     </div>
   );
