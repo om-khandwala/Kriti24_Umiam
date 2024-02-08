@@ -1,6 +1,8 @@
 import Navbar from "./comp/Navbarfeed";
 import SearchProject from "./comp/Projectsearch";
 import Aboutcourse from "./comp/CourseList";
+// import CreateCourseForm from "./comp/addcoursepopup";
+// import CourseForm from "./comp/addcoursepopup";
 
 const Coursepage = () => {
     return ( 
@@ -9,6 +11,7 @@ const Coursepage = () => {
            <SearchProject />
            <div className="courses_listpage">
                   <Aboutcourse />
+                  {/* <CreateCourseForm /> */}
            </div>
         </div>
      );

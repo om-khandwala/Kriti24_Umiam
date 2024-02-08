@@ -1,0 +1,42 @@
+.comment-preview{
+    display: flex;
+    /* align-items: center; */
+    padding-top: 1.3vw;
+}
+
+.img_in_comment{
+    width: 2.5vw;
+    height: 2.5vw;
+}
+
+.sec_of_comment{
+    padding-left: 2.7vw;
+    padding-right: 2.7vw;
+}
+
+.comment-preview.p{
+    padding-left: 1vw;
+}
+
+.add_comment{
+    font-size: 1.1vw;
+    border: 2.3px solid black;
+    border-radius: 1.1vw;
+    padding: 0.5vw 0.7vw 0.5vw 0.7vw;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.comment_user, .user_comment{
+    padding-left: 1vw;
+}
+
+.user_comment{
+    font-size: 1vw;
+}
+
+.comment_user{
+    font-weight: 600;
+    font-size: 1.1vw;
+    margin: 0;
+}
