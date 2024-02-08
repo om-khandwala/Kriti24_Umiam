@@ -1,9 +1,6 @@
 .community-container {
     color: black;
     width: 55em;
-    background-color: white;
-    border: 2px white solid;
-    border-radius: .5em;
     padding: 1em;
 }
 
@@ -11,6 +8,11 @@
     display: flex;
     flex-direction: column;
     gap: 1em;
+    background-color: white;
+    margin-bottom: 5rem;
+    padding: 3rem;
+    border-radius: .5em;
+
 }
 
 .community-container i {

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './style.css';
 import CommunityModal from '../modal';
 
-const Navbar = () => {
+const Navbar = (user) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleModal = () => {
@@ -30,7 +30,7 @@ const Navbar = () => {
           <div className="modal-content">
             <span className="close" onClick={toggleModal}>&times;</span>
                 <h2>Create Community</h2>
-                <CommunityModal />
+                <CommunityModal user={user}/>
           </div>
         </div>
       )}

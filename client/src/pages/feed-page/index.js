@@ -18,7 +18,7 @@ function FeedPage({ user }) {
     useEffect(() => {
         const fetchData = async () => {
             const fetchedAllProjects = await allProject();
-            fetchedAllProjects.sort((a, b) => b.rating - a.rating);
+            fetchedAllProjects.sort((a, b) => b.numberofRatings - a.numberofRatings);
             setAllProjects(fetchedAllProjects);
 
             const fetchedRecentProjects = await recentProject();
