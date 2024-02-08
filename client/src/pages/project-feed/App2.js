@@ -3,7 +3,7 @@ import SearchProject from './components/Projectsearch'
 import Projectspace from './components/ProjectSpace'
 import Aboutproject from './components/ProjectsList'
 
-function App() {
+function ProjectFeed() {
   return (
     <div className="App">
         <Navbar />
@@ -18,4 +18,4 @@ function App() {
   );
 }
 
-export default App;
+export default ProjectFeed;

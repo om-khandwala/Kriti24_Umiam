@@ -12,6 +12,8 @@ import Home from "./pages/home-page/index.js";
 import Btn from "./pages/btn-test/btn.js";
 import Cookies from 'js-cookie';
 import UserForm from "./pages/user-form/index.js";
+import Coursepage from "./pages/course-page/components/course_page.js";
+import ProjectFeed from "./pages/project-feed/App2.js";
 // import FileUpload from "./pages/test";
 const socket = io.connect("http://localhost:5050");
 function App() {
@@ -38,6 +40,9 @@ function App() {
           <Route path="/feed" element={<FeedPage user={user} />} />
           <Route path="/btn" element={<Btn />} />
           <Route path="/" element={<Home />} />
+          <Route path="/course" element={<Coursepage />} />
+          <Route path="/projectFeed" element={<ProjectFeed />} />
+
         </Routes>
       </div>
     </Router>
