@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState } from 'react';
 import "./style.css";
 import Navbar from '../../componets/navbar/navbar';
 import Left from './comp/Left_Section';
@@ -9,6 +9,7 @@ import NavbarSecondary from './comp/navbar/Navbar';
 
 function CommunityPage({user}) {
   const [groups, setGroups] = useState([]);
+  // const [reff,setreff] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,13 +22,17 @@ function CommunityPage({user}) {
     };
 
     fetchData();
-  }, []);
+  }, [groups]);
+
+  const updategroupscomm = ()=>{
+    setGroups([]);
+  }
 
   return (
     <>
     <Navbar />
     <div className='karta'>
-      <NavbarSecondary user={user} />
+      <NavbarSecondary user={user} updategroups={updategroupscomm}/>
       <div className="main_container">
         <Left groups={groups} user={user} />
         <div className="mid_main">

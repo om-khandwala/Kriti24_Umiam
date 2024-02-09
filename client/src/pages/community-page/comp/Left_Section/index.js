@@ -3,13 +3,17 @@ import "./style.css";
 
 function Left({groups,user}){
   const [mygroups,setMygroups] = useState([]);
+  // useEffect(()=>{
   useEffect(()=>{
+    let abc=[];
     groups.map((group,index)=>{
-      if(group.members.includes(user._id) && !mygroups.includes(group.name)){
-        setMygroups([...mygroups,group.name]);
+      if(group.members.includes(user._id)){
+        abc.push(group.name);
       }
     });
+    setMygroups(abc);
   },[groups])
+  // },[groups])
   // console.log("hello",groups);
   return (
     <div className='community-left'>
