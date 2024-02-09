@@ -12,17 +12,20 @@ import { useParams } from "react-router-dom";
 function ProfilePage() {
   const [activeMenu, setActiveMenu] = useState("project");
   const [user, setUser] = useState({});
+  const { id } = useParams();
 
-  const {id} = useParams();
-
-  console.log(id, user._id);
-  useEffect(()=>{
+  useEffect(() => {
     const fetchUser = async () => {
-      const data = await findUser(id);
-      setUser(data);
-    }
-    fetchUser()
-  },[id])
+      try {
+        const userData = await findUser(id);
+        setUser(userData);
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
+    };
+
+    fetchUser();
+  }, [id]);
 
   const handleMenuClick = (menu) => {
     setActiveMenu(menu);
@@ -31,7 +34,7 @@ function ProfilePage() {
   return (
     <>
       <Navbar />
-      {user._id !== null && <div className="profile-page">
+      {user._id !== null && user._id !== undefined && <div className="profile-page">
         <div className="profile-header">
           <Profile className="profile" userData={user} />
         </div>

@@ -9,7 +9,6 @@ import NavbarSecondary from './comp/navbar/Navbar';
 
 function CommunityPage({user}) {
   const [groups, setGroups] = useState([]);
-  // const [reff,setreff] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,17 +23,14 @@ function CommunityPage({user}) {
     fetchData();
   }, [groups]);
 
-  const updategroupscomm = ()=>{
-    setGroups([]);
-  }
 
   return (
     <>
     <Navbar />
     <div className='karta'>
-      <NavbarSecondary user={user} updategroups={updategroupscomm}/>
+      <NavbarSecondary user={user}/>
       <div className="main_container">
-        <Left groups={groups} user={user} />
+        <Left />
         <div className="mid_main">
            {groups.length > 0 && <MiddleSection groups={groups} user={user}/>}
         </div>

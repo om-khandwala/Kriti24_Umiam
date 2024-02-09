@@ -33,6 +33,6 @@ export const findAllUsers = async () => {
 
 export const findUser = async (id) => {
   const response = await axios.get(`http://localhost:5050/api/user/find/${id}`); 
-  console.log(response.data);
+  console.log(response.data.user);
   return response.data.user; 
 }

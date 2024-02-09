@@ -2,28 +2,23 @@ import React, { useState } from 'react';
 import './style.css';
 import CommunityModal from '../modal';
 
-const NavbarSecondary = (user,updategroups) => {
+const NavbarSecondary = ({user}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
 
-  const updategroupsnav = ()=>{
-    updategroups();
-  }
-
   return (
-    <div className="navbar">
+    <div className="navbar-community">
       <div className="left-part">
          <i class="fa-solid fa-satellite-dish"></i>
         <h4>Communities</h4>
       </div>
-      <div className="right_nav">
-        <button className="community_search" onClick={toggleModal}>
-            Create Community
-        </button>
-      </div>
+      <button className="community_search" onClick={toggleModal}>
+        Create Community
+      </button>
+    
 
       {/* Modal */}
       {isModalOpen && (
@@ -31,7 +26,7 @@ const NavbarSecondary = (user,updategroups) => {
           <div className="modal-content">
             <span className="close" onClick={toggleModal}>&times;</span>
                 <h2>Create Community</h2>
-                <CommunityModal user={user} updategroupsnav={updategroupsnav} toggleModal={toggleModal}/>
+                <CommunityModal user={user} toggleModal={toggleModal}/>
           </div>
         </div>
       )}
