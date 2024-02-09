@@ -34,7 +34,7 @@ const SearchProject = ({setCourses}) => {
             </div>
                 <img src='./images/search-normal.png' alt='serach' className='search_img' onClick={hii} ></img>
             <div>
-                <button className="create-project-btn" onClick={togglePopup}>Create Course</button>
+                <button className="create-project-bt" onClick={togglePopup}>Create Course</button>
             </div>
             {isPopupOpen && <CreateCourseForm setCourses = {setCourses} onClose={togglePopup} />}
         </nav>

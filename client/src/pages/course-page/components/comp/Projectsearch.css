@@ -37,7 +37,7 @@
     cursor: pointer;
 }
 
-.create-project-btn{
+.create-project-bt{
     width: 12vw;
     height: 3vw;
     font-size: 1.3vw;
@@ -45,4 +45,7 @@
     border: white;
     margin-left: 3.5vw;
     cursor: pointer;
+    color: black;
+    background-color: white;
+    padding: 0;
 }
