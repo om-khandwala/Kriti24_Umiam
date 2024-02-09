@@ -30,3 +30,9 @@ export const findAllUsers = async () => {
   console.log(response.data);
   return response.data.users; 
 }
+
+export const findUser = async (id) => {
+  const response = await axios.get(`http://localhost:5050/api/user/find/${id}`); 
+  console.log(response.data);
+  return response.data.user; 
+}

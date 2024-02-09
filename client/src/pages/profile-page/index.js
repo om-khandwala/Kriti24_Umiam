@@ -5,10 +5,24 @@ import AboutSection from "./componets/about-me";
 import MyCourses from "./componets/user-courses";
 import UserProject from "./componets/user-project";
 import Navbar from "../../componets/navbar/navbar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { findUser } from "../../api/user";
+import { useParams } from "react-router-dom";
 
-function ProfilePage({ user }) {
+function ProfilePage() {
   const [activeMenu, setActiveMenu] = useState("project");
+  const [user, setUser] = useState({});
+
+  const {id} = useParams();
+
+  console.log(id, user._id);
+  useEffect(()=>{
+    const fetchUser = async () => {
+      const data = await findUser(id);
+      setUser(data);
+    }
+    fetchUser()
+  },[id])
 
   const handleMenuClick = (menu) => {
     setActiveMenu(menu);
@@ -17,7 +31,7 @@ function ProfilePage({ user }) {
   return (
     <>
       <Navbar />
-      <div className="profile-page">
+      {user._id !== null && <div className="profile-page">
         <div className="profile-header">
           <Profile className="profile" userData={user} />
         </div>
@@ -35,7 +49,8 @@ function ProfilePage({ user }) {
             <MyCourses userData={user} />
           </div>
         )}
-      </div>
+      </div>}
+      
     </>
   );
 }

@@ -6,17 +6,23 @@ import Media from './components/media/media';
 import Collab from './components/collab/collab';
 import './style.css';
 import { getProjectById } from '../../api/project';
+import { useParams, Link } from 'react-router-dom';
 
 function ProjectName() {
     const [activeComponent, setActiveComponent] = useState(null);
     const [project , setProject] = useState([]);
+
+    const { id } = useParams();
+   // console.log(id);
+
+    // console
 
   //  console.log(project.links.image);
 
     useEffect(() => {
         const fetchProject = async () => {
             try {
-                const project = await getProjectById('65c5f5d3ed00a7be42199ec8');
+                const project = await getProjectById(id);
                 setProject(project);
                // console.log(project); // You can handle the fetched project data here
             } catch (error) {
@@ -38,10 +44,10 @@ function ProjectName() {
     return (
         <div className='project-page-container'>
             <div className="upper">
-                <p className='Back'>Back to Home</p>
+                <Link to='/feed'><p className='home-page'>Back to Home</p></Link>
                 <div className='heading-container'>
                     <p className='heading'>{project.projectName}</p>
-                    <p className='created-by'>-{project.author}</p>
+                    {/* <p className='created-by'>-{project.author}</p> */}
                 </div>
             </div>
             <div className="nav">

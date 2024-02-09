@@ -38,9 +38,9 @@ function App() {
             path="/communities/:id"
             element={<ChatPage socket={socket} />}
           />
-          <Route path="/project-page" element={<ProjectName />}></Route>
+          <Route path="/project-feed/:id" element={<ProjectName />}></Route>
           <Route path="/user-form" element={<UserForm user={user} />} />
-          <Route path="/profile" element={<ProfilePage user={user} />} />
+          <Route path="/profile/:id" element={<ProfilePage />} />
           <Route path="/doubt" element={<DoubtForum id={userId} />} />
           <Route path="/chat" element={<ChatPage socket={socket} />} />
           <Route path="/feed" element={<FeedPage user={user} />} />

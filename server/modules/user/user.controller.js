@@ -43,3 +43,13 @@ export const updateUser = async (req, res) => {
       res.status(500).json({ msg: "Internal Server error" });
     }
 };
+export const getUserById = async(req,res) =>{
+  try {
+    const {userId} = req.params;
+    const user = await User.findById(userId);
+    return res.status(200).json({user})
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({msg: 'internal server error'})
+  }
+}

@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./style.css";
 import { findAllUsers } from "../../api/user";
 import { allProject } from "../../api/project";
@@ -7,34 +7,37 @@ import { allGroups } from "../../api/groups";
 
 function Navbar() {
   const [query, setQuery] = useState("");
-
   const [filteredResults, setFilteredResults] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
   const [display, setDisplay] = useState(true);
+  const navigate = useNavigate();
+
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const users = await findAllUsers();
-        const projects = await allProject();
+        const usersWithCategory = users.map(user => ({ ...user, category: 'user' }));
+        
         const groups = await allGroups();
+        const groupsWithCategory = groups.map(group => ({ ...group, category: 'group' }));
 
-        // Now that all data is fetched, update filtered results
-        setFilteredResults([...groups, ...users, ...projects]);
+        const projects = await allProject();
+        const projectsWithCategory = projects.map(project => ({ ...project, category: 'project' }));
+
+        setFilteredResults([...usersWithCategory, ...groupsWithCategory, ...projectsWithCategory]);
       } catch (error) {
         console.error("Error fetching data:", error);
-        // Handle error, if necessary
       }
     };
 
     fetchData();
   }, []);
-  console.log(filteredResults);
+
   const handleChange = (e) => {
     setQuery(e.target.value);
     const results = filteredResults.filter((item) => {
-      const projectName = item.projectName
-        ? item.projectName.toLowerCase()
-        : "";
+      const projectName = item.projectName ? item.projectName.toLowerCase() : "";
       const name = item.name ? item.name.toLowerCase() : "";
       return (
         projectName.includes(query.toLowerCase()) ||
@@ -43,16 +46,19 @@ function Navbar() {
     });
     setSearchResults(results);
   };
+
   useEffect(() => {
     if (query === "") {
       setSearchResults([]);
     }
   }, [query]);
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (event.target.tagName !== "INPUT") {
         const prevDisplay = true;
         setDisplay(prevDisplay);
+        setQuery("")
       }
     };
 
@@ -62,8 +68,26 @@ function Navbar() {
       document.removeEventListener("click", handleClickOutside);
     };
   }, []);
+
+  const handleItemClick = (item) => {
+   // console.log('Clicked item:', item);
+    console.log('Category:', item.category);
+  
+    if (item.category === 'user') {
+        navigate(`/profile/${item._id}`);
+
+    } else if (item.category === 'group') {
+        navigate(`/communities/${item._id}`);
+        
+    } else if (item.category === 'project') {
+        navigate(`/project-feed/${item._id}`); 
+    }
+
+  };
+  
+
   return (
-    <div class="main-navbar">
+    <div className="main-navbar">
       <div className="left flex">
         <img src='/images/logo-light.png' alt='logo'/>
         <h4>Project Alpha</h4>
@@ -72,8 +96,8 @@ function Navbar() {
       {display && (
         <div className="middle flex">
           <ul>
-          <Link to={"/feed"}>
-            <li>Home</li>
+            <Link to={"/feed"}>
+              <li>Home</li>
             </Link>
             <Link to={"/communities"}>
               <li>Communities</li>
@@ -81,7 +105,6 @@ function Navbar() {
             <Link to={"/doubt"}>
               <li>Doubt Forum</li>
             </Link>
-
             <li>Projects</li>
           </ul>
         </div>
@@ -102,17 +125,18 @@ function Navbar() {
             <div className="dialog-box">
               <ul>
                 {searchResults.map((item, index) => (
-                  <li key={index}>
+                  <li key={index} onClick={() => handleItemClick(item)}>
                     <h4>{item.name}</h4>
                     <h4>{item.projectName}</h4>
+                    <span>Category: {item.category}</span>
                   </li>
                 ))}
               </ul>
             </div>
           )}
         </div>
-        <Link to='https://login.microsoftonline.com/common/oauth2/v2.0/logout'><i class="fa-solid fa-right-from-bracket"></i></Link>
-        <i class="fa-regular fa-message"></i>
+        <Link to='https://login.microsoftonline.com/common/oauth2/v2.0/logout'><i className="fa-solid fa-right-from-bracket"></i></Link>
+        <i className="fa-regular fa-message"></i>
         <div className="user-profile"></div>
       </div>
     </div>

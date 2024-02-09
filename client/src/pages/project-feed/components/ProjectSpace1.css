@@ -1,10 +1,10 @@
 .project-options {
-  background-color: #f4f4f4;
-  padding: 1.25em;
-  border-radius: 0.3125em;
+  width: 100%;
+}
 
-  position: absolute;
-  top: 10em;
+.project-options button {
+  color: white;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .allprojects,
@@ -14,7 +14,7 @@
   display: flex;
   align-items: center;
   margin-bottom: 0.9375em;
-  background-color: white;
+  background-color: #ce5a6887;
   border: 1px solid white;
   border-radius: 20px;
   padding: 1em;
@@ -31,25 +31,7 @@
 .my_proj {
   /* font-size: 1.125em; */
   font-weight: bold;
-  background-color: white;
+  background-color: var(--secondary-color);
   color: black;
 }
 
-.tags {
-  display: flex;
-  flex-direction: column;
-  /* align-items: center; */
-  width: 14em;
-  color: black;
-  justify-content: center;
-  padding: 0;
-}
-
-.tags-title {
-  color: black;
-  list-style-type: disc;
-  padding: 0.3125em 0.625em;
-  border-radius: 0.3125em;
-  margin-right: 0.625em;
-  display: inline-block;
-}

@@ -13,6 +13,22 @@
     height: 35em;
 }
 
+.project-page-container .home-page {
+    color: white;
+    position: relative;
+    z-index: 4;
+    display: flex;
+    justify-content:end;
+    margin: 2em;
+}
+
+.project-page-container a {
+    text-decoration: none;
+}
+
+.project-page-container a:active {
+    color: white;
+}
 .project-page-container .upper::after {
     content: "";
     position: absolute;

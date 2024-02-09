@@ -16,17 +16,22 @@ function ProjectFeed({ user }) {
   }, []);
 
   return (
-    <div className="App">
+    <>
       <Navbar />
       <SearchProject />
-      <div className="view_project">
-        <Projectspace setUserProject={setUserProject} user={user} />
-        {userProject.length > 0 &&
-          userProject.map((project) => {
-            return <Aboutproject userProject={project} />;
-          })}
+      <div className="view-project">
+        <div className="left-part">
+           <Projectspace setUserProject={setUserProject} user={user} />
+        </div>
+
+        <div className="project-feed-component">
+          {userProject.length > 0 &&
+            userProject.map((project) => {
+              return <Aboutproject userProject={project} />;
+            })}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
