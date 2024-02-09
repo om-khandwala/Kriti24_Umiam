@@ -13,7 +13,7 @@ function Left(){
             <h4>My Communities</h4>
         </div>
     </div>
-  )
+  );
 }
 
-export default Left
+export default Left;
