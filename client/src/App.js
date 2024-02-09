@@ -14,6 +14,7 @@ import Cookies from 'js-cookie';
 import UserForm from "./pages/user-form/index.js";
 import Coursepage from "./pages/course-page/components/course_page.js";
 import ProjectFeed from "./pages/project-feed/App2.js";
+import ProjectName from "./pages/project-page/index.js";
 // import FileUpload from "./pages/test";
 const socket = io.connect("http://localhost:5050");
 
@@ -40,6 +41,7 @@ function App() {
             path="/communities/:id"
             element={<ChatPage socket={socket} />}
           />
+          <Route path="/project-page" element={<ProjectName/>}></Route>
           <Route path="/user-form" element={<UserForm user={user} />} />
           <Route path="/profile" element={<ProfilePage user={user} />} />
           <Route path="/doubt" element={<DoubtForum id={userId} />} />
