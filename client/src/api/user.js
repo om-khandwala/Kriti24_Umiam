@@ -1,5 +1,5 @@
 import axios from "axios";
-axios.defaults.withCredentials = true
+axios.defaults.withCredentials = true;
 export const getUser = async (storedToken) => {
   try {
     const token = storedToken;
@@ -19,20 +19,24 @@ export const getUser = async (storedToken) => {
   }
 };
 
-export const updateUser = async (userId,data) => {
-    console.log(userId)
-    const response = await axios.put(`http://localhost:5050/api/user/update/${userId}`, data); 
-    return response.data 
-}
+export const updateUser = async (userId, data) => {
+  console.log(userId);
+  const response = await axios.put(
+    `http://localhost:5050/api/user/update/${userId}`,
+    data
+  );
+  return response.data;
+};
 
 export const findAllUsers = async () => {
-  const response = await axios.get(`http://localhost:5050/api/user`); 
+  const response = await axios.get(`http://localhost:5050/api/user`);
   console.log(response.data);
-  return response.data.users; 
-}
+  return response.data.users;
+};
 
 export const findUser = async (id) => {
-  const response = await axios.get(`http://localhost:5050/api/user/find/${id}`); 
+  const response = await axios.get(`http://localhost:5050/api/user/find/${id}`);
+  console.log("hello");
   console.log(response.data);
-  return response.data.user; 
-}
+  return response.data.user;
+};
