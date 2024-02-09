@@ -1,17 +1,29 @@
 import Navbar from "./comp/Navbarfeed";
 import SearchProject from "./comp/Projectsearch";
 import Aboutcourse from "./comp/CourseList";
-// import CreateCourseForm from "./comp/addcoursepopup";
-// import CourseForm from "./comp/addcoursepopup";
+import { useState } from "react";
+import { useEffect } from "react";
+import { allCourses } from "../../../api/course.js";
+
 
 const Coursepage = () => {
+   const [Courses, setCourses] = useState([]);
+    useEffect(()=>{
+        const courses = async() => {
+            const fetchedCourses = await allCourses();
+            console.log(fetchedCourses)
+            setCourses(fetchedCourses);
+        }
+
+         
+        courses();
+    }, [])
     return ( 
         <div className="course_page">
            <Navbar />
-           <SearchProject />
+           <SearchProject setCourses = {setCourses}/>
            <div className="courses_listpage">
-                  <Aboutcourse />
-                  {/* <CreateCourseForm /> */}
+                  {Courses.length==0 ? <div>No Courses found</div> : Courses.map(course => <Aboutcourse key = {course._id} course = {course} />)}
            </div>
         </div>
      );

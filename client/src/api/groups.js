@@ -12,6 +12,12 @@ export const getGroup = async (id) => {
   return response.data; 
 }
 
+export const createGroup = async (data) => {
+  const response = await axios.post(`http://localhost:5050/api/groups/create`,data); 
+  console.log(response.data);
+  return response.data; 
+}
+
 export const createChat = async (data) => {
   console.log(data);
   const response = await axios.post(`http://localhost:5050/api/groups/group-chat`,data); 
@@ -27,7 +33,7 @@ export const getGroupChat = async (id) => {
 export const joinGroup = async (data) => {
   console.log(data);
   const response = await axios.post(`http://localhost:5050/api/groups/group-join`, data); 
-  console.log(data);
+  // console.log(data);
   return response.data; 
 }
 

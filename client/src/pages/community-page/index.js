@@ -27,9 +27,9 @@ function CommunityPage({user}) {
     <>
     <Navbar />
     <div className='karta'>
-      <NavbarSecondary />
+      <NavbarSecondary user={user} />
       <div className="main_container">
-        <Left />
+        <Left groups={groups} user={user} />
         <div className="mid_main">
            {groups.length > 0 && <MiddleSection groups={groups} user={user}/>}
         </div>

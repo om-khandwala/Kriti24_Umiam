@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.post('/create', createCourse);
 router.post("/feedback/:course_id", createCourseFeedback);
-router.get("/get/:filter", getCourses);
+router.get("/get", getCourses);
 router.get("/getById/:authorId", getCoursesById);
 router.delete("/delete/:courseId", deleteCourse);
 router.get("/getFeedbacks/:course_id", getFeedbacksOfCourses);

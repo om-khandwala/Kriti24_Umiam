@@ -72,7 +72,9 @@ function Navbar() {
       {display && (
         <div className="middle flex">
           <ul>
+          <Link to={"/feed"}>
             <li>Home</li>
+            </Link>
             <Link to={"/communities"}>
               <li>Communities</li>
             </Link>

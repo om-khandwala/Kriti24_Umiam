@@ -7,3 +7,46 @@
     padding-left: 2.5em;
     width: 15em;
 }
+
+.all_com {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:20px;
+    height: 5rem;
+    background: #FFF;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-radius: 10%;
+    margin-bottom: 3rem;
+}
+.all_com img {
+    height: 3rem;
+}
+
+.my_com {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:20px;
+    gap:20px;
+    height: 5rem;
+    background: #FFF;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-radius: 10%;
+}
+
+.my_com img {
+    height: 3rem;
+}
+
+.lists {
+    margin-top: 0%;
+    margin-left: 71px;
+    
+}

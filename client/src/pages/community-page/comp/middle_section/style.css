@@ -1,10 +1,14 @@
 .community-container {
     color: black;
     width: 55em;
+<<<<<<< HEAD
     display: flex;
     flex-direction: column;
     gap: 1em;
     border: 2px white solid;
+=======
+    padding: 1em;
+>>>>>>> refs/remotes/origin/main
 }
 
 .community-container .post {
@@ -14,6 +18,11 @@
     border-radius: .5em;
     padding: 1em;
     gap: 1em;
+    background-color: white;
+    margin-bottom: 5rem;
+    padding: 3rem;
+    border-radius: .5em;
+
 }
 
 .community-container i {

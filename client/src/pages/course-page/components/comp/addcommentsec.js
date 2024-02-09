@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './addcommentsec.css'; 
 import CommentBox from'./usercomment'
-
-const CommentSection = () => {
-
+import { comments } from './CourseList';
+const CommentSection = ({comments, course, setComments}) => {
     const [showCommentBox, setShowCommentBox] = useState(false);
 
     const toggleCommentBox = () => {
@@ -19,28 +18,23 @@ const CommentSection = () => {
         toggleCommentBox(); 
     };
 
-    const comments = [
-            { comment: 'My new website bhjc esdcs he w fb  wb b b b rbrbesuyw bce w cb ywbvbr rbchsbkaopeejbcjschususrkadabbc sjchsv bsrbkjsebfhahabfjebvkssjbsj', user: 'Xyz', image: './images/Ellipse 23.png', id: 1 },
-            { comment: 'Welcome party!', user: 'Xyz', image: './images/Ellipse 23.png', id: 2 },
-            { comment: 'Web dev top tips', user: 'xyz', image: './images/Ellipse 23.png', id: 3 }
-        ]
     
-
     return ( 
         <div className="sec_of_comment">
             {showCommentBox ? (
-                <CommentBox onCancel={handleCommentCancel} onSubmit={handleCommentSubmit}/>
+                <CommentBox course = {course} setComments = { setComments} onCancel={handleCommentCancel} onSubmit={handleCommentSubmit}/>
             ) : (
                 <button className='add_comment' onClick={toggleCommentBox}>+ Add Comment</button>
             )}
 
-            {
-                comments.map((comment) => (
-                    <div className="comment-preview" key={comment.id}>
+            {   
+                
+                comments.length==0 ? <div>No comments available</div> : comments.map((comment) => (
+                    <div className="comment-preview" key={comment._id}>
                         <img src={comment.image} alt="Comment" className='img_in_comment' ></img>
                         <div>
-                            <p className='comment_user'>{comment.user}</p>
-                            <p className='user_comment'>{comment.comment}</p>
+                            <p className='comment_user'>{comment.user_id}</p>
+                            <p className='user_comment'>{comment.text_body}</p>
                         </div>
                     </div>
                 ))
