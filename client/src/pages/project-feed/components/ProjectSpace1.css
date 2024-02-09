@@ -1,0 +1,55 @@
+.project-options {
+  background-color: #f4f4f4;
+  padding: 1.25em;
+  border-radius: 0.3125em;
+
+  position: absolute;
+  top: 10em;
+}
+
+.allprojects,
+.myprojects {
+  width: 14em;
+  height: 4em;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.9375em;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 20px;
+  padding: 1em;
+}
+
+.profile-circle {
+  width: 3.125em;
+  height: 3.125em;
+  border-radius: 50%;
+  margin-right: 0.625em;
+}
+
+.all_proj,
+.my_proj {
+  /* font-size: 1.125em; */
+  font-weight: bold;
+  background-color: white;
+  color: black;
+}
+
+.tags {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  width: 14em;
+  color: black;
+  justify-content: center;
+  padding: 0;
+}
+
+.tags-title {
+  color: black;
+  list-style-type: disc;
+  padding: 0.3125em 0.625em;
+  border-radius: 0.3125em;
+  margin-right: 0.625em;
+  display: inline-block;
+}

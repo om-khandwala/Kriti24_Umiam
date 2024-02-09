@@ -10,7 +10,7 @@ import ProfilePage from "./pages/profile-page";
 import ProjectUploadPage from "./pages/project-upload";
 import Home from "./pages/home-page/index.js";
 import Btn from "./pages/btn-test/btn.js";
-import Cookies from 'js-cookie';
+import Cookies from "js-cookie";
 import UserForm from "./pages/user-form/index.js";
 import Coursepage from "./pages/course-page/components/course_page.js";
 import ProjectFeed from "./pages/project-feed/App2.js";
@@ -33,15 +33,12 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/upload" element={<ProjectUploadPage user={user} />} />
-          <Route
-            path="/communities"
-            element={<CommunityPage user={user} />}
-          />
+          <Route path="/communities" element={<CommunityPage user={user} />} />
           <Route
             path="/communities/:id"
             element={<ChatPage socket={socket} />}
           />
-          <Route path="/project-page" element={<ProjectName/>}></Route>
+          <Route path="/project-page" element={<ProjectName />}></Route>
           <Route path="/user-form" element={<UserForm user={user} />} />
           <Route path="/profile" element={<ProfilePage user={user} />} />
           <Route path="/doubt" element={<DoubtForum id={userId} />} />
@@ -55,13 +52,11 @@ function App() {
           ) : null}
           <Route path="/" element={<Home />} />
           <Route path="/course" element={<Coursepage />} />
-          <Route path="/projectFeed" element={<ProjectFeed />} />
-
+          <Route path="/project-feed" element={<ProjectFeed user={user} />} />
         </Routes>
       </div>
     </Router>
   );
 }
-
 
 export default App;
