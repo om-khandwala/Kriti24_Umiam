@@ -61,7 +61,7 @@ function FeedPage({ user }) {
                     </div>
                     <div className="top-groups">
                         <h2>Top Communities</h2>
-                        {groups.slice(0, 2).map((group, index) => (
+                        {groups.slice(0, 3).map((group, index) => (
                             <Project key={index} condition="group" project={group} />
                         ))}
                         <p>

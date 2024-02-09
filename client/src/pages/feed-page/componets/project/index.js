@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useEffect, useState} from "react";
 import Star from "../../../../componets/star";
 import Language from "../../../../componets/language";
 import HorizontalLine from '../../../../componets/line';
@@ -13,22 +13,24 @@ function Project({project, condition,user}) {
     console.log(proj);
     if(!(proj.rating.includes(user._id))){
       setproj({...proj,numberofRatings:proj.numberofRatings+1,rating:[...proj.rating,user._id]});
+      
+    }else{
+      console.log("disliked");
+      setproj({...proj,numberofRatings:proj.numberofRatings-1,rating:proj.rating.filter((id)=>id!=user._id)});
+    }
+  }
+  useEffect(()=>{
+    const updateproj = async()=>{
       try{
         const response = await updateProject(proj,proj._id);
         console.log("liked")
       }catch(err){
         console.error('Error updating project:', err);
       }
-    }else{
-      console.log("disliked");
-      setproj({...proj,numberofRatings:proj.numberofRatings-1,rating:proj.rating.filter((id)=>id!=user._id)});
-      try{
-        const response = await updateProject(proj,proj._id);
-      }catch(err){
-        console.error('Error updating project:', err);
-      }
+      console.log(proj);
     }
-  }
+    updateproj();
+  },[proj]);
 
   return (
     <div className="project-container">

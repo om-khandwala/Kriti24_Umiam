@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './style.css';
-import { createChat, createGroup } from '../../../../api/groups';
+import { allGroups, createChat, createGroup, getGroup } from '../../../../api/groups';
+import { all } from 'axios';
 
-const CommunityModal = (user) => {
+const CommunityModal = ({user,updategroupsnav,toggleModal}) => {
   const [alluser , setAllUser] = useState([]);
   const [communityname, setCommunityname] = useState('');
   const [description, setDescription] = useState('');
@@ -72,13 +73,15 @@ const CommunityModal = (user) => {
     try {
       console.log(data);
       const response = await createGroup(data);
-      // console.log(response);
-
+      const groups= await allGroups();
       alert('group created successfully!');
+      toggleModal();
+      updategroupsnav();
+
+      // console.log(response);
       setCommunityname('');
       setDescription('');
       setSelectedTags([]);
-
     } catch (error) {
       console.error('Error creating project:', error);
     }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Language from "../../../../componets/language";
 import "./style.css";
 import Star from "../../../../componets/star";
@@ -7,25 +7,32 @@ import { updateProject } from "../../../../api/project";
 function Feed({project,user}) {
   const [proj,setproj] = useState(project);
   const handlestar = async (e) => {
-    console.log(proj);
     if(!(proj.rating.includes(user._id))){
       setproj({...proj,numberofRatings:proj.numberofRatings+1,rating:[...proj.rating,user._id]});
-      try{
-        const response = await updateProject(proj,proj._id);
-        console.log("liked")
-      }catch(err){
-        console.error('Error updating project:', err);
-      }
+      console.log("liked");
+      
     }else{
-      console.log("disliked");
       setproj({...proj,numberofRatings:proj.numberofRatings-1,rating:proj.rating.filter((id)=>id!=user._id)});
-      try{
-        const response = await updateProject(proj,proj._id);
-      }catch(err){
-        console.error('Error updating project:', err);
-      }
+      console.log("disliked");
+      // try{
+      //   const response = await updateProject(proj,proj._id);
+      //   console.log("disliked");
+      // }catch(err){
+      //   console.error('Error updating project:', err);
+      // }
     }
   }
+  useEffect(()=>{
+    const updateproj =async ()=>{
+      try{
+        const response = updateProject(proj,proj._id);
+      }catch(err){
+        console.error('Error updating project:', err);
+      }
+      console.log(proj);
+    }
+    updateproj();
+  },[proj]);
 
   return (
     <div className="feed-container">

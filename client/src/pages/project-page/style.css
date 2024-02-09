@@ -1,0 +1,28 @@
+.project-page-container {
+    display: flex;
+    flex-direction: column;
+}
+.project-page-container .upper{
+    background-color: grey;
+    height: 400px;
+}
+.project-page-container .Back{
+    color: white;
+    margin-left: 1300px;
+    padding-top: 20px;
+}
+.project-page-container .PN {
+    color: black;
+    margin-left: 40%;
+    margin-right: 40%;
+    padding-top: 220px;
+    font-size: 2rem;
+}
+.project-page-container .navu {
+    color: black;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 50px;
+    margin-top: 25px;
+}

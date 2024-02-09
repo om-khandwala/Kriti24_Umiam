@@ -53,6 +53,8 @@
     border-radius: 0.5rem;
     height: auto;
     padding: 1em 1em;
+    overflow: scroll;
+    scrollbar-width: none;
 }
   
   
