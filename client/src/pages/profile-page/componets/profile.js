@@ -8,7 +8,7 @@ function Profile({userData}){
                  <img src= '/images/user.jpg'  className="user-img" alt = 'user-img'/>
             </div>
             <div className="user-details">
-                <h2>{userData.name}</h2>
+                <h2>{userData.name.toLowerCase()}</h2>
                 <h4>{userData.shortDescription}</h4>        
             </div>
             

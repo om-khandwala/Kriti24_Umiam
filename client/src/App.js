@@ -14,15 +14,22 @@ import Cookies from 'js-cookie';
 import UserForm from "./pages/user-form/index.js";
 // import FileUpload from "./pages/test";
 const socket = io.connect("http://localhost:5050");
+
 function App() {
   const userName = Cookies.get("user");
-  const user = JSON.parse(userName.slice(2));
-  const userId = user._id;
+  let user = null;
+  let userId = null;
+
+  if (userName) {
+    user = JSON.parse(userName.slice(2));
+    userId = user._id;
+  }
+
   return (
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/upload" element={<ProjectUploadPage user = {user}/>} />
+          <Route path="/upload" element={<ProjectUploadPage user={user} />} />
           <Route
             path="/communities"
             element={<CommunityPage user={user} />}
@@ -37,11 +44,16 @@ function App() {
           <Route path="/chat" element={<ChatPage socket={socket} />} />
           <Route path="/feed" element={<FeedPage user={user} />} />
           <Route path="/btn" element={<Btn />} />
-          <Route path="/" element={<Home />} />
+          {userName ? (
+            <>
+              <Route path="/" element={<Home />} />
+            </>
+          ) : null}
         </Routes>
       </div>
     </Router>
   );
 }
+
 
 export default App;

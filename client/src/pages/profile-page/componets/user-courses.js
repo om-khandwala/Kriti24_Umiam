@@ -1,3 +1,4 @@
+import HorizontalLine from '../../../componets/line';
 import './component.css'
 import Course from './course';
 
@@ -5,7 +6,7 @@ function MyCourses(){
     return (
         <div class="course-section">
             <h4>My Courses</h4>
-            <hr/>
+            <HorizontalLine color={'white'}/>
             <div>
                 <Course/>
             </div>

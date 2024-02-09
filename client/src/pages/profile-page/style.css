@@ -5,6 +5,7 @@
 .profile-page {
     display: flex;
     flex-direction: column;
+    background-color: var(--body-background);
 }
 
 
@@ -21,17 +22,22 @@
 }
 
 .profile-page .about-user {
+    width: 90%;
+    margin: 2em auto;
     padding: 0 1em;
     display: flex;
     flex-direction: column;
     gap:1em;
 }
 
-.profile-page .user-menu p:hover {
+.profile-page .user-menu p {
     font-weight: 600;
+}
+
+.profile-page .user-menu p:hover {
     color: black;
     cursor: pointer;
-    border-bottom: 2px solid rgb(110, 0, 244);
+    border-bottom: 2px solid var(--secondary-color);
 }
 
 

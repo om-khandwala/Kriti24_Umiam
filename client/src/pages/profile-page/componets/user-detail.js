@@ -1,10 +1,11 @@
 import './component.css'
+import HorizontalLine from '../../../componets/line';
 
 function UserDetails ({userData}){
     return(
         <div class="user-info">
             <h4>Info</h4>
-            <hr/>
+            <HorizontalLine color={'white'}/>
             <div>
                 <p><strong>Major in  </strong>{userData.branch}</p>
                 <p><strong>Roll Number</strong>{userData.rollNumber}</p>

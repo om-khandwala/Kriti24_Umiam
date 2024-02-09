@@ -109,7 +109,7 @@ function Navbar() {
             </div>
           )}
         </div>
-        <i class="fa-solid fa-right-from-bracket"></i>
+        <Link to='https://login.microsoftonline.com/common/oauth2/v2.0/logout'><i class="fa-solid fa-right-from-bracket"></i></Link>
         <i class="fa-regular fa-message"></i>
         <div className="user-profile"></div>
       </div>

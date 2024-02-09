@@ -60,12 +60,12 @@
 }
 
 .main-navbar .right {
-  max-width: 70em;
+  max-width: 69.5em;
   overflow: hidden;
 }
 
 .main-navbar input:focus {
-  width: 70em;
+  width: 69.5em;
 }
 
 .main-navbar .user-profile {
@@ -78,6 +78,7 @@
 
 .main-navbar i {
   cursor: pointer;
+  color: white;
 }
 
 .main-navbar .dialog-box {
@@ -88,7 +89,7 @@
   font-size: 1em;
   position: absolute;
   top: 3.5em;
-  right: 2em;
+  right: 9.5em;
   max-height: 15em;
   overflow: scroll;
   padding: 1em 2em;

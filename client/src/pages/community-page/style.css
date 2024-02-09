@@ -1,6 +1,7 @@
 .karta {
     background-color: var(--body-background);
-    height: 100vh;
+    min-height: 100vh;
+    padding-bottom: 2em;
 }
 .main_container {
     display: flex;
