@@ -3,9 +3,27 @@
     margin-top: 2.5rem;
     margin-left: 7.5rem;
 }
+
+.media1 p {
+    font-weight: 600;
+    font-size: 1.2em;
+    margin-bottom: .5em;
+    color: var(--secondary-color);
+}
 .media1 .boxing4 {
-    background-color: gray;
-    height: 13rem;
+    border-radius: .25em;
+    box-shadow: var(--box-shadow);
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    border: 1px solid var(--black-color);
+    padding: 1em;
+    height: auto;
     width: 75rem;
+}
+
+.media1 .boxing4 img {
+    width: 30em;
 }
 

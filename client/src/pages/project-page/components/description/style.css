@@ -1,10 +1,20 @@
 .Describe {
-    color: black;
+    margin: 0 auto;
     margin-top: 2.5rem;
-    margin-left: 7.5rem;
+}
+
+.Describe p {
+    font-weight: 600;
+    font-size: 1.2em;
+    margin-bottom: .5em;
+    color: var(--secondary-color);
 }
 .Describe .boxing3 {
-    background-color: gray;
-    height: 13rem;
+    border-radius: .25em;
+    box-shadow: var(--box-shadow);
+    padding: 1em;
+    border: 1px solid var(--black-color);
+    background-color: white;
+    height: auto;
     width: 75rem;
 }

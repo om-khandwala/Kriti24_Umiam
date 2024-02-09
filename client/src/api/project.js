@@ -25,6 +25,11 @@ export const recentProject = async () => {
 
 export const userProjects = async (id) => {
   const response = await axios.get(`http://localhost:5050/api/project/user/${id}`); 
- // console.log('dfklgdfklgkldfgkdfgklfdkg',response.data);
   return response.data.projects; 
+}
+
+export const getProjectById = async (id) => {
+  const response = await axios.get(`http://localhost:5050/api/project/get-project/${id}`); 
+ // console.log(response.data.project)
+  return response.data.project; 
 }

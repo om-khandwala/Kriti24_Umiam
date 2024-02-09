@@ -3,9 +3,9 @@ import './style.css'
 function Collab() {
   return (
     <div className='collab'>
-      <p className='descp1'>Collab</p>
-        <div className="boxing1">
-        </div>
+      <p className='descp1'>Collaborators</p>
+      <div className="boxing1">
+      </div>
     </div>
   )
 }

@@ -7,6 +7,7 @@ import {
   createProject,
   deleteProject,
   getProject,
+  getProjectById,
   putProject,
   recentProject,
   userProjects,
@@ -20,5 +21,6 @@ projectRouter.get("/user/:id", userProjects);
 projectRouter.get("/getProject", getProject);
 projectRouter.put("/update/:id", putProject);
 projectRouter.delete("/deleteProject/:id", deleteProject);
+projectRouter.get('/get-project/:id', getProjectById);
 
 export default projectRouter;

@@ -3,8 +3,14 @@
     margin-top: 2.5rem;
     margin-left: 7.5rem;
 }
+
+.collab p {
+    color: var(--secondary-color);
+    font-weight: 600;
+    font-size: 1.2em;
+    margin-bottom: .5em;
+}
 .collab .boxing1 {
-    background-color: gray;
     height: 13rem;
     width: 75rem;
 }
