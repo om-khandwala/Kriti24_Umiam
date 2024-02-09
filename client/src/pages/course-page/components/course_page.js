@@ -4,6 +4,7 @@ import Aboutcourse from "./comp/CourseList";
 import { useState } from "react";
 import { useEffect } from "react";
 import { allCourses } from "../../../api/course.js";
+import './course_page.css';
 
 
 const Coursepage = () => {
