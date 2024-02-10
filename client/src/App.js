@@ -18,7 +18,7 @@ import ErrorBoundary from "./Error/ErrorBoundary.js";
 import { ToastContainer } from "react-toastify";
 import serverUrl from "./api/server.js";
 // import FileUpload from "./pages/test";
-const socket = io.connect(serverUrl);
+const socket = io.connect("https://umiam-kriti24.onrender.com");
 
 function App() {
   const userName = Cookies.get("user");

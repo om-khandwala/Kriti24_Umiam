@@ -33,7 +33,10 @@ function UserForm({ user }) {
         }
     
         try {
-          const signResponse = await fetch(`${serverUrl}/api/apisignreq`);
+
+          const signResponse = await fetch('https://umiam-kriti24.onrender.com/api/apisignreq');
+
+
           const signData = await signResponse.json();
           const url = "https://api.cloudinary.com/v1_1/" + signData.cloudname + "/auto/upload";
     

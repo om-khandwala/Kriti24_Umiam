@@ -17,7 +17,8 @@ const cca = new msal.ConfidentialClientApplication(msalConfig);
 export const login = (req, res) => {
   const authCodeUrlParameters = {
     scopes: ["user.read"],
-    redirectUri: `${serverUrl}/redirect`,
+    redirectUri: "https://umiam-kriti24.onrender.com/redirect",
+
   };
 
   cca
@@ -36,7 +37,9 @@ export const redirect = async (req, res) => {
     const tokenRequest = {
       code: req.query.code,
       scope: "user.read",
-      redirectUri: `${serverUrl}/redirect`,
+
+      redirectUri: "https://umiam-kriti24.onrender.com/redirect",
+
     };
 
     const response = await cca.acquireTokenByCode(tokenRequest);
