@@ -1,9 +1,10 @@
 import axios from "axios";
 import handleAxiosError from "../Error/Error";
+import serverUrl from "./server";
 
 export const allCourses = async () => {
   try {
-    const response = await axios.get("http://localhost:5050/api/courses/get");
+    const response = await axios.get(`${serverUrl}/api/courses/get`);
 
     return response.data;
   } catch (error) {
@@ -14,7 +15,7 @@ export const allCourses = async () => {
 export const CoursesById = async (authorId) => {
   try {
     const response = await axios.get(
-      "http://localhost:5050/api/courses/getById/" + authorId
+      `${serverUrl}/api/courses/getById/` + authorId
     );
 
     return response.data;
@@ -26,7 +27,7 @@ export const CoursesById = async (authorId) => {
 export const allFeedbacks = async (courseId) => {
   try {
     const response = await axios.get(
-      "http://localhost:5050/api/courses/getFeedbacks/" + courseId
+      `${serverUrl}/api/courses/getFeedbacks/` + courseId
     );
 
     return response.data;
@@ -38,7 +39,7 @@ export const allFeedbacks = async (courseId) => {
 export const createCourse = async (data) => {
   try {
     const response = await axios.post(
-      "http://localhost:5050/api/courses/create",
+      `${serverUrl}/api/courses/create`,
       data
     );
   //  console.log(response.data);
@@ -51,7 +52,7 @@ export const createCourse = async (data) => {
 export const createFeedback = async (courseId, data) => {
   try {
     const response = await axios.post(
-      "http://localhost:5050/api/courses/feedback/" + courseId,
+      `${serverUrl}/api/courses/feedback/` + courseId,
       data
     );
     console.log(response.data);
@@ -64,7 +65,7 @@ export const createFeedback = async (courseId, data) => {
 export const updateCourse = async (courseId, data) => {
   try {
     const response = await axios.put(
-      "http://localhost:5050/api/courses/update/" + courseId,
+      `${serverUrl}/api/courses/update/` + courseId,
       data
     );
     console.log(response.data);
@@ -76,7 +77,7 @@ export const updateCourse = async (courseId, data) => {
 
 export const currentUser = async () => {
   try {
-    const response = await axios.get("http://localhost:5050/api/user/userData");
+    const response = await axios.get(`${serverUrl}/api/user/userData`);
     return response.data;
   } catch (error) {
     return handleAxiosError(error);
@@ -84,7 +85,7 @@ export const currentUser = async () => {
 };
 
 export const getUser = async (id) => {
-    const response = await axios.get("http://localhost:5050/api/user/find/"+id);
+    const response = await axios.get(`${serverUrl}/api/user/find/`+id);
     // console.log(response.data.user[0])
     return response.data.user[0];
 }

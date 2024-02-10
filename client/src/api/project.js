@@ -1,3 +1,4 @@
+import serverUrl from "./server";
 import axios from "axios";
 import { Navigate } from "react-router-dom";
 
@@ -6,7 +7,7 @@ axios.defaults.withCredentials = true;
 export const createProject = async (data) => {
   try {
     const response = await axios.post(
-      "http://localhost:5050/api/project/create",
+      `${serverUrl}/api/project/create`,
       data
     );
     return response.data;
@@ -18,7 +19,7 @@ export const createProject = async (data) => {
 export const updateProject = async (data, id) => {
   try {
     const response = await axios.put(
-      `http://localhost:5050/api/project/update/${id}`,
+      `${serverUrl}/api/project/update/${id}`,
       data
     );
     return response.data;
@@ -29,7 +30,7 @@ export const updateProject = async (data, id) => {
 
 export const allProject = async () => {
   try {
-    const response = await axios.get("http://localhost:5050/api/project/");
+    const response = await axios.get(`${serverUrl}/api/project/`);
     return response.data.project;
   } catch (error) {
    // console.log("some network issues ");
@@ -40,7 +41,7 @@ export const allProject = async () => {
 export const recentProject = async () => {
   try {
     const response = await axios.get(
-      "http://localhost:5050/api/project/recent"
+      `${serverUrl}/api/project/recent`
     );
     return response.data;
   } catch (error) {
@@ -51,7 +52,7 @@ export const recentProject = async () => {
 export const userProjects = async (id) => {
   try {
     const response = await axios.get(
-      `http://localhost:5050/api/project/user/${id}`
+      `${serverUrl}/api/project/user/${id}`
     );
     return response.data.projects;
   } catch (error) {
@@ -62,7 +63,7 @@ export const userProjects = async (id) => {
 export const getProjectById = async (id) => {
   try {
     const response = await axios.get(
-      `http://localhost:5050/api/project/get-project/${id}`
+      `${serverUrl}/api/project/get-project/${id}`
     );
     return response.data.project;
   } catch (error) {
@@ -73,7 +74,7 @@ export const getProjectById = async (id) => {
 
 export const addCommentById = async (id, comment) => {
   try{
-    const response = await axios.post(`http://localhost:5050/api/project/addComment/${id}`, comment); 
+    const response = await axios.post(`${serverUrl}/api/project/addComment/${id}`, comment); 
     // console.log(response.data.project)
     return response.data.project; 
   }catch(error){
