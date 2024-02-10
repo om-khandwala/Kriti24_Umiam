@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import './style.css';
 import { createGroup } from '../../../../api/groups';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const CommunityModal = ({ user, toggleModal }) => {
   const [communityName, setCommunityName] = useState('');
   const [description, setDescription] = useState('');
   const [selectedTags, setSelectedTags] = useState([]);
+
+  const notify = (message) => toast(message);
 
   const handleCommunityName = (e) => {
     setCommunityName(e.target.value);
@@ -28,7 +32,7 @@ const CommunityModal = ({ user, toggleModal }) => {
     e.preventDefault();
 
     if (!communityName || !description || !selectedTags.length) {
-      alert('Please fill in all fields');
+      notify('Please fill in all fields');
       return;
     }
 

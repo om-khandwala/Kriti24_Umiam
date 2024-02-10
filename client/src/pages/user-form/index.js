@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import './style.css';
 import { updateUser } from "../../api/user";
 import {Link , useNavigate} from 'react-router-dom';
@@ -16,6 +16,7 @@ function UserForm({ user }) {
     });
     const [logo,setLogo] = useState();
     const [isUploading, setIsUploading] = useState(false);
+
 
     const handleimagechange = (event)=>{
         setLogo(event.target.files[0]);
@@ -128,15 +129,6 @@ function UserForm({ user }) {
                     </div>
                     <form onSubmit={handleSubmit}>
                         <div>
-                            <label>Logo</label>
-                            <input
-                                type="file"
-                                name="logo"
-                                onChange={handleimagechange}
-                            />
-                            <button onClick={handleUploadButtonClick} className='btn'>Upload Logo</button>
-                        </div>
-                        <div>
                             <label>Name:</label>
                             <input
                                 type="text"
@@ -180,6 +172,20 @@ function UserForm({ user }) {
                                 onChange={handleChange}
                             />
                         </div>
+
+                        <div className="logo">
+                            <label for='logo' className="logo-label">Upload Profile Picture</label>
+                            <input
+                                id='logo'
+                                type="file"
+                                name="logo"
+                                onChange={handleimagechange}
+            
+                            />
+                            {isUploading && <div className="loading">Loading...</div>}
+                            <button onClick={handleUploadButtonClick} className='btn'>Upload Logo</button>
+                        </div>
+
                         <button type="submit">Submit</button>
                         <Link to='/feed'>Skip for now, continue to feed page</Link>
                     </form>
