@@ -19,7 +19,7 @@ const FileUpload = ({setProjectImages}) => {
     }
 
     try {
-      const signResponse = await fetch('http://localhost:5050/api/apisignreq');
+      const signResponse = await fetch('https://umiam-kriti24.onrender.com/api/apisignreq');
       const signData = await signResponse.json();
       const url = "https://api.cloudinary.com/v1_1/" + signData.cloudname + "/auto/upload";
 

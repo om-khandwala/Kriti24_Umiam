@@ -18,7 +18,7 @@ function LogoUpload({ setLogo }) {
         try {
             setIsUploading(true);
 
-            const signResponse = await fetch('http://localhost:5050/api/apisignreq');
+            const signResponse = await fetch('https://umiam-kriti24.onrender.com/api/apisignreq');
             const signData = await signResponse.json();
 
             const formData = new FormData();
