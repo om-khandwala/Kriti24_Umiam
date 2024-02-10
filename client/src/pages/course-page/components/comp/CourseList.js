@@ -40,7 +40,7 @@ const Aboutcourse = ({course}) => {
                         </div>
                         <div className="line"></div>
                         <div className="comment">
-                            <p onClick={() => handleCommentsClick(course._id)}>Comments</p>
+                            <p onClick={() => handleCommentsClick(course._id)}>Feedbacks</p>
                         </div>
                         {selectedCourseId === course._id && <CommentSection comments = {comments} course = {course} setComments = {setComments} onClose={() => setSelectedCourseId(null)} />}
                         {isPopupOpen && <CommentSection  onClose={togglePopup} />}

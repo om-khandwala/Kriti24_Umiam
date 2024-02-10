@@ -42,3 +42,9 @@ export const currentUser = async () => {
     return response.data;
 }
 
+export const getUser = async (id) => {
+    const response = await axios.get("http://localhost:5050/api/user/find/"+id);
+    // console.log(response.data.user[0])
+    return response.data.user[0];
+}
+
