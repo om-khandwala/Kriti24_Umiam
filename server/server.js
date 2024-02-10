@@ -12,7 +12,7 @@ import router from "./routes/cloudinary.router.js";
 import projectRouter from "./routes/project.routes.js";
 import courseRoutes from "./routes/courses.routes.js";
 import userRoutes from "./routes/user.routes.js";
-import spamcheckRoutes from "./routes/spamcheck.routes.js"
+import spamcheckRoutes from "./routes/spamcheck.routes.js";
 const app = express();
 app.use(cookieParser());
 
@@ -39,7 +39,10 @@ io.on("connection", (socket) => {
   });
 
   socket.on("send_msg", (data) => {
-    io.to(data.id).emit("msg_rcvd", data);
+    io.to(data.id).emit("msg_rcvd", {
+      msg: data.msg,
+      sender: data.sender, // Include the sender's name in the data sent to clients
+    });
   });
 
   socket.on("disconnect", () => {});
@@ -56,7 +59,7 @@ app.use("/api/groups", groupRoutes);
 app.use("/api/doubts", doubtRoutes);
 app.use("/api/courses", courseRoutes);
 app.use("/api/user", userRoutes);
-app.use("/api/checkspam",spamcheckRoutes)
+app.use("/api/checkspam", spamcheckRoutes);
 
 app.use(function(err, req, res, next){
   console.log(err);

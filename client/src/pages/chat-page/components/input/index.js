@@ -13,12 +13,14 @@ function MessageInput({ sendMessage, socket, id, user, group }) {
     if (group.members.includes(user._id)) {
       const data = {
         groupId: id,
-        chats: [{
-          userName: user.name,
-          message: message
-        }]
+        chats: [
+          {
+            userName: user.name,
+            message: message,
+          },
+        ],
       };
-      
+
       await createChat(data);
 
       if (message.trim() !== "") {
@@ -27,6 +29,7 @@ function MessageInput({ sendMessage, socket, id, user, group }) {
         socket.emit("send_msg", {
           msg: message,
           id: id,
+          sender: user.name,
         });
       }
     } else {
@@ -49,7 +52,9 @@ function MessageInput({ sendMessage, socket, id, user, group }) {
         onChange={handleMessageChange}
         onKeyPress={handleKeyPress}
       />
-      <button onClick={handleSendMessage}><i class="fa-solid fa-arrow-right"></i></button>
+      <button onClick={handleSendMessage}>
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
     </div>
   );
 }

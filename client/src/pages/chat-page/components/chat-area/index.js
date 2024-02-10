@@ -15,7 +15,7 @@ function ChatWindow({ socket, group }) {
   const { id } = useParams();
 
   const sendMessage = (messageText) => {
-    socket.emit("send_msg", { msg: messageText });
+    socket.emit("send_msg", { msg: messageText, sender: user.name });
   };
 
   useEffect(() => {
@@ -38,11 +38,9 @@ function ChatWindow({ socket, group }) {
         {
           message: data.msg,
           id: prevMessages.length + 1,
-          sender: `${user.name}`,
+          sender: data.sender,
         },
       ]);
-      const allMsg = await getGroupChat(id);
-      setOldMsg(allMsg);
     };
 
     socket.on("msg_rcvd", handleReceivedMessage);
@@ -50,7 +48,7 @@ function ChatWindow({ socket, group }) {
     return () => {
       socket.off("msg_rcvd", handleReceivedMessage);
     };
-  }, [socket, id, user.name, oldMsg]);
+  }, [socket, id, user.name]);
   return (
     <div className="chat-window">
       <Navbar user={user} />
@@ -59,6 +57,17 @@ function ChatWindow({ socket, group }) {
           oldMsg.map((msg, index) => {
             return (
               <Message key={index} text={msg.message} sender={msg.userName} />
+            );
+          })}
+
+        {messages.length > 0 &&
+          messages.map((message) => {
+            return (
+              <Message
+                key={message.id}
+                text={message.message}
+                sender={message.sender}
+              />
             );
           })}
       </div>
