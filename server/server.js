@@ -12,6 +12,7 @@ import router from "./routes/cloudinary.router.js";
 import projectRouter from "./routes/project.routes.js";
 import courseRoutes from "./routes/courses.routes.js";
 import userRoutes from "./routes/user.routes.js";
+import spamcheckRoutes from "./routes/spamcheck.routes.js"
 const app = express();
 app.use(cookieParser());
 
@@ -33,22 +34,15 @@ app.use(
 app.use(express.json());
 
 io.on("connection", (socket) => {
-  console.log("⚡: ${socket.id} user just connected!");
-
   socket.on("join", ({ id }) => {
     socket.join(id);
-    console.log("User with ID ${id} joined the room");
   });
 
   socket.on("send_msg", (data) => {
-    console.log(data);
-
     io.to(data.id).emit("msg_rcvd", data);
   });
 
-  socket.on("disconnect", () => {
-    console.log("🔥: A suser disconnected");
-  });
+  socket.on("disconnect", () => {});
 });
 
 mongoose.connect(process.env.ATLAS_URI);
@@ -62,6 +56,7 @@ app.use("/api/groups", groupRoutes);
 app.use("/api/doubts", doubtRoutes);
 app.use("/api/courses", courseRoutes);
 app.use("/api/user", userRoutes);
+app.use("/api/checkspam",spamcheckRoutes)
 
 const port = process.env.PORT || 5050;
 server.listen(port, () => {

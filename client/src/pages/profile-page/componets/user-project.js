@@ -17,9 +17,11 @@ function UserProject({ userData }) {
   // console.log(userProject, "User projects are");
   return (
     <div class="user-projects">
-      {userProject.map((project) => {
-        return <Project project={project} />;
-      })}
+      {userProject.length === 0 && <h3>No projects to show</h3>}
+      {userProject.length > 0 &&
+        userProject.map((project) => {
+          return <Project project={project} />;
+        })}
     </div>
   );
 }
