@@ -8,7 +8,7 @@ function Profile({user}) {
       <div className="circle"></div>
       <h3>{user.name.toLowerCase()}</h3>
       <p>{user.shortDescription}</p>
-      <Link to='/profile'>
+      <Link to={`/profile/${user._id}`}>
         <button>Visit profile</button>
       </Link>
     </div>

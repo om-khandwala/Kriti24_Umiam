@@ -105,7 +105,9 @@ function Navbar() {
             <Link to={"/doubt"}>
               <li>Doubt Forum</li>
             </Link>
-            <li>Projects</li>
+            <Link to="/project-feed">
+              <li>Projects</li>
+            </Link>
           </ul>
         </div>
       )}

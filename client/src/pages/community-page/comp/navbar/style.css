@@ -1,8 +1,8 @@
-.navbar {
+.navbar-community {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.8rem 1.5rem;
+    padding: 0.8rem 2rem;
     background-color: var(--secondary-color);
     color: #fff;
 }
@@ -19,18 +19,9 @@
 }
 
 
-.right_nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2em;
-    width: 10em;
-}
-
-
 .community_search {
-    /* height: 5em; */
-    width: 10em;
+    height: 3em;
+    width: 16em;
     border:none;
     border-radius: .3em;
 }
