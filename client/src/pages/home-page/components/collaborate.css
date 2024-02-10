@@ -1,26 +1,33 @@
-.left{
+.left-hm{
     padding-left: 6vw;
+    font-family: Montserrat, sans-serif;
     padding: 5vw 0vw 5vw 6vw;
 }
 
-.right{
+.right-hm{
     gap: 15vw;
     padding: 5vw 0vw 5vw 0vw;
+    font-family: Montserrat, sans-serif;
+
+
 }
 
-.collaborate{
+.collaborate-hm{
     display: flex;
     align-items: center;
     padding-left: 6vw;
+    padding-top: 8vw;
+    font-family: Montserrat, sans-serif;
+    /* align-items: flex-start; */
 }
 
-.col_text{
+.col_text-hm{
     font-size: 1.3vw;
     padding-bottom: 2vw;
     width: 40vw;
 }
 
-.laptop_img{
+.laptop_img-hm{
     z-index: 1;
     padding-left: 10vw;
     padding-top: 6vw;
@@ -28,34 +35,34 @@
     height: auto;
 }
 
-.black_img{
+.black_img-hm{
     z-index: -1;
     position: absolute;
-    margin-left: 60vw;
+    margin-left: 55.9vw;
     width: 37vw;
     height: auto;
 }
 
-.yellow_img{
+.yellow_img-hm{
     margin-bottom: -62vw;
     margin-left: -10vw;
     width: 20vw;
     height: auto;
 }
 
-.heading {
+.heading-hm {
     font-size: 2.7vw;
     font-weight: 790;
     width: 39vw;
 }
 
-.text{
+.text-hm{
     font-size: 1.1vw;
     padding-bottom: 2vw;
     width: 40vw;
 }
 
-.page_btn  {
+.page_btn-hm  {
     padding: 0.5rem 2rem;
     background-color: #2159C5;
     color: #fff;
@@ -76,19 +83,19 @@
     width: 20vw;
 } */
 
-.aboutus{
+.aboutus-hm{
     display: flex;
     align-items: center;
     padding-left: 6vw;
     padding-top: 25vw;
 }
 
-.about_img{
+.about_img-hm{
     width: 23vw;
     height: auto;
 }
 
-.outline_img{
+.outline_img-hm{
     z-index: -1;
     position: absolute;
     margin-left: 1.5vw;
@@ -97,7 +104,7 @@
     height: auto;
 }
 
-.contact_us{
+.contact_us-hm{
     background-color: #010101;
     padding: 0vw 2vw 0vw 2vw;
     place-items: center;
@@ -106,7 +113,7 @@
 }
 
 
-.get_help{
+.get_help-hm{
     color: #fff;
     font-size: 3vw;
     font-weight: 600;
@@ -114,7 +121,7 @@
     margin-top: -61vw;
 }
 
-.get_text{
+.get_text-hm{
     color: #fff;
     padding-bottom: 2.6vw;
     z-index: 2;
@@ -125,11 +132,11 @@
     text-align: center;
 }
 
-.cont_btn{
+.cont_btn-hm{
     margin-top: -36vw;
 }
 
-.rec1{
+.rec1-hm{
     z-index: 1;
     margin-left: -65vw;
     margin-top: 34vw;
@@ -137,7 +144,7 @@
     height: auto;
 }
 
-.rec2{
+.rec2-hm{
     z-index: 1;
     margin-left: -35vw;
     margin-top: 2vw;
@@ -145,7 +152,7 @@
     height: auto;
 }
 
-.rec3{
+.rec3-hm{
     z-index: 1;
     margin-left: -18vw;
     margin-top: 2vw;
@@ -153,7 +160,7 @@
     height: auto;
 }
 
-.rec4{
+.rec4-hm{
     z-index: 1;
     margin-left: -14vw;
     margin-top: 5vw;
@@ -161,7 +168,7 @@
     height: auto;
 }
 
-.rec5{
+.rec5-hm{
     z-index: 1;
     margin-left: 8vw;
     margin-top: -6vw;
@@ -169,15 +176,15 @@
     height: auto;
 }
 
-.rec6{
+.rec6-hm{
     z-index: 1;
-    margin-left: 83.5vw;
+    margin-left: 82.7vw;
     margin-top: -1vw;
     width: 14vw;
     height: auto;
 }
 
-.rec7{
+.rec7-hm{
     z-index: 1;
     margin-left: 50vw;
     margin-top: -70vw;
@@ -185,7 +192,7 @@
     height: auto;
 }
 
-.rec8{
+.rec8-hm{
     z-index: 1;
     width: 2vw;
     height: auto;
@@ -193,7 +200,7 @@
     margin-top: -60vw;
 }
 
-.rec9{
+.rec9-hm{
     z-index: 1;
     width: 2vw;
     height: auto;
@@ -201,7 +208,7 @@
     margin-top: -50vw;
 }
 
-.rec10{
+.rec10-hm{
     z-index: 1;
     width: 2vw;
     height: auto;
@@ -209,7 +216,7 @@
     margin-left: 40vw;
 }
 
-.footer{
+.footer-hm{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -220,7 +227,7 @@
     font-family: Montserrat, sans-serif;
 }
 
-.nav-links {
+.nav-links-hm {
     list-style-type: none;
     display: flex;
     gap: 1rem;
@@ -228,24 +235,24 @@
     padding-right: 4vw;
 }
 
-.nav-links li {
+.nav-links-hm li {
     color: black;
     font-size: 1.4vw;
     cursor: pointer;
 }
 
-.feature1{
+.feature1-hm{
     display: flex;
     align-items: center;
 }
 
-.feature2{
+.feature2-hm{
     display: flex;
     align-items: center;
     padding-bottom: 14vw;
 }
 
-.black_box{
+.black_box-hm{
     z-index: 0;
     width: 23.9vw;
     height: auto;
@@ -253,7 +260,7 @@
     /* position: absolute; */
 }
 
-.white_box{
+.white_box-hm{
     z-index: 1;
     /* margin-right: 50vw; */
     border: 10px solid black;
@@ -265,7 +272,7 @@
     height: auto;
 }
 
-.im{
+.im-hm{
     display: flex;
     position: relative;
     align-items: center;
@@ -273,7 +280,7 @@
     width: 52vw;
 }
 
-.l_white_box{
+.l_white_box-hm{
     z-index: 1;
     border: 10px solid black;
     border-radius: 20px;
@@ -282,12 +289,12 @@
     height: auto;
 }
 
-.l_black_box{
+.l_black_box-hm{
     width: 29vw;
     height: auto;
 }
 
-.logo{
+.logo-hm{
     width: 7vw;
     height: auto;
 }
