@@ -1,7 +1,6 @@
 import * as msal from "@azure/msal-node";
 import { getUserFromToken, getBranch } from "../user/user.util.js";
 import User from "../../Models/User.js";
-import serverUrl from "../../../client/src/api/server.js";
 
 const msalConfig = {
   auth: {
