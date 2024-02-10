@@ -24,6 +24,7 @@ const projectSchema = new schema({
     },
     logo:{
         type: String,
+        default:"https://res.cloudinary.com/dlc5erxkj/image/upload/v1707575374/signed_upload_demo_form/zuse5crup6vlj14p0sb2.png"
     },
     links:{
             image:{

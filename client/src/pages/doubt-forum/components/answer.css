@@ -6,9 +6,13 @@
 }
 
 .doubt-answer-left {
-    width: 5em;
-    height: 5em;
-    background: #000;
+    width: 3em;
+    height: 3em;
+    margin-right: 2rem;
+    /* background: #; */
+}
+.doubt-answer-right {
+    margin-top: 1.5rem;
 }
 
 .doubt-answer h5 {

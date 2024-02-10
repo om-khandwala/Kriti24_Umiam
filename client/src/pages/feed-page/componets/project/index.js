@@ -61,10 +61,10 @@ function Project({ project, condition, user }) {
       </p>
 
       <div className="box">
-        <div className="rating" onClick={handlestar}>
+        {condition!=="group"?<div className="rating" onClick={handlestar}>
           {isLiked ? <StarLiked /> : <Star />}
           <p>{proj.numberofRatings}</p>
-        </div>
+        </div>:<div></div>}
         <div className="language-total">
           {proj.tags.map((tag, index) => (
             <Language key={index} id={index} name={tag} />
