@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './addcommentsec.css'; 
 import CommentBox from'./usercomment'
-import { comments } from './CourseList';
+import TotalFeedbacks from './TotalFeedbacks';
 const CommentSection = ({comments, course, setComments}) => {
     const [showCommentBox, setShowCommentBox] = useState(false);
 
@@ -24,19 +24,13 @@ const CommentSection = ({comments, course, setComments}) => {
             {showCommentBox ? (
                 <CommentBox course = {course} setComments = { setComments} onCancel={handleCommentCancel} onSubmit={handleCommentSubmit}/>
             ) : (
-                <button className='add_comment' onClick={toggleCommentBox}>+ Add Comment</button>
+                <button className='add_comment' onClick={toggleCommentBox}>+ Add Feedback</button>
             )}
 
             {   
-                
-                comments.length==0 ? <div>No comments available</div> : comments.map((comment) => (
-                    <div className="comment-preview" key={comment._id}>
-                        <img src={comment.image} alt="Comment" className='img_in_comment' ></img>
-                        <div>
-                            <p className='comment_user'>{comment.user_id}</p>
-                            <p className='user_comment'>{comment.text_body}</p>
-                        </div>
-                    </div>
+
+                comments.length==0 ? <div>No feedbacks available</div> : comments.map((comment) => (
+                    <TotalFeedbacks key={comment._id} comment = {comment} />
                 ))
             }
  

@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 4.5em;
+  height: 5em;
   color: white;
   width: 100%;
 }
@@ -79,6 +79,22 @@
 .main-navbar i {
   cursor: pointer;
   color: white;
+}
+
+.main-navbar .tooltip {
+  position: absolute;
+  background-color: white;
+  color: black;
+  padding: 5px;
+  border-radius: 5px;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.main-navbar i:hover + .tooltip {
+  visibility: visible;
+  opacity: 1;
 }
 
 .main-navbar .dialog-box {

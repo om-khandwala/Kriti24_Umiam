@@ -43,10 +43,11 @@ export const updateUser = async (req, res) => {
       res.status(500).json({ msg: "Internal Server error" });
     }
 };
+
 export const getUserById = async(req,res) =>{
   try {
     const {userId} = req.params;
-    const user = await User.findById(userId);
+    const user = await User.find({_id: userId});
     return res.status(200).json({user})
   } catch (error) {
     console.log(error);

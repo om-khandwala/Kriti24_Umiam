@@ -78,8 +78,17 @@ export const currentUser = async () => {
   try {
     const response = await axios.get("http://localhost:5050/api/user/userData");
 
+<<<<<<< HEAD
     return response.data;
   } catch (error) {
     return handleAxiosError(error);
   }
 };
+=======
+export const getUser = async (id) => {
+    const response = await axios.get("http://localhost:5050/api/user/find/"+id);
+    // console.log(response.data.user[0])
+    return response.data.user[0];
+}
+
+>>>>>>> refs/remotes/origin/main
