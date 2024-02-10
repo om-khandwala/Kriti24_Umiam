@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import './upload.css';
+import serverUrl from "../../api/server";
 
 function LogoUpload({ setLogo }) {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -18,7 +19,7 @@ function LogoUpload({ setLogo }) {
         try {
             setIsUploading(true);
 
-            const signResponse = await fetch('http://localhost:5050/api/apisignreq');
+            const signResponse = await fetch(`${serverUrl}/api/apisignreq`);
             const signData = await signResponse.json();
 
             const formData = new FormData();

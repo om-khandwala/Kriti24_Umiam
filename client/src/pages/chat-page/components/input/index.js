@@ -53,7 +53,7 @@ function MessageInput({ sendMessage, socket, id, user, group }) {
         onKeyPress={handleKeyPress}
       />
       <button onClick={handleSendMessage}>
-        <i class="fa-solid fa-arrow-right"></i>
+        <i className="fa-solid fa-arrow-right"></i>
       </button>
     </div>
   );

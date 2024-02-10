@@ -12,7 +12,7 @@ const NavbarSecondary = ({user}) => {
   return (
     <div className="navbar-community">
       <div className="left-part">
-         <i class="fa-solid fa-satellite-dish"></i>
+         <i className="fa-solid fa-satellite-dish"></i>
         <h4>Communities</h4>
       </div>
       <button className="community_search" onClick={toggleModal}>

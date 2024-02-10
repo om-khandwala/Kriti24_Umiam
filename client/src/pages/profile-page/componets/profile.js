@@ -3,7 +3,7 @@ import './component.css';
 function Profile({userData}){
     return(
         <div className="profile">
-            <div class='profile-bg'></div>
+            <div className='profile-bg'></div>
             <div className = 'user-image'>
                  <img src= {userData.logo}  className="user-img" alt = 'user-img'/>
             </div>

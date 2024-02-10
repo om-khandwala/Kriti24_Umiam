@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Project({ project }) {
   return (
-    <div class="project-component">
+    <div className="project-component">
       <img src={project.links.image[0]} alt="projectImage" />
       <div>
         <p className="type">Type</p>

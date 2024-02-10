@@ -1,6 +1,7 @@
 import * as msal from "@azure/msal-node";
 import { getUserFromToken, getBranch } from "../user/user.util.js";
 import User from "../../Models/User.js";
+import serverUrl from "../../../client/src/api/server.js";
 
 const msalConfig = {
   auth: {
@@ -16,7 +17,7 @@ const cca = new msal.ConfidentialClientApplication(msalConfig);
 export const login = (req, res) => {
   const authCodeUrlParameters = {
     scopes: ["user.read"],
-    redirectUri: "http://localhost:5050/redirect",
+    redirectUri: `${serverUrl}/redirect`,
   };
 
   cca
@@ -35,7 +36,7 @@ export const redirect = async (req, res) => {
     const tokenRequest = {
       code: req.query.code,
       scope: "user.read",
-      redirectUri: "http://localhost:5050/redirect",
+      redirectUri: `${serverUrl}/redirect`,
     };
 
     const response = await cca.acquireTokenByCode(tokenRequest);

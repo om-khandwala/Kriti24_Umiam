@@ -131,7 +131,7 @@ function DoubtHeader({ setDoubts, id }) {
             <HorizontalLine color={'black'}/>
 
             <div className="footer">
-              <i class="fa-solid fa-paperclip"></i>
+              <i className="fa-solid fa-paperclip"></i>
               <button onClick={handleSubmit}>Submit</button>
             </div>
           </div>

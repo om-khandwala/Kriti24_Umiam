@@ -24,7 +24,7 @@ function MyCourses({userData}){
     },[]);
     console.log(mycourses,"mycourses");
     return (
-        <div class="course-section">
+        <div className="course-section">
             <h4>My Courses</h4>
             <HorizontalLine color={'white'}/>
             <div>
