@@ -76,6 +76,15 @@
   background-color: white;
 }
 
+.main-navbar .user-profile img{
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: white;
+}
+
+
 .main-navbar i {
   cursor: pointer;
   color: white;

@@ -26,7 +26,7 @@ const UserSchema = new schema({
     },
     logo:{
         type: String,
-        default:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA8cTn1-RRcQ_T4-cf40vYi4sjFEADIdog1TqwvXO3kw&s"
+        default:"https://res.cloudinary.com/dlc5erxkj/image/upload/v1707566073/signed_upload_demo_form/nstje7fg2bbvz9nf7p7l.png"
     }
 })
 
