@@ -63,6 +63,12 @@ app.use("/api/doubts", doubtRoutes);
 app.use("/api/courses", courseRoutes);
 app.use("/api/user", userRoutes);
 
+app.use(function(err, req, res, next){
+  console.log(err);
+  res.status(500).json({msg: "An internal server error occurred"});
+  next("/logout")
+});
+
 const port = process.env.PORT || 5050;
 server.listen(port, () => {
   console.log(`Server is running on port: ${port}`);

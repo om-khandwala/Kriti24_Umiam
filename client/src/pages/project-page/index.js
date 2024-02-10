@@ -9,7 +9,7 @@ import { getProjectById } from "../../api/project";
 import { useParams, Link } from "react-router-dom";
 
 function ProjectName() {
-  const [activeComponent, setActiveComponent] = useState(null);
+  const [activeComponent, setActiveComponent] = useState("Description");
   const [project, setProject] = useState([]);
 
   const { id } = useParams();
