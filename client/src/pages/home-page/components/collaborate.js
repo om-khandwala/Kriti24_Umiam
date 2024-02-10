@@ -1,7 +1,7 @@
 import './collaborate.css';
 const Collaborate = () => {
     const handlelogin = (e)=>{
-        window.location.href = "https://localhost:5050/login";
+        window.location.href = "http://localhost:5050/login";
       }
     
     return ( 

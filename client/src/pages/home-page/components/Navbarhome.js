@@ -5,7 +5,7 @@ import './Navbarhome.css';
 const Navbar = () => {
   const navigate = useNavigate();
   const handlelogin = (e)=>{
-    window.location.href = "https://localhost:5050/login";
+    window.location.href = "http://localhost:5050/login";
   }
 
   const handleaboutus = (e)=>{
