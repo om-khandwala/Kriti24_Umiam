@@ -1,8 +1,7 @@
-import dotenv from 'dotenv'
 import axios from "axios";
-dotenv.config()
-const serverUrl = process.env.serverUrl;
 axios.defaults.withCredentials = true;
+
+const serverUrl = 'http://umiam-kriti24.netlify.app';
 
 export const allDoubts = async () => {
   const response = await axios.get(`${serverUrl}/api/doubts`);

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import './upload.css';
-import serverUrl from "../../api/server";
 
 function LogoUpload({ setLogo }) {
     const [selectedFile, setSelectedFile] = useState(null);

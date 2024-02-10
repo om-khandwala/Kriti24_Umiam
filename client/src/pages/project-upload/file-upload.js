@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './upload.css';
-import serverUrl from '../../api/server';
 
 const FileUpload = ({setProjectImages}) => {
   const [selectedFiles, setSelectedFiles] = useState([]);

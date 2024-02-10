@@ -1,8 +1,7 @@
 import axios from "axios";
 import handleAxiosError from "../Error/Error";
-import dotenv from 'dotenv'
-dotenv.config()
-const serverUrl = process.env.serverUrl;
+
+const serverUrl = 'http://umiam-kriti24.netlify.app';
 
 export const allCourses = async () => {
   try {
