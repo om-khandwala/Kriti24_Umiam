@@ -5,18 +5,19 @@
 }
 
 .about_course{
-    border: 0px solid white;
-    border-radius: 0.8vw;
+    border-radius: 0.25em;
     width: 57vw;
     background-color: white;
-    padding-top: 0.9vw;
-    padding-bottom: 0.5vw;
-    font-family: 'Inter', sans-serif;
+    padding: 1em 0em;
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
 }
 
 .course_title{
-    font-size: 1.4vw;
+    font-size: 1.3em;
     font-weight: 600;
+    text-transform: capitalize;
 }
 
 .line{
@@ -26,16 +27,16 @@
 }
 
 .proj_title , .course_des , .comment{
-    padding-left: 2.7vw;
-    padding-right: 2.7vw;
+    padding-left: 2.7em;
+    padding-right: 2.7em;
 }
 
 .course_des{
-    font-size: 1.2vw;
+    font-size: 1em;
 }
 
 .comment{
-    font-size: 1.3vw;
+    font-size: 1em;
     font-weight: 600;
     cursor: pointer;
 }
