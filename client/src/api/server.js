@@ -1,2 +1,2 @@
-const serverUrl = "http://localhost:5050";
+const serverUrl = "https://umiam-kriti24.onrender.com/";
 export default serverUrl;
