@@ -1,15 +1,14 @@
-import React, {useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import "./style.css";
-import Navbar from '../../componets/navbar/navbar';
-import Left from './comp/Left_Section';
-import MiddleSection from './comp/middle_section';
-import Right_sec from './comp/right_section/Right_sec';
-import { allGroups } from '../../api/groups';
-import NavbarSecondary from './comp/navbar/Navbar';
+import Navbar from "../../componets/navbar/navbar";
+import Left from "./comp/Left_Section";
+import MiddleSection from "./comp/middle_section";
+import Right_sec from "./comp/right_section/Right_sec";
+import { allGroups } from "../../api/groups";
+import NavbarSecondary from "./comp/navbar/Navbar";
 
-function CommunityPage({user}) {
+function CommunityPage({ user }) {
   const [groups, setGroups] = useState([]);
-  // const [reff,setreff] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,23 +23,20 @@ function CommunityPage({user}) {
     fetchData();
   }, [groups]);
 
-  const updategroupscomm = ()=>{
-    setGroups([]);
-  }
 
   return (
     <>
     <Navbar />
     <div className='karta'>
-      <NavbarSecondary user={user} updategroups={updategroupscomm}/>
+      <NavbarSecondary user={user}/>
       <div className="main_container">
-        <Left groups={groups} user={user} />
+        <Left />
         <div className="mid_main">
            {groups.length > 0 && <MiddleSection groups={groups} user={user}/>}
         </div>
         <Right_sec />
       </div>
-    </div>
+    </div>  
     </>
   );
 }

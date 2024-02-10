@@ -2,8 +2,10 @@ import React, { useEffect, useState} from 'react';
 import './style.css';
 import FileUpload from './file-upload';
 import LogoUpload from './logo-upload';
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { createProject } from '../../api/project';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function ProjectUploadPage({user}) {
   const [logo, setLogo] = useState('');
@@ -15,6 +17,7 @@ function ProjectUploadPage({user}) {
   const [projectOutcomes, setProjectOutcomes] = useState([]);
   const [isLogo, setIsLogo] = useState(false);
   const [isImages, setIsImages] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsLogo(logo !== '');
@@ -51,32 +54,28 @@ function ProjectUploadPage({user}) {
     setGithubLink(link);
   };
 
+  const notify = (msg) => toast(msg);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!projectName) {
-      alert('Please fill in project name');
+      notify('Please fill in project name');
       return;
     }
     if(!description){
-      alert('desc');
+      notify('Enter Descrition of project');
       return;
     }
-    if(!projectImages.length){
-      alert('project image');
-      return;
-    }
+
     if(!selectedTags.length){
-      alert('tags');
+      alert('Add tags to your project');
       return;
     }
-    if(!githubLink){
-      alert('githublink');
-      return;
-    }
+
     if(!projectOutcomes){
-      alert('outcome');
+      alert('Add outcomes of your project');
       return;
     }
 
@@ -98,7 +97,7 @@ function ProjectUploadPage({user}) {
       const response = await createProject(data);
       // console.log(response);
 
-      alert('Project created successfully!');
+      
       setProjectName('');
       setDescription('');
       setProjectImages([]);
@@ -106,6 +105,9 @@ function ProjectUploadPage({user}) {
       setGithubLink('');
       setLogo('');
       setProjectOutcomes('');
+     
+      notify('Project created Succesfully');
+      navigate('/feed');
 
     } catch (error) {
       console.error('Error creating project:', error);
@@ -113,8 +115,22 @@ function ProjectUploadPage({user}) {
   };
 
   return (
+    <> 
+     <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     <div className='upload-project-form'>
       <div className='left'>
+        <img src='/images/logo.png' className='logo' alt='logo'/>
         <h2>Upload Project</h2>
         <p>
           "Transform ideas into reality; craft innovative solutions 
@@ -187,6 +203,7 @@ function ProjectUploadPage({user}) {
           <input type="checkbox" checked={isImages} readOnly />
           <LogoUpload setLogo= {setLogo}/>
           <input type="checkbox" checked={isLogo} readOnly />
+         
           {/* <p>{projectImages}  {logo}</p> */}
           <button type="submit" onClick={handleSubmit}>Upload Project</button>
         </form>
@@ -195,6 +212,7 @@ function ProjectUploadPage({user}) {
 
       </div>
     </div>
+    </>
   );
 }
 

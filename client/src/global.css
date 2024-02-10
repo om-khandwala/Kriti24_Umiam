@@ -53,3 +53,12 @@ button {
   color: white;
   background-color: var(--black-color);
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:active {
+  color: inherit;
+}

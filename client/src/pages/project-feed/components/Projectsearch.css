@@ -2,12 +2,13 @@
     display: flex;
     justify-content: space-between;
     background: var(--secondary-color);
-    padding: .5em 2em;
+    padding: 1em 2em;
     align-items: center;
 }
 
-.create-project-btn{
+.serach_navbar .create-project-btn{
     width: 12em;
+    height: 2.5em;
     padding: .2em 1.5em;
     border-radius: .25em;
     font-size: .9em;

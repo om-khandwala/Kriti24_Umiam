@@ -4,9 +4,14 @@
     background-color: var(--body-background);
 }
 
+.upload-project-form .logo {
+    width: 3em;
+    margin: 1em 0;
+    margin-bottom: 2em;
+}
+
 .upload-project-form .left {
     padding-left: 2em;
-    margin-top: 5em;
     width: 50%;
 }
 

@@ -4,41 +4,21 @@
     flex-direction: column;
     gap: 1em;
     color: black;
-    padding-left: 2.5em;
-    width: 15em;
+    width: 20%;
 }
 
-.all_com {
+.all_com, .my_com {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap:20px;
-    height: 5rem;
+    gap:1em;
     background: #FFF;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    border-radius: 10%;
-    margin-bottom: 3rem;
+    background: #ce5a6866;
+    padding: .25em 2em;
+    border-radius: .25em;
 }
 .all_com img {
     height: 3rem;
-}
-
-.my_com {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap:20px;
-    gap:20px;
-    height: 5rem;
-    background: #FFF;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    border-radius: 10%;
 }
 
 .my_com img {

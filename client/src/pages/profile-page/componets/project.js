@@ -1,15 +1,15 @@
-import { useEffect, useState } from "react";
-import { userProjects } from "../../../api/project";
+import { Link } from 'react-router-dom';
 
 function Project({ project }) {
+  console.log(project, "hello");
   return (
     <div class="project-component">
-      <img src="https://images.unsplash.com/photo-1682687218147-9806132dc697?q=80&w=3175&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+      <img src={project.links.image[0]} alt="projectImage" />
       <div>
         <p className="type">Type</p>
         <h4>{project.projectName}</h4>
         <p>{project.description}</p>
-        <p className="learn-more">Learn More</p>
+        <Link to={`/project-feed/${project._id}`}><p className="learn-more">Learn More</p></Link>
       </div>
     </div>
   );
