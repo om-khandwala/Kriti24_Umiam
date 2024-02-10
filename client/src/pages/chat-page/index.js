@@ -1,13 +1,13 @@
 import ChatWindow from "./components/chat-area";
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 import Sidebar from "./components/sidebar";
 import "./style.css";
 import { useEffect, useState } from "react";
 import { getGroup } from "../../api/groups";
 import Navbar from "../../componets/navbar/navbar";
 
-function ChatPage({socket, user}) {
-  const [group,  setGroup] = useState([]);
+function ChatPage({ socket, user }) {
+  const [group, setGroup] = useState([]);
   const { id } = useParams();
   useEffect(() => {
     const fetchData = async () => {
@@ -26,8 +26,8 @@ function ChatPage({socket, user}) {
     <div className="chat-page">
       <Navbar />
       <div className="flex-gap-0">
-        <Sidebar group={group}/>
-        <ChatWindow socket={socket} group={group}/>
+        <Sidebar group={group} />
+        <ChatWindow socket={socket} group={group} />
       </div>
     </div>
   );
