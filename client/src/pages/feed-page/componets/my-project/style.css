@@ -44,6 +44,8 @@
     flex-direction: column;
     gap: .5em;
     overflow-y: scroll;
+    padding: .5em 0;
+    height: 10em;
 }
 
 .myproject-container .project {

@@ -1,12 +1,13 @@
 .comment-preview{
     display: flex;
     /* align-items: center; */
-    padding-top: 1.3vw;
+    padding-top: 2em;
+    gap: 2em;
 }
 
 .img_in_comment{
-    width: 2.5vw;
-    height: 2.5vw;
+    width: 2.5em;
+    height: 2.5em;
 }
 
 .sec_of_comment{
@@ -14,16 +15,17 @@
     padding-right: 2.7vw;
 }
 
-.comment-preview.p{
-    padding-left: 1vw;
+.comment-preview p{
+    text-transform: capitalize;
+    padding-left: 1em;
 }
 
 .add_comment{
     font-size: 1.1vw;
-    border: 2.3px solid black;
+    border: 1px solid black;
     border-radius: 1.1vw;
-    padding: 0.5vw 0.7vw 0.5vw 0.7vw;
-    font-weight: 600;
+    padding: 0.5em .7em;
+    font-weight: 400;
     cursor: pointer;
 }
 

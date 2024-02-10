@@ -14,7 +14,7 @@ const TotalFeedbacks = ({comment}) => {
     <div className="comment-preview">
          <img src={comment.image} alt="Comment" className='img_in_comment' ></img>
          <div>
-            <p className='comment_user'>{name}</p>
+            <p className='comment_user'>{name.toLowerCase()}</p>
             <p className='user_comment'>{comment.text_body}</p>
         </div>
     </div>
