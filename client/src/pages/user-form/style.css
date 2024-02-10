@@ -1,6 +1,6 @@
 .user-form {
     display: flex;
-    height: 100vh;
+    min-height: 100vh;
     background-color: var(--body-background);
 }
 
@@ -27,8 +27,10 @@
 }
 
 .user-form .text {
+    width: 100%;
     margin-top: 7em;
 }
+
 
 .user-form h2, .user-form p {
     text-align: center;
@@ -44,6 +46,36 @@
     margin: 0 auto;
     padding: 20px;
     border-radius: 5px;
+}
+
+.user-form .logo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2em;
+}
+
+.user-form .logo button {
+    width: 10em;
+    margin-top: .5em;
+}
+
+.user-form .logo input {
+    display: none;
+}
+
+.user-form .logo-label {
+    font-size: 1em;
+    font-weight: 400;
+    border-radius: .25em;
+    background-color: white;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 33.5em;
+    height: 4em;
 }
 
 .user-form form label {

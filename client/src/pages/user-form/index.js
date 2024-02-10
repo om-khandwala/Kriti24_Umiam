@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import './style.css';
 import { updateUser } from "../../api/user";
 import {Link , useNavigate} from 'react-router-dom';
@@ -12,7 +12,66 @@ function UserForm({ user }) {
         degree: "",
         shortDescription: "",
         description: "",
+        logo:""
     });
+    const [logo,setLogo] = useState();
+    const [isUploading, setIsUploading] = useState(false);
+
+
+    const handleimagechange = (event)=>{
+        setLogo(event.target.files[0]);
+    }
+
+    const handleUpload = async (file) => {
+        setIsUploading(true);
+    
+        if (!file) {
+          alert('Please select at least one file');
+          setIsUploading(false);
+          return;
+        }
+    
+        try {
+          const signResponse = await fetch('http://localhost:5050/api/apisignreq');
+          const signData = await signResponse.json();
+          const url = "https://api.cloudinary.com/v1_1/" + signData.cloudname + "/auto/upload";
+    
+          const formData = new FormData();
+    
+          formData.append('file', file);
+          formData.append("api_key", signData.apikey);
+          formData.append("timestamp", signData.timestamp);
+          formData.append("signature", signData.signature);
+          formData.append("eager", "c_pad,h_300,w_400|c_crop,h_200,w_260");
+          formData.append("folder", "signed_upload_demo_form");
+    
+          const response = await fetch(url, {
+            method: 'POST',
+            body: formData,
+          });
+    
+          if (!response.ok) {
+            throw new Error('Failed to upload file to Cloudinary');
+          }
+    
+          const responseData = await response.json();
+          const secureUrl = responseData.secure_url;
+          console.log(secureUrl)
+          setFormData((prevData) => ({
+            ...prevData,
+            logo: secureUrl,
+        }));
+        } catch (error) {
+          console.error('Error uploading file:', error);
+        } finally {
+          setIsUploading(false);
+        }
+      };
+
+      const handleUploadButtonClick = (e) => {
+        e.preventDefault();
+        handleUpload(logo);
+      };
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -113,6 +172,20 @@ function UserForm({ user }) {
                                 onChange={handleChange}
                             />
                         </div>
+
+                        <div className="logo">
+                            <label for='logo' className="logo-label">Upload Profile Picture</label>
+                            <input
+                                id='logo'
+                                type="file"
+                                name="logo"
+                                onChange={handleimagechange}
+            
+                            />
+                            {isUploading && <div className="loading">Loading...</div>}
+                            <button onClick={handleUploadButtonClick} className='btn'>Upload Logo</button>
+                        </div>
+
                         <button type="submit">Submit</button>
                         <Link to='/feed'>Skip for now, continue to feed page</Link>
                     </form>
