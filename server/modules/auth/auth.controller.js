@@ -5,10 +5,10 @@ import serverUrl from "../../../client/src/api/server.js";
 
 const msalConfig = {
   auth: {
-    clientId: "3d6bc04c-160d-49a6-8ffd-d119b9f663d7",
+    clientId: "b9bb88de-2a97-4488-848b-b33d23d1c014",
     authority:
       "https://login.microsoftonline.com/850aa78d-94e1-4bc6-9cf3-8c11b530701c",
-    clientSecret: "2Oy8Q~zTb2Ca.zlnvK6zTOTKMciVj2cXAYB9mbwc",
+    clientSecret: "YYC8Q~VRg-8WiYViZ.sVT3-tUILf5GxTlyqJKbhc",
   },
 };
 
