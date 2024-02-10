@@ -4,7 +4,7 @@ import Collaborate from './components/collaborate';
 
 function Homepage() {
   return (
-      <div className="App">
+      <div className="home-page">
         <Navbar />
         <div className="content">
           <Collaborate/>

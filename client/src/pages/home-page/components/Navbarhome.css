@@ -1,5 +1,5 @@
 /* Navbar.css */
-.navbar {
+.navbar-home-page {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -9,12 +9,12 @@
     font-family: Montserrat, sans-serif;
 }
 
-.project_name{
+.navbar-home-page .project_name{
     font-size: 2vw;
     color: #43766C;
 }
 
-.nav-links {
+.navbar-home-page .nav-links {
     list-style-type: none;
     display: flex;
     gap: 1rem;
@@ -22,17 +22,17 @@
     padding-right: 4vw;
 }
 
-.nav-links li {
+.navbar-home-page .nav-links li {
     color: black;
     font-size: 1.3vw;
 }
 
-.nav-links li a {
+.navbar-home-page .nav-links li a {
     color: #fff;
     text-decoration: none;
 }
 
-.login-btn {
+.navbar-home-page .login-btn {
     padding: 0.5rem 2rem;
     background-color: #2159C5;
     color: #fff;
@@ -42,7 +42,7 @@
     font-size: 1.3vw;
     
 }
-.logo{
+.navbar-home-page .logo{
     width: 7vw;
     height: auto;
 }

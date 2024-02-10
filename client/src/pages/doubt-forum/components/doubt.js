@@ -8,7 +8,7 @@ import HorizontalLine from "../../../componets/line";
 function Doubt({ doubt }) {
   const [replies, setReplies] = useState([]);
   const [showAllReplies, setShowAllReplies] = useState(false);
-  console.log(replies);
+ // console.log(replies);
 
   replies.sort((a, b) => {
     return b.created_at - a.created_at;

@@ -30,7 +30,7 @@ const Navbar = () => {
     }
   }
   return (
-    <nav className="navbar">
+    <nav className="navbar-home-page">
       <img src={require('./images/Group21.png')} alt='logo' className='logo'></img>
       <ul className="nav-links">
         <li><button onClick={handlehome}>Home</button></li>

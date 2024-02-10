@@ -6,7 +6,7 @@ const Collaborate = () => {
     
     return ( 
         <>
-        <div className="collaborate ">
+        <div className="collaborate">
             <div>
                 <p className="heading">Collaberate And Discuss your project with campus janta</p>
                 <p className='col_text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In varius diam justo, id sagittis ipsum dictum feugiat.</p>

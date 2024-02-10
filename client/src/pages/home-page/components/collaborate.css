@@ -1,23 +1,17 @@
 .left{
     padding-left: 6vw;
-    font-family: Montserrat, sans-serif;
     padding: 5vw 0vw 5vw 6vw;
 }
 
 .right{
     gap: 15vw;
     padding: 5vw 0vw 5vw 0vw;
-    font-family: Montserrat, sans-serif;
-
-
 }
 
 .collaborate{
     display: flex;
     align-items: center;
     padding-left: 6vw;
-    font-family: Montserrat, sans-serif;
-    /* align-items: flex-start; */
 }
 
 .col_text{
