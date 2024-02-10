@@ -78,8 +78,8 @@ export const redirect = async (req, res) => {
       expires: new Date(Date.now() + 3073600),
       httpOnly: false,
     });
-   // res.redirect("http://umiam-kriti24.netlify.app/feed");
-     res.send('Login Successful!');
+     res.redirect("http://umiam-kriti24.netlify.app/feed");
+    // res.send('Login Successful!');
   } catch (error) {
     console.error("Error during redirect:", error);
     res.status(500).send("Error during login process");
