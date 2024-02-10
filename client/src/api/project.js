@@ -72,7 +72,11 @@ export const getProjectById = async (id) => {
 
 
 export const addCommentById = async (id, comment) => {
-  const response = await axios.post(`http://localhost:5050/api/project/addComment/${id}`, comment); 
- // console.log(response.data.project)
-  return response.data.project; 
+  try{
+    const response = await axios.post(`http://localhost:5050/api/project/addComment/${id}`, comment); 
+    // console.log(response.data.project)
+    return response.data.project; 
+  }catch(error){
+      return <Navigate to={'/'} />
+  }
 }

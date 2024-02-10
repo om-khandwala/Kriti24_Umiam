@@ -3,6 +3,7 @@
     width: 2.5em;
     border-radius: 50%;
     background-color: white;
+    overflow: hidden;
 }
 .navbar-chat-page {
     border-radius: 0 1em 0 0;

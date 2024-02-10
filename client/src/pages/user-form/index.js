@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import './style.css';
 import { updateUser } from "../../api/user";
 import {Link , useNavigate} from 'react-router-dom';
@@ -96,9 +96,13 @@ function UserForm({ user }) {
     
     const sendData = async (userId, formData) => {
         try {
+            console.log(formData);
             await updateUser(userId, formData);
             notify("Saved data successfully!");
-            navigate('/feed')
+
+            setTimeout(() => {
+                navigate('/feed');
+            }, 5000);
         } catch (error) {
             notify("Failed to updated!, plz return to home page");
             navigate('/')
@@ -183,7 +187,7 @@ function UserForm({ user }) {
             
                             />
                             {isUploading && <div className="loading">Loading...</div>}
-                            <button onClick={handleUploadButtonClick} className='btn'>Upload Logo</button>
+                            <button onClick={handleUploadButtonClick} className='btn' disabled={!logo} >Upload Logo</button>
                         </div>
 
                         <button type="submit">Submit</button>

@@ -34,7 +34,7 @@ function ProfilePage() {
 
   return (
     <>
-      <Navbar />
+      <Navbar user = {user}/>
       {user._id !== null && user._id !== undefined && (
         <div className="profile-page">
           <div className="profile-header">
