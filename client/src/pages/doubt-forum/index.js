@@ -5,7 +5,7 @@ import DoubtHeader from "./components/doubt-header";
 import { allDoubts, currentUserDoubts } from "../../api/doubt";
 import Navbar from "../../componets/navbar/navbar";
 
-function DoubtForum({ id }) {
+function DoubtForum({ id, user }) {
   const [doubts, setDoubts] = useState([]);
   const [userDoubts, setUserDoubts] = useState([]);
   const [allQs, setAllQs] = useState(true);
@@ -32,7 +32,7 @@ function DoubtForum({ id }) {
   };
   return (
     <>
-      <Navbar />
+      <Navbar user={user} />
       <DoubtHeader setDoubts={setDoubts} id={id} />
       <div className="doubt-forum">
         <div className="left">

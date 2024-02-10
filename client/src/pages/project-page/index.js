@@ -10,7 +10,7 @@ import { useParams, Link } from "react-router-dom";
 import Github from "./components/github/Github";
 
 function ProjectName() {
-  const [activeComponent, setActiveComponent] = useState(null);
+  const [activeComponent, setActiveComponent] = useState("Description");
   const [project, setProject] = useState([]);
 
   const { id } = useParams();

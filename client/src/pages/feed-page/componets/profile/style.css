@@ -51,12 +51,15 @@
   color: white;
 }
 .profile-container .circle {
-    height: 4em;
-    width: 4em;
+    height: 5em;
+    width: 5em;
     border-radius: 50%;
-    margin-top: -2em;
+    margin-top: -3em;
     background-color: black;
     border: 2px solid white;
     z-index: 500;
+    overflow: hidden;
 }
+
+
   

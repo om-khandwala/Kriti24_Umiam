@@ -5,7 +5,7 @@ import { findAllUsers } from "../../api/user";
 import { allProject } from "../../api/project";
 import { allGroups } from "../../api/groups";
 
-function Navbar() {
+function Navbar({user}) {
   const [query, setQuery] = useState("");
   const [filteredResults, setFilteredResults] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
@@ -146,7 +146,9 @@ function Navbar() {
         </div>
         <Link to='https://login.microsoftonline.com/common/oauth2/v2.0/logout'><i className="fa-solid fa-right-from-bracket"></i></Link>
         <i className="fa-regular fa-message"></i>
-        <div className="user-profile"></div>
+        <div className="user-profile">
+          <img src={user.logo} alt="user"/>
+        </div>
       </div>
     </div>
   );

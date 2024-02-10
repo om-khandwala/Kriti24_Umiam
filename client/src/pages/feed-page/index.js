@@ -48,7 +48,7 @@ function FeedPage({ user }) {
   }
   return (
     <div>
-      <Navbar />
+      <Navbar user={user} />
       <div className="main-container">
         <div className="left-section">
           <Profile user={user} />

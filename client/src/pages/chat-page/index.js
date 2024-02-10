@@ -22,9 +22,11 @@ function ChatPage({ socket, user }) {
     fetchData();
   }, [id]);
 
+  console.log(user)
+
   return (
     <div className="chat-page">
-      <Navbar />
+      <Navbar user={user}/>
       <div className="flex-gap-0">
         <Sidebar group={group} />
         <ChatWindow socket={socket} group={group} />

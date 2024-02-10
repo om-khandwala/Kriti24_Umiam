@@ -17,7 +17,7 @@ function ProjectFeed({ user }) {
 
   return (
     <>
-      <Navbar />
+      <Navbar user ={user}/>
       <SearchProject />
       <div className="view-project">
         <div className="left-part">
