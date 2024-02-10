@@ -1,0 +1,299 @@
+.left{
+    padding-left: 6vw;
+    font-family: Montserrat, sans-serif;
+    padding: 5vw 0vw 5vw 6vw;
+}
+
+.right{
+    gap: 15vw;
+    padding: 5vw 0vw 5vw 0vw;
+    font-family: Montserrat, sans-serif;
+
+
+}
+
+.collaborate{
+    display: flex;
+    align-items: center;
+    padding-left: 6vw;
+    font-family: Montserrat, sans-serif;
+    /* align-items: flex-start; */
+}
+
+.col_text{
+    font-size: 1.3vw;
+    padding-bottom: 2vw;
+    width: 40vw;
+}
+
+.laptop_img{
+    z-index: 1;
+    padding-left: 10vw;
+    padding-top: 6vw;
+    width: 35vw;
+    height: auto;
+}
+
+.black_img{
+    z-index: -1;
+    position: absolute;
+    margin-left: 60vw;
+    width: 37vw;
+    height: auto;
+}
+
+.yellow_img{
+    margin-bottom: -62vw;
+    margin-left: -10vw;
+    width: 20vw;
+    height: auto;
+}
+
+.heading {
+    font-size: 2.7vw;
+    font-weight: 790;
+    width: 39vw;
+}
+
+.text{
+    font-size: 1.1vw;
+    padding-bottom: 2vw;
+    width: 40vw;
+}
+
+.page_btn  {
+    padding: 0.5rem 2rem;
+    background-color: #2159C5;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.2vw;
+    border-radius: 50px;
+    z-index: 2;
+    /* width:1vw;
+    height:1vw;
+    size:20px; 
+    text-align: center; */
+}
+
+/* img {
+    display: flex;
+    width: 20vw;
+} */
+
+.aboutus{
+    display: flex;
+    align-items: center;
+    padding-left: 6vw;
+    padding-top: 25vw;
+}
+
+.about_img{
+    width: 23vw;
+    height: auto;
+}
+
+.outline_img{
+    z-index: -1;
+    position: absolute;
+    margin-left: 1.5vw;
+    margin-top: 5vw;
+    width: 23vw;
+    height: auto;
+}
+
+.contact_us{
+    background-color: #010101;
+    padding: 0vw 2vw 0vw 2vw;
+    place-items: center;
+    display: grid;
+    grid-template-rows: 3vw;
+}
+
+
+.get_help{
+    color: #fff;
+    font-size: 3vw;
+    font-weight: 600;
+    z-index: 2;
+    margin-top: -61vw;
+}
+
+.get_text{
+    color: #fff;
+    padding-bottom: 2.6vw;
+    z-index: 2;
+    font-size: 1.5vw;
+    font-weight: 500;
+    margin-top: -46vw;
+    width: 70vw;
+    text-align: center;
+}
+
+.cont_btn{
+    margin-top: -36vw;
+}
+
+.rec1{
+    z-index: 1;
+    margin-left: -65vw;
+    margin-top: 34vw;
+    width: 25vw;
+    height: auto;
+}
+
+.rec2{
+    z-index: 1;
+    margin-left: -35vw;
+    margin-top: 2vw;
+    width: 4vw;
+    height: auto;
+}
+
+.rec3{
+    z-index: 1;
+    margin-left: -18vw;
+    margin-top: 2vw;
+    width: 4vw;
+    height: auto;
+}
+
+.rec4{
+    z-index: 1;
+    margin-left: -14vw;
+    margin-top: 5vw;
+    width: 4vw;
+    height: auto;
+}
+
+.rec5{
+    z-index: 1;
+    margin-left: 8vw;
+    margin-top: -6vw;
+    width: 4vw;
+    height: auto;
+}
+
+.rec6{
+    z-index: 1;
+    margin-left: 83.5vw;
+    margin-top: -1vw;
+    width: 14vw;
+    height: auto;
+}
+
+.rec7{
+    z-index: 1;
+    margin-left: 50vw;
+    margin-top: -70vw;
+    width: 25vw;
+    height: auto;
+}
+
+.rec8{
+    z-index: 1;
+    width: 2vw;
+    height: auto;
+    margin-left: 15vw;
+    margin-top: -60vw;
+}
+
+.rec9{
+    z-index: 1;
+    width: 2vw;
+    height: auto;
+    margin-left: 30vw;
+    margin-top: -50vw;
+}
+
+.rec10{
+    z-index: 1;
+    width: 2vw;
+    height: auto;
+    margin-top: -30vw;
+    margin-left: 40vw;
+}
+
+.footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #76453B;
+    padding: 1.5rem;
+    padding-left: 6vw;
+    padding-bottom: 3vw;
+    font-family: Montserrat, sans-serif;
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+    gap: 1rem;
+    gap: 9.5vw;
+    padding-right: 4vw;
+}
+
+.nav-links li {
+    color: black;
+    font-size: 1.4vw;
+    cursor: pointer;
+}
+
+.feature1{
+    display: flex;
+    align-items: center;
+}
+
+.feature2{
+    display: flex;
+    align-items: center;
+    padding-bottom: 14vw;
+}
+
+.black_box{
+    z-index: 0;
+    width: 23.9vw;
+    height: auto;
+    /* display: flex; */
+    /* position: absolute; */
+}
+
+.white_box{
+    z-index: 1;
+    /* margin-right: 50vw; */
+    border: 10px solid black;
+    border-radius: 20px;
+    /* display: flex; */
+    position: absolute;
+    margin-left: -12vw;
+    width: 25vw;
+    height: auto;
+}
+
+.im{
+    display: flex;
+    position: relative;
+    align-items: center;
+    padding-left: 29vw;
+    width: 52vw;
+}
+
+.l_white_box{
+    z-index: 1;
+    border: 10px solid black;
+    border-radius: 20px;
+    margin-left: -35vw;
+    width: 25vw;
+    height: auto;
+}
+
+.l_black_box{
+    width: 29vw;
+    height: auto;
+}
+
+.logo{
+    width: 7vw;
+    height: auto;
+}
