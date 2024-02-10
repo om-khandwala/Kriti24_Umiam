@@ -37,14 +37,14 @@ const CommentBox = ({ course, setComments, onCancel, onSubmit }) => {
   return (
     <div className="comment-box">
       <textarea
-        placeholder="Type your comment here..."
+        placeholder="Type your feedback here..."
         value={comment}
         onChange={handleChange}
         className="comment-input"
       />
       <div className="button-container">
         <button className="cancel-button" onClick={handleCancel}>Cancel</button>
-        <button className="submit-button" onClick={handleSubmit}>Comment</button>
+        <button className="submit-button" onClick={handleSubmit}>Submit</button>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { allProject, recentProject, userProjects } from "../../api/project";
 import { allGroups } from "../../api/groups";
 import Navbar from "../../componets/navbar/navbar";
@@ -14,28 +14,34 @@ function FeedPage({ user }) {
   const [userProject, setUserProject] = useState([]);
   const [groups, setGroups] = useState([]);
   const [recentProjects, setRecentProjects] = useState([]);
-
+  const navigation = useNavigate();
   useEffect(() => {
     const fetchData = async () => {
-      const fetchedAllProjects = await allProject();
-      fetchedAllProjects.sort((a, b) => b.numberofRatings - a.numberofRatings);
-      setAllProjects(fetchedAllProjects);
+      try {
+        const fetchedAllProjects = await allProject();
+        fetchedAllProjects.sort(
+          (a, b) => b.numberofRatings - a.numberofRatings
+        );
+        setAllProjects(fetchedAllProjects);
 
-      const fetchedRecentProjects = await recentProject();
-      fetchedRecentProjects.sort(
-        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-      );
-      setRecentProjects(fetchedRecentProjects);
+        const fetchedRecentProjects = await recentProject();
+        fetchedRecentProjects.sort(
+          (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+        );
+        setRecentProjects(fetchedRecentProjects);
 
-      const fetchedAllGroups = await allGroups();
-      setGroups(fetchedAllGroups);
+        const fetchedAllGroups = await allGroups();
+        setGroups(fetchedAllGroups);
 
-      const fetchedUserProject = await userProjects(user._id);
-      setUserProject(fetchedUserProject);
+        const fetchedUserProject = await userProjects(user._id);
+        setUserProject(fetchedUserProject);
+      } catch (error) {
+        navigation("/");
+      }
     };
 
     fetchData();
-  }, [user._id]);
+  }, [user._id, navigation]);
 
   return (
     <div>
