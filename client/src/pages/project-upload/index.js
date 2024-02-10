@@ -1,28 +1,28 @@
-import React, { useEffect, useState} from 'react';
-import './style.css';
-import FileUpload from './file-upload';
-import LogoUpload from './logo-upload';
-import { Link } from 'react-router-dom'
-import { createProject } from '../../api/project';
+import React, { useEffect, useState } from "react";
+import "./style.css";
+import FileUpload from "./file-upload";
+import LogoUpload from "./logo-upload";
+import { Link } from "react-router-dom";
+import { createProject } from "../../api/project";
 
-function ProjectUploadPage({user}) {
-  const [logo, setLogo] = useState('');
-  const [projectName, setProjectName] = useState('');
-  const [description, setDescription] = useState('');
+function ProjectUploadPage({ user }) {
+  const [logo, setLogo] = useState("");
+  const [projectName, setProjectName] = useState("");
+  const [description, setDescription] = useState("");
   const [projectImages, setProjectImages] = useState([]);
   const [selectedTags, setSelectedTags] = useState([]);
-  const [githubLink , setGithubLink] = useState('');
+  const [githubLink, setGithubLink] = useState("");
   const [projectOutcomes, setProjectOutcomes] = useState([]);
   const [isLogo, setIsLogo] = useState(false);
   const [isImages, setIsImages] = useState(false);
 
   useEffect(() => {
-    setIsLogo(logo !== '');
+    setIsLogo(logo !== "");
   }, [logo]);
 
   useEffect(() => {
-    setIsImages(projectImages.length > 0)
-  },[projectImages])
+    setIsImages(projectImages.length > 0);
+  }, [projectImages]);
 
   const handleProjectName = (e) => {
     setProjectName(e.target.value);
@@ -33,12 +33,20 @@ function ProjectUploadPage({user}) {
   };
 
   const handleTagChange = (e) => {
-    const selectedOptions = Array.from(e.target.selectedOptions, (option) => option.value);
-    setSelectedTags(prevSelectedTags => [...prevSelectedTags, ...selectedOptions]);
+    const selectedOptions = Array.from(
+      e.target.selectedOptions,
+      (option) => option.value
+    );
+    setSelectedTags((prevSelectedTags) => [
+      ...prevSelectedTags,
+      ...selectedOptions,
+    ]);
   };
 
   const removeTag = (tagToRemove) => {
-    setSelectedTags(prevSelectedTags => prevSelectedTags.filter(tag => tag !== tagToRemove));
+    setSelectedTags((prevSelectedTags) =>
+      prevSelectedTags.filter((tag) => tag !== tagToRemove)
+    );
   };
 
   const handleOutcomeChange = (e) => {
@@ -51,32 +59,31 @@ function ProjectUploadPage({user}) {
     setGithubLink(link);
   };
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!projectName) {
-      alert('Please fill in project name');
+      alert("Please fill in project name");
       return;
     }
-    if(!description){
-      alert('desc');
+    if (!description) {
+      alert("desc");
       return;
     }
-    if(!projectImages.length){
-      alert('project image');
+    if (!projectImages.length) {
+      alert("project image");
       return;
     }
-    if(!selectedTags.length){
-      alert('tags');
+    if (!selectedTags.length) {
+      alert("tags");
       return;
     }
-    if(!githubLink){
-      alert('githublink');
+    if (!githubLink) {
+      alert("githublink");
       return;
     }
-    if(!projectOutcomes){
-      alert('outcome');
+    if (!projectOutcomes) {
+      alert("outcome");
       return;
     }
 
@@ -90,7 +97,7 @@ function ProjectUploadPage({user}) {
       author: user._id,
       tags: selectedTags,
       logo: logo,
-      outcomes: projectOutcomes
+      outcomes: projectOutcomes,
     };
 
     try {
@@ -98,27 +105,27 @@ function ProjectUploadPage({user}) {
       const response = await createProject(data);
       // console.log(response);
 
-      alert('Project created successfully!');
-      setProjectName('');
-      setDescription('');
+      alert("Project created successfully!");
+      setProjectName("");
+      setDescription("");
       setProjectImages([]);
       setSelectedTags([]);
-      setGithubLink('');
-      setLogo('');
-      setProjectOutcomes('');
-
+      setGithubLink("");
+      setLogo("");
+      setProjectOutcomes("");
     } catch (error) {
-      console.error('Error creating project:', error);
+      alert("Project not created !");
+      console.error("Error creating project:", error);
     }
   };
 
   return (
-    <div className='upload-project-form'>
-      <div className='left'>
+    <div className="upload-project-form">
+      <div className="left">
         <h2>Upload Project</h2>
         <p>
-          "Transform ideas into reality; craft innovative solutions 
-          that inspire and empower users worldwide."
+          "Transform ideas into reality; craft innovative solutions that inspire
+          and empower users worldwide."
         </p>
         <form>
           <div>
@@ -126,7 +133,7 @@ function ProjectUploadPage({user}) {
             <input
               type="text"
               id="projectName"
-              placeholder='Enter Project Name'
+              placeholder="Enter Project Name"
               value={projectName}
               onChange={handleProjectName}
               required
@@ -137,7 +144,7 @@ function ProjectUploadPage({user}) {
             <textarea
               id="description"
               value={description}
-              placeholder='Enter Description'
+              placeholder="Enter Description"
               onChange={handleDescription}
               required
             />
@@ -153,11 +160,7 @@ function ProjectUploadPage({user}) {
           </div>
           <div>
             <label htmlFor="tags">Tags</label>
-            <select
-              id="tags"
-              onChange={handleTagChange}
-              value={selectedTags}
-            >
+            <select id="tags" onChange={handleTagChange} value={selectedTags}>
               <option value="react">React</option>
               <option value="javascript">JavaScript</option>
               <option value="css">CSS</option>
@@ -169,7 +172,9 @@ function ProjectUploadPage({user}) {
           <div>
             <ul>
               {selectedTags.map((tag, index) => (
-                <li key={index} onClick={() => removeTag(tag)}>{tag}</li>
+                <li key={index} onClick={() => removeTag(tag)}>
+                  {tag}
+                </li>
               ))}
             </ul>
           </div>
@@ -177,7 +182,7 @@ function ProjectUploadPage({user}) {
             <label htmlFor="projectDirectory">Github Repository Link</label>
             <input
               type="text"
-              className='upload'
+              className="upload"
               onChange={handleRepoLink}
               id="projectDirectory"
               required
@@ -185,15 +190,15 @@ function ProjectUploadPage({user}) {
           </div>
           <FileUpload setProjectImages={setProjectImages} />
           <input type="checkbox" checked={isImages} readOnly />
-          <LogoUpload setLogo= {setLogo}/>
+          <LogoUpload setLogo={setLogo} />
           <input type="checkbox" checked={isLogo} readOnly />
           {/* <p>{projectImages}  {logo}</p> */}
-          <button type="submit" onClick={handleSubmit}>Upload Project</button>
+          <button type="submit" onClick={handleSubmit}>
+            Upload Project
+          </button>
         </form>
       </div>
-      <div className='right'>
-
-      </div>
+      <div className="right"></div>
     </div>
   );
 }

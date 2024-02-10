@@ -1,44 +1,85 @@
-import axios from 'axios';
+import axios from "axios";
+import handleAxiosError from "../Error/Error";
 
 export const allCourses = async () => {
+  try {
     const response = await axios.get("http://localhost:5050/api/courses/get");
-    console.log(response.data);
+
     return response.data;
-}
+  } catch (error) {
+    return handleAxiosError(error);
+  }
+};
 
 export const CoursesById = async (authorId) => {
-    const response = await axios.get("http://localhost:5050/api/courses/getById/"+authorId);
-    console.log(response.data);
+  try {
+    const response = await axios.get(
+      "http://localhost:5050/api/courses/getById/" + authorId
+    );
+
     return response.data;
-}
+  } catch (error) {
+    return handleAxiosError(error);
+  }
+};
 
 export const allFeedbacks = async (courseId) => {
-    const response = await axios.get("http://localhost:5050/api/courses/getFeedbacks/"+courseId);
-    console.log(response.data);
+  try {
+    const response = await axios.get(
+      "http://localhost:5050/api/courses/getFeedbacks/" + courseId
+    );
+
     return response.data;
-}
+  } catch (error) {
+    return handleAxiosError(error);
+  }
+};
 
 export const createCourse = async (data) => {
-    const response = await axios.post("http://localhost:5050/api/courses/create", data);
+  try {
+    const response = await axios.post(
+      "http://localhost:5050/api/courses/create",
+      data
+    );
     console.log(response.data);
     return response.data;
-}
+  } catch (error) {
+    handleAxiosError(error);
+  }
+};
 
 export const createFeedback = async (courseId, data) => {
-    const response = await axios.post("http://localhost:5050/api/courses/feedback/"+courseId, data);
+  try {
+    const response = await axios.post(
+      "http://localhost:5050/api/courses/feedback/" + courseId,
+      data
+    );
     console.log(response.data);
     return response.data;
-}
+  } catch (error) {
+    handleAxiosError(error);
+  }
+};
 
 export const updateCourse = async (courseId, data) => {
-    const response = await axios.put("http://localhost:5050/api/courses/update/"+courseId, data);
+  try {
+    const response = await axios.put(
+      "http://localhost:5050/api/courses/update/" + courseId,
+      data
+    );
     console.log(response.data);
     return response.data;
-}
+  } catch (error) {
+    handleAxiosError(error);
+  }
+};
 
 export const currentUser = async () => {
+  try {
     const response = await axios.get("http://localhost:5050/api/user/userData");
-    console.log(response.data)
-    return response.data;
-}
 
+    return response.data;
+  } catch (error) {
+    return handleAxiosError(error);
+  }
+};
