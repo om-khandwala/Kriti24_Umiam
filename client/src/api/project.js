@@ -1,6 +1,8 @@
-import serverUrl from "./server";
+import dotenv from 'dotenv'
 import axios from "axios";
 import { Navigate } from "react-router-dom";
+dotenv.config()
+const serverUrl = process.env.serverUrl;
 
 axios.defaults.withCredentials = true;
 
