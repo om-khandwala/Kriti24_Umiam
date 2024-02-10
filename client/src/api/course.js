@@ -1,6 +1,8 @@
 import axios from "axios";
 import handleAxiosError from "../Error/Error";
-import serverUrl from "./server";
+import dotenv from 'dotenv'
+dotenv.config()
+const serverUrl = process.env.serverUrl;
 
 export const allCourses = async () => {
   try {

@@ -1,5 +1,7 @@
-import serverUrl from './server';
+import dotenv from 'dotenv'
 import axios from 'axios';
+dotenv.config()
+const serverUrl = process.env.serverUrl;
 axios.defaults.withCredentials = true
 export const allGroups = async () => {
     const response = await axios.get(`${serverUrl}/api/groups/`); 
