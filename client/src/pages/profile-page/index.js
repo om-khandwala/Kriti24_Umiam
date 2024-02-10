@@ -20,7 +20,7 @@ function ProfilePage() {
     const fetchUser = async () => {
       try {
         const data = await findUser(id);
-        setUser(data);
+        setUser(data[0]);
       } catch (error) {
         console.error("Error fetching user:", error);
       }
@@ -35,15 +35,16 @@ function ProfilePage() {
   return (
     <>
       <Navbar />
-      {user._id !== null && user._id !== undefined && <div className="profile-page">
-        <div className="profile-header">
-          <Profile className="profile" userData={user} />
-        </div>
+      {user._id !== null && user._id !== undefined && (
+        <div className="profile-page">
+          <div className="profile-header">
+            <Profile className="profile" userData={user} />
+          </div>
 
-        <div className="user-menu flex">
-          <p onClick={() => handleMenuClick("project")}>Project</p>
-          <p onClick={() => handleMenuClick("about")}>About Me</p>
-        </div>
+          <div className="user-menu flex">
+            <p onClick={() => handleMenuClick("project")}>Project</p>
+            <p onClick={() => handleMenuClick("about")}>About Me</p>
+          </div>
 
           {activeMenu === "project" && <UserProject userData={user} />}
           {activeMenu === "about" && (
@@ -54,7 +55,7 @@ function ProfilePage() {
             </div>
           )}
         </div>
-      }
+      )}
     </>
   );
 }
