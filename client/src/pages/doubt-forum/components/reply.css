@@ -1,0 +1,16 @@
+.reply-form {
+    display: flex;
+    gap:1em;
+}
+
+.reply-form textarea {
+    border-radius: .5em;
+    width: 250%;
+    height: 3em;
+    border: 1px solid black;
+}
+
+.reply-form button {
+    height: 3em;
+    width: 10em;
+}

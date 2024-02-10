@@ -1,0 +1,22 @@
+.navbar-chat-page .circle1 {
+    height: 2.5em;
+    width: 2.5em;
+    border-radius: 50%;
+    background-color: white;
+    overflow: hidden;
+}
+.navbar-chat-page {
+    border-radius: 0 1em 0 0;
+    padding: 0 4em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--secondary-color);
+    height: 3.9em;
+    color: white;
+    font-size: 1.2em;
+}
+
+.navbar-chat-page .navbar-title {
+    text-transform: capitalize;
+}

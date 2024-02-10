@@ -1,0 +1,64 @@
+:root {
+  --primary-color: #f4bf96;
+  --secondary-color: #ce5a67;
+  --body-background: #fcf5ed;
+  --black-color: #1f1717;
+  --box-shawdow: rgba(100, 100, 111, 0.2) 0 .5em 2em 0;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:wght@300;400;500;600;700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100%;
+  font-family: "Raleway", sans-serif;
+  /* background-color: #e6ebff; */
+  /* color: white; */
+}
+
+p {
+  font-weight: 300;
+  line-height: 1.4;
+  color: #454545;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.flex-gap-0 {
+  display: flex;
+}
+
+.space-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+button {
+  border: none;
+  border-radius: .25em;
+  padding: .8em 2.5em;
+  color: white;
+  background-color: var(--black-color);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:active {
+  color: inherit;
+}

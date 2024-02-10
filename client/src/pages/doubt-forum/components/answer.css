@@ -1,0 +1,22 @@
+.doubt-answer{
+    display: flex;
+    gap: 1em;
+    width: 100%;
+    margin-bottom: 2em;
+}
+
+.doubt-answer-left {
+    width: 3em;
+    height: 3em;
+    margin-right: 2rem;
+    /* background: #; */
+}
+.doubt-answer-right {
+    margin-top: 1.5rem;
+}
+
+.doubt-answer h5 {
+    font-weight: 600;
+    font-size: .8em;
+    color: rgb(152, 152, 152);
+}

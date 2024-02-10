@@ -1,0 +1,19 @@
+.karta {
+    background-color: var(--body-background);
+    min-height: 100vh;
+    padding-bottom: 2em;
+}
+.main_container {
+    display: flex;
+    padding: 2em;
+    padding-top: 4em;
+    justify-content: space-between;
+    gap: 2em
+}
+.mid_main {
+    display: flex;
+    align-items: flex-start;
+    gap : 2em;
+    flex-direction: column;
+    width: 60%;
+}

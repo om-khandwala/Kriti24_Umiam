@@ -1,0 +1,23 @@
+.community-form form label {
+    display: block;
+    margin-bottom: 10px;
+}
+  
+.community-form form input[type="text"],
+.community-form form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+  
+.community-form form button[type="submit"] {
+    background-color: var(--black-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+  

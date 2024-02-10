@@ -1,0 +1,59 @@
+.sidebar {
+    overflow: scroll;
+    height: 80vh;
+    width: 25em; 
+    background: var(--primary-color);
+    border-radius: 1em 0 0 1em ;
+}
+
+.members p {
+    text-transform: capitalize;
+}
+
+.heading-of-side .circle {
+    height: 2.2em;
+    width: 2.2em;
+    border-radius: 50%;
+    background-color: black;
+}
+
+.heading-of-side h2 {
+    margin-left: 1em;
+    font-size: 1em;
+    color: black;
+    font-weight: 500;
+}
+
+.heading-of-side {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.2rem; 
+    margin-bottom: 1em;
+    padding: .5em .8em;
+    padding-bottom: 0;
+}
+
+.members{
+    display: flex;
+    flex-direction: column;
+}
+
+.members .circle1 {
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    background: black;
+}
+
+.members .name {
+    display: flex;
+    padding: 1em 1.3em;
+    align-items: center;
+    gap: 0.5em; 
+    border-bottom: 1px solid white;
+}
+
+.members .name:hover {
+    background-color: #f2af7c;
+}

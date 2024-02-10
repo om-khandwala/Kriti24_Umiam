@@ -1,0 +1,15 @@
+.chat-page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--body-background);
+    gap: 2em;
+}
+
+.chat-page .flex-gap-0 {
+    border: 2px solid black;
+    border-radius: 1em;
+    margin: 1em 3em;
+    color: white;
+    box-shadow: var(--box-shadow);
+}

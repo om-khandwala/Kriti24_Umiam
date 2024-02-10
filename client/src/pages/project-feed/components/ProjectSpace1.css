@@ -1,0 +1,37 @@
+.project-options {
+  width: 100%;
+}
+
+.project-options button {
+  color: white;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.allprojects,
+.myprojects {
+  width: 14em;
+  height: 4em;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.9375em;
+  background-color: #ce5a6887;
+  border: 1px solid white;
+  border-radius: 20px;
+  padding: 1em;
+}
+
+.profile-circle {
+  width: 3.125em;
+  height: 3.125em;
+  border-radius: 50%;
+  margin-right: 0.625em;
+}
+
+.all_proj,
+.my_proj {
+  /* font-size: 1.125em; */
+  font-weight: bold;
+  background-color: var(--secondary-color);
+  color: black;
+}
+

@@ -1,0 +1,49 @@
+/* Navbar.css */
+.navbar-home {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    padding: 1rem;
+    padding-left: 6vw;
+    font-family: Montserrat, sans-serif;
+}
+
+.project_name{
+    font-size: 2vw;
+    color: #43766C;
+}
+
+.nav-links-home {
+    list-style-type: none;
+    display: flex;
+    gap: 1rem;
+    gap: 5vw;
+    padding-right: 4vw;
+    cursor: pointer;
+}
+
+.nav-links-home li {
+    color: black;
+    font-size: 1.3vw;
+}
+
+.nav-links-home li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.login-btn-home {
+    padding: 0.5rem 2rem;
+    background-color: #2159C5;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+    font-size: 1.3vw;
+    
+}
+.logo-home{
+    width: 7vw;
+    height: auto;
+}

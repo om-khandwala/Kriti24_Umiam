@@ -1,0 +1,17 @@
+.right_container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: #000;
+    border-radius: .25em;
+    background-color: white;
+    padding: 2em 1em;
+    height: 10em;
+    text-align: center;
+}
+.friends {
+    height: 2.5em;
+    width: 12em;
+    margin-top: .5em;
+    border: none;
+}

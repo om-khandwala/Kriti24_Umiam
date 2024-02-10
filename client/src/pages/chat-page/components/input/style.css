@@ -1,0 +1,26 @@
+.message-input {
+    display: flex;
+    margin-bottom: 1.25em;
+    align-items: center;
+    margin: 2em 6em;
+    border-radius: 0.3125em;
+}
+  
+.message-input input {
+    flex: 1;
+    padding: 0.625em;
+    height: 3em;
+    border: none;
+    outline: none;
+    border-radius: 0.3em 0 0 .3em;
+}
+  
+.message-input button {
+    padding: 0.9em 1.5em;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 0.3125em;
+    cursor: pointer;
+}
+
