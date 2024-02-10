@@ -5,13 +5,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: .5em 3em;
+    padding: 1em 3em;
 }
 
 .doubt-header h3 {
     margin: 0;
     color: white;
-
+    font-weight: 400;
 }
 
 .doubt-header input {
@@ -106,8 +106,8 @@
     font-size: 1.4em;
 }
 
-.close {
+.modal-content .close {
     cursor: pointer;
     font-size: 24px;
-    color: #aaa;
+    color: white;
 }

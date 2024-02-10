@@ -1,5 +1,7 @@
+import serverUrl from './server'
 import axios from "axios";
 axios.defaults.withCredentials = true;
+
 export const getUser = async (storedToken) => {
   try {
     const token = storedToken;
@@ -10,7 +12,7 @@ export const getUser = async (storedToken) => {
       },
     };
 
-    const response = await axios.get("http://localhost:5050/api/user", config);
+    const response = await axios.get(`${serverUrl}/api/user`, config);
  //   console.log(response.data.user[0]);
     return response.data.user[0];
   } catch (error) {
@@ -22,20 +24,20 @@ export const getUser = async (storedToken) => {
 export const updateUser = async (userId, data) => {
  // console.log(userId);
   const response = await axios.put(
-    `http://localhost:5050/api/user/update/${userId}`,
+    `${serverUrl}/api/user/update/${userId}`,
     data
   );
   return response.data;
 };
 
 export const findAllUsers = async () => {
-  const response = await axios.get(`http://localhost:5050/api/user`);
+  const response = await axios.get(`${serverUrl}/api/user`);
 //  console.log(response.data);
   return response.data.users;
 };
 
 export const findUser = async (id) => {
-  const response = await axios.get(`http://localhost:5050/api/user/find/${id}`); 
+  const response = await axios.get(`${serverUrl}/api/user/find/${id}`); 
  // console.log(response.data.user);
   return response.data.user; 
 }

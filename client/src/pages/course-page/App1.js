@@ -1,9 +1,9 @@
 import Coursepage from './components/course_page';
 
-function App() {
+function App({user}) {
   return (
     <div className="App">
-      <Coursepage />
+      <Coursepage user={user}/>
     </div>
   );
 }

@@ -9,7 +9,6 @@ import FeedPage from "./pages/feed-page";
 import ProfilePage from "./pages/profile-page";
 import ProjectUploadPage from "./pages/project-upload";
 import Home from "./pages/home-page/index.js";
-import Btn from "./pages/btn-test/btn.js";
 import Cookies from "js-cookie";
 import UserForm from "./pages/user-form/index.js";
 import Coursepage from "./pages/course-page/components/course_page.js";
@@ -62,7 +61,7 @@ function App() {
                 />
                 <Route
                   path="/communities/:id"
-                  element={<ChatPage socket={socket} />}
+                  element={<ChatPage socket={socket} user={user}/>}
                 />
                 <Route
                   path="/project-feed/:id"
@@ -70,12 +69,11 @@ function App() {
                 ></Route>
                 <Route path="/user-form" element={<UserForm user={user} />} />
                 <Route path="/profile/:id" element={<ProfilePage />} />
-                <Route path="/doubt" element={<DoubtForum id={userId} />} />
+                <Route path="/doubt" element={<DoubtForum user = {user} id={userId} />} />
                 <Route path="/chat" element={<ChatPage socket={socket} />} />
                 <Route path="/feed" element={<FeedPage user={user} />} />
-                <Route path="/btn" element={<Btn />} />
                 <Route path="/" element={<Home />} />
-                <Route path="/course" element={<Coursepage />} />
+                <Route path="/course" element={<Coursepage user={user} />} />
                 <Route
                   path="/project-feed"
                   element={<ProjectFeed user={user} />}

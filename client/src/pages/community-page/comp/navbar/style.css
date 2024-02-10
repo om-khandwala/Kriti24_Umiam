@@ -2,9 +2,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.8rem 2rem;
+    padding: 1rem 2rem;
     background-color: var(--secondary-color);
     color: #fff;
+}
+
+.navbar-community h4 {
+    font-size: 1.2em;
+    font-weight: 400;
 }
 
 .logo img {

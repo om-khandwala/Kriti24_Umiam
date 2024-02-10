@@ -34,8 +34,8 @@ function Comments({project}) {
         <div className="boxing2">
           {com.map((comment, index) => (
             <div className='comment' key={index}>
-              <h4>{comment.username}</h4>
-              <p>{comment.comment}</p>
+              <h4>{comment.username.toLowerCase()}</h4>
+              <p>{comment.comment.toLowerCase()}</p>
             </div>
           ))}
         </div>
