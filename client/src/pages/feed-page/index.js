@@ -42,7 +42,10 @@ function FeedPage({ user }) {
 
     fetchData();
   }, [user._id, navigation]);
-
+  if (user.length === 0) {
+    navigation("/");
+    return;
+  }
   return (
     <div>
       <Navbar />
