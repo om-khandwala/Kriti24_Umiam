@@ -89,8 +89,12 @@ function Navbar() {
   return (
     <div className="main-navbar">
       <div className="left flex">
-        <img src='/images/logo-light.png' alt='logo'/>
-        <h4>Project Alpha</h4>
+        <Link to={'/feed'}>
+          <img src='/images/logo-light.png' alt='logo'/>
+        </Link>
+        <Link to={"/feed"}>
+          <h4>Project Alpha</h4>
+        </Link>    
       </div>
 
       {display && (
@@ -107,6 +111,9 @@ function Navbar() {
             </Link>
             <Link to="/project-feed">
               <li>Projects</li>
+            </Link>
+            <Link to="/course">
+              <li>Course</li>
             </Link>
           </ul>
         </div>

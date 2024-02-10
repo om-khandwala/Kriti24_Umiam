@@ -1,4 +1,4 @@
-import Navbar from "./comp/Navbarfeed";
+import Navbar from "../../../componets/navbar/navbar.js";
 import SearchProject from "./comp/Projectsearch";
 import Aboutcourse from "./comp/CourseList";
 import { useState } from "react";
