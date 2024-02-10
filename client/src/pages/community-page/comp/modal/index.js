@@ -20,8 +20,11 @@ const CommunityModal = ({ user, toggleModal }) => {
   };
 
   const handleTagChange = (e) => {
+    if(e.target.selectedOptions[0].value==""){
+      return;
+    }
     const selectedOptions = Array.from(e.target.selectedOptions, (option) => option.value);
-    setSelectedTags(prevSelectedTags => [...prevSelectedTags, ...selectedOptions]);
+    setSelectedTags(prevSelectedTags => [...new Set([...prevSelectedTags, ...selectedOptions])]);
   };
 
   const removeTag = (tagToRemove) => {
@@ -82,8 +85,9 @@ const CommunityModal = ({ user, toggleModal }) => {
           <select
             id="tags"
             onChange={handleTagChange}
-            value={selectedTags}
+            value="huehue"
           >
+            <option value="">Select a tag</option>
             <option value="react">React</option>
             <option value="javascript">JavaScript</option>
             <option value="css">CSS</option>
