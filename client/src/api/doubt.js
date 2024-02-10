@@ -3,7 +3,7 @@ axios.defaults.withCredentials = true;
 
 export const allDoubts = async () => {
   const response = await axios.get("http://localhost:5050/api/doubts");
-  console.log(response.data.doubts);
+ // console.log(response.data.doubts);
   return response.data.doubts;
 };
 
@@ -13,7 +13,7 @@ export const userDoubts = async () => {
 };
 
 export const createDoubt = async (data) => {
-  console.log(data);
+ // console.log(data);
   const response = await axios.post(
     "http://localhost:5050/api/doubts/create",
     data
@@ -22,7 +22,7 @@ export const createDoubt = async (data) => {
 };
 
 export const getRepliesOfDoubt = async (doubtId) => {
-  console.log(doubtId);
+ // console.log(doubtId);
   const response = await axios.get(
     `http://localhost:5050/api/doubts/${doubtId}/replies`
   );
@@ -31,7 +31,7 @@ export const getRepliesOfDoubt = async (doubtId) => {
 };
 
 export const replyDoubt = async (doubtId, data) => {
-  console.log(doubtId);
+ // console.log(doubtId);
   const response = await axios.post(
     `http://localhost:5050/api/doubts/${doubtId}/replies`,
     data
@@ -40,10 +40,10 @@ export const replyDoubt = async (doubtId, data) => {
 };
 
 export const currentUserDoubts = async (id) => {
-  console.log(id);
+ // console.log(id);
   const response = await axios.get(
     `http://localhost:5050/api/doubts/user/${id}`
   );
-  console.log(response.data, "jel");
+ // console.log(response.data, "jel");
   return response.data;
 };

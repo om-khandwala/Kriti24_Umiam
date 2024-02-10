@@ -41,7 +41,7 @@ export const createCourse = async (data) => {
       "http://localhost:5050/api/courses/create",
       data
     );
-    console.log(response.data);
+  //  console.log(response.data);
     return response.data;
   } catch (error) {
     handleAxiosError(error);

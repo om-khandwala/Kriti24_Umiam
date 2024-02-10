@@ -8,18 +8,18 @@ export const allGroups = async () => {
 
 export const getGroup = async (id) => {
   const response = await axios.get(`http://localhost:5050/api/groups/${id}`); 
-  console.log(response.data);
+ // console.log(response.data);
   return response.data; 
 }
 
 export const createGroup = async (data) => {
   const response = await axios.post(`http://localhost:5050/api/groups/create`,data); 
-  console.log(response.data);
+ // console.log(response.data);
   return response.data; 
 }
 
 export const createChat = async (data) => {
-  console.log(data);
+  //console.log(data);
   const response = await axios.post(`http://localhost:5050/api/groups/group-chat`,data); 
   return response.data; 
 }
