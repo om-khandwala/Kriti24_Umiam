@@ -32,7 +32,8 @@ export const allProject = async () => {
     const response = await axios.get("http://localhost:5050/api/project/");
     return response.data.project;
   } catch (error) {
-    return <Navigate to={"/"} />;
+    console.log("some network issues ");
+    return <h3>Network Error</h3>;
   }
 };
 

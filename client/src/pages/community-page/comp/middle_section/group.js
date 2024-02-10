@@ -1,8 +1,11 @@
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
 import { joinGroup } from '../../../../api/groups';
 
 function Group({ group, user }) {
+
+    const notify = (message) => toast(message);
 
     const join = async () => {
         const data = {
@@ -11,13 +14,14 @@ function Group({ group, user }) {
         };
         try {
             const response = await joinGroup(data);
-            alert(response.msg);
+            notify(response.msg);
         } catch (error) {
             console.error('Error joining group:', error);
         }
     };
 
     return (
+        <>
         <div className="post">
             <h4>{group.name}</h4>
             <p>{group.description}</p>
@@ -47,6 +51,7 @@ function Group({ group, user }) {
                 </div>
             </div>
         </div>
+        </>
     );
 }
 

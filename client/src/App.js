@@ -16,6 +16,7 @@ import Coursepage from "./pages/course-page/components/course_page.js";
 import ProjectFeed from "./pages/project-feed/App2.js";
 import ProjectName from "./pages/project-page/index.js";
 import ErrorBoundary from "./Error/ErrorBoundary.js";
+import { ToastContainer } from 'react-toastify';
 // import FileUpload from "./pages/test";
 const socket = io.connect("http://localhost:5050");
 
@@ -33,6 +34,19 @@ function App() {
     <Router>
       <ErrorBoundary>
         <div className="App">
+          <ToastContainer
+                  position="top-right"
+                  autoClose={5000}
+                  hideProgressBar={false}
+                  newestOnTop={false}
+                  closeOnClick
+                  rtl={false}
+                  pauseOnFocusLoss
+                  draggable
+                  pauseOnHover
+                  theme="light"
+                  style={{ zIndex: 99990 }}
+          />
           <Routes>
             <Route path="/upload" element={<ProjectUploadPage user={user} />} />
             <Route

@@ -34,22 +34,15 @@ app.use(
 app.use(express.json());
 
 io.on("connection", (socket) => {
-  console.log("⚡: ${socket.id} user just connected!");
-
   socket.on("join", ({ id }) => {
     socket.join(id);
-    console.log("User with ID ${id} joined the room");
   });
 
   socket.on("send_msg", (data) => {
-    console.log(data);
-
     io.to(data.id).emit("msg_rcvd", data);
   });
 
-  socket.on("disconnect", () => {
-    console.log("🔥: A suser disconnected");
-  });
+  socket.on("disconnect", () => {});
 });
 
 mongoose.connect(process.env.ATLAS_URI);
