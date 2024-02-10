@@ -1,6 +1,7 @@
 import * as msal from "@azure/msal-node";
 import { getUserFromToken, getBranch } from "../user/user.util.js";
 import User from "../../Models/User.js";
+import serverUrl from "../../../client/src/api/server.js";
 
 const msalConfig = {
   auth: {
@@ -17,6 +18,7 @@ export const login = (req, res) => {
   const authCodeUrlParameters = {
     scopes: ["user.read"],
     redirectUri: "https://umiam-kriti24.onrender.com/redirect",
+
   };
 
   cca
@@ -35,7 +37,9 @@ export const redirect = async (req, res) => {
     const tokenRequest = {
       code: req.query.code,
       scope: "user.read",
+
       redirectUri: "https://umiam-kriti24.onrender.com/redirect",
+
     };
 
     const response = await cca.acquireTokenByCode(tokenRequest);

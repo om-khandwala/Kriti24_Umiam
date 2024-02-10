@@ -3,7 +3,7 @@ import HorizontalLine from '../../../componets/line';
 
 function UserDetails ({userData}){
     return(
-        <div class="user-info">
+        <div className="user-info">
             <h4>Info</h4>
             <HorizontalLine color={'white'}/>
             <div>

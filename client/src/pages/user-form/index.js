@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import './style.css';
 import { updateUser } from "../../api/user";
 import {Link , useNavigate} from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import serverUrl from "../../api/server";
 
 function UserForm({ user }) {
     const [formData, setFormData] = useState({
@@ -32,7 +33,10 @@ function UserForm({ user }) {
         }
     
         try {
+
           const signResponse = await fetch('https://umiam-kriti24.onrender.com/api/apisignreq');
+
+
           const signData = await signResponse.json();
           const url = "https://api.cloudinary.com/v1_1/" + signData.cloudname + "/auto/upload";
     

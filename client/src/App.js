@@ -16,6 +16,7 @@ import ProjectFeed from "./pages/project-feed/App2.js";
 import ProjectName from "./pages/project-page/index.js";
 import ErrorBoundary from "./Error/ErrorBoundary.js";
 import { ToastContainer } from "react-toastify";
+import serverUrl from "./api/server.js";
 // import FileUpload from "./pages/test";
 const socket = io.connect("https://umiam-kriti24.onrender.com");
 

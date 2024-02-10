@@ -65,11 +65,11 @@ function Doubt({ doubt }) {
         <>
           <div className="footer space-between">
             <div onClick={toggleReplies} className="flex">
-              <i class="fa-regular fa-comments"></i>
+              <i className="fa-regular fa-comments"></i>
               <p>Answer</p>
             </div>
             <div className="flex">
-              <i class="fa-solid fa-share"></i>
+              <i className="fa-solid fa-share"></i>
               <p onClick={handleShareButtonClick}>Share</p>
             </div>
           </div>

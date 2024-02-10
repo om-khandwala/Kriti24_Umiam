@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import './upload.css';
+import serverUrl from "../../api/server";
 
 function LogoUpload({ setLogo }) {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -19,6 +20,7 @@ function LogoUpload({ setLogo }) {
             setIsUploading(true);
 
             const signResponse = await fetch('https://umiam-kriti24.onrender.com/api/apisignreq');
+
             const signData = await signResponse.json();
 
             const formData = new FormData();

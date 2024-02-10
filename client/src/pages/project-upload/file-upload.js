@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './upload.css';
+import serverUrl from '../../api/server';
 
 const FileUpload = ({setProjectImages}) => {
   const [selectedFiles, setSelectedFiles] = useState([]);
@@ -20,6 +21,7 @@ const FileUpload = ({setProjectImages}) => {
 
     try {
       const signResponse = await fetch('https://umiam-kriti24.onrender.com/api/apisignreq');
+
       const signData = await signResponse.json();
       const url = "https://api.cloudinary.com/v1_1/" + signData.cloudname + "/auto/upload";
 
