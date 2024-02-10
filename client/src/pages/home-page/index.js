@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import Navbar from './components/Navbarhome';
 import Collaborate from './components/collaborate';
+import './index.css'
 
 function Homepage() {
   return (
