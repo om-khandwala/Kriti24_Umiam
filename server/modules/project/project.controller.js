@@ -114,3 +114,23 @@ export const getProjectById = async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
+
+export const addComment = async (req, res) => {
+  try {
+    const projectId = req.params.id;
+    const comment = req.body; 
+    const project = await Project.findById(projectId);
+
+    if (!project) {
+      return res.status(404).json({ message: "Project not found" });
+    }
+    let comments = project.comments;
+    comments.push(comment);
+    await Project.updateOne({_id: projectId},{$set:{"comments": comments}});
+    res.json({msg: "Comment added successfully" });
+  } catch (error) {
+    console.error("Error while fetching project by ID:", error);
+    res.status(500).json({ message: "Internal server error in adding comment" });
+  }
+};
+

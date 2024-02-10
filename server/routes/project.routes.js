@@ -3,6 +3,7 @@ import express from "express";
 import Project from "../Models/Project.js";
 import userMiddleware from "../modules/middleware/user.auth.js";
 import {
+  addComment,
   allProject,
   createProject,
   deleteProject,
@@ -22,5 +23,7 @@ projectRouter.get("/getProject", getProject);
 projectRouter.put("/update/:id", putProject);
 projectRouter.delete("/deleteProject/:id", deleteProject);
 projectRouter.get('/get-project/:id', getProjectById);
+projectRouter.post('/addComment/:id', addComment);
+
 
 export default projectRouter;
