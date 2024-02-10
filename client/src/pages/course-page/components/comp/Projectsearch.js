@@ -26,16 +26,18 @@ const SearchProject = ({setCourses}) => {
     }
 
     return ( 
-        <nav className="serach_navbar">
-            <img src='./images/profile-2user.png' alt='profile-user' className='profile_user'></img>
-            <span className="project_option">Courses</span>
-            <div className="search-bar">
-                <input type="text" placeholder="Search Course" className="search-int" onChange={(e) => setFilter(e.target.value.toLowerCase())} onKeyDown={handleKeyDown} />
+        <nav className="search_navbar">
+            <div className='left'>
+                <img src='./images/profile-2user.png' alt='profile-user' className='profile_user'></img>
+                <span className="project_option">Courses</span>
             </div>
+
+            <div className="right">
+                <input type="text" placeholder="Search Course" className="search-int" onChange={(e) => setFilter(e.target.value.toLowerCase())} onKeyDown={handleKeyDown} />
                 <img src='./images/search-normal.png' alt='serach' className='search_img' onClick={hii} ></img>
-            <div>
                 <button className="create-project-bt" onClick={togglePopup}>Create Course</button>
             </div>
+        
             {isPopupOpen && <CreateCourseForm setCourses = {setCourses} onClose={togglePopup} />}
         </nav>
      );

@@ -1,0 +1,21 @@
+.gith {
+  margin: 0 auto;
+  margin-top: 2.5rem;
+}
+
+.gith p {
+  font-weight: 600;
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+  color: var(--secondary-color);
+}
+.gith .boxing6 {
+  border-radius: 0.25em;
+  box-shadow: var(--box-shadow);
+  padding: 1em;
+  border: 1px solid var(--black-color);
+  background-color: white;
+  height: auto;
+  width: 75rem;
+  cursor: pointer;
+}

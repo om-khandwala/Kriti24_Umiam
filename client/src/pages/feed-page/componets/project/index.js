@@ -5,6 +5,7 @@ import HorizontalLine from "../../../../componets/line";
 import { updateProject } from "../../../../api/project";
 import "./style.css";
 import StarLiked from "../../../../componets/likedStar";
+import { Link } from "react-router-dom";
 
 function Project({ project, condition, user }) {
   const [proj, setproj] = useState(project);
@@ -50,9 +51,9 @@ function Project({ project, condition, user }) {
   return (
     <div className="project-container">
       {condition === "group" ? (
-        <h3 className="project-name">{proj.name}</h3>
+       <Link to={`../communities/${project._id}`}><h3 className="project-name">{project.name}</h3></Link>
       ) : (
-        <h3 className="project-name">{proj.projectName}</h3>
+        <Link to={`../project-feed/${proj._id}`}><h3 className="project-name">{proj.projectName}</h3></Link>
       )}
       <p className="project-description">
         {proj.description.split(" ").slice(0, 8).join(" ")}

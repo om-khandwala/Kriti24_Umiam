@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"; 
+import { useParams } from "react-router-dom";
 import MessageInput from "../input";
 import Message from "../message";
 import Navbar from "../navabar";
-import Cookies from 'js-cookie';
-import './style.css'
+import Cookies from "js-cookie";
+import "./style.css";
 import { getGroupChat } from "../../../../api/groups";
 
 function ChatWindow({ socket, group }) {
-  const userName = Cookies.get('user');
-  const user = (JSON.parse(userName.slice(2)));
+  const userName = Cookies.get("user");
+  const user = JSON.parse(userName.slice(2));
   const [messages, setMessages] = useState([]);
   const [oldMsg, setOldMsg] = useState([]);
   const { id } = useParams();
-
- // console.log(group)
 
   const sendMessage = (messageText) => {
     socket.emit("send_msg", { msg: messageText });
@@ -22,19 +20,19 @@ function ChatWindow({ socket, group }) {
 
   useEffect(() => {
     const fetchMsg = async () => {
-        try {
-            const allMsg = await getGroupChat(id);
-            setOldMsg(allMsg);
-        } catch (error) {
-            console.error('Error fetching messages:', error);
-        }
+      try {
+        const allMsg = await getGroupChat(id);
+        setOldMsg(allMsg);
+      } catch (error) {
+        console.error("Error fetching messages:", error);
+      }
     };
 
     fetchMsg();
-}, [id]);
+  }, [id]);
 
   useEffect(() => {
-    const handleReceivedMessage = (data) => {
+    const handleReceivedMessage = async (data) => {
       setMessages((prevMessages) => [
         ...prevMessages,
         {
@@ -43,47 +41,34 @@ function ChatWindow({ socket, group }) {
           sender: `${user.name}`,
         },
       ]);
+      const allMsg = await getGroupChat(id);
+      setOldMsg(allMsg);
     };
 
     socket.on("msg_rcvd", handleReceivedMessage);
-    socket.emit("join", { id: id }); 
+    socket.emit("join", { id: id });
     return () => {
       socket.off("msg_rcvd", handleReceivedMessage);
     };
-  }, [socket, id, user.name]); 
+  }, [socket, id, user.name, oldMsg]);
   return (
     <div className="chat-window">
-      <Navbar user={user}/>
+      <Navbar user={user} />
       <div className="message-list">
-          {oldMsg.length > 0 &&
-            oldMsg.map((msg,index) => {
-              return (
-                <Message
-                  key={index}
-                  text={msg.message}
-                  sender={msg.userName}
-                />
-              );
-          })}
-
-        {messages.length > 0 &&
-          messages.map((message) => {
+        {oldMsg.length > 0 &&
+          oldMsg.map((msg, index) => {
             return (
-              <Message
-                key={message.id}
-                text={message.message}
-                sender={message.sender}
-              />
+              <Message key={index} text={msg.message} sender={msg.userName} />
             );
           })}
       </div>
 
       <MessageInput
         user={user}
-        group = {group} 
+        group={group}
         sendMessage={sendMessage}
         socket={socket}
-        id= {id}
+        id={id}
       />
     </div>
   );

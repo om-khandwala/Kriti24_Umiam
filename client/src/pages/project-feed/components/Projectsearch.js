@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Projectsearch.css";
 
 const SearchProject = () => {
@@ -8,8 +9,9 @@ const SearchProject = () => {
         alt="profile-user"
         className="profile_user"
       ></img>
-      
-      <button className="create-project-btn">Create Project</button>
+      <Link to={"/upload"}>
+        <button className="create-project-btn">Create Project</button>
+      </Link>
     </nav>
   );
 };

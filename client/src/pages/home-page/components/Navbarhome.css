@@ -1,5 +1,5 @@
 /* Navbar.css */
-.navbar {
+.navbar-home {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -14,25 +14,26 @@
     color: #43766C;
 }
 
-.nav-links {
+.nav-links-home {
     list-style-type: none;
     display: flex;
     gap: 1rem;
     gap: 5vw;
     padding-right: 4vw;
+    cursor: pointer;
 }
 
-.nav-links li {
+.nav-links-home li {
     color: black;
     font-size: 1.3vw;
 }
 
-.nav-links li a {
+.nav-links-home li a {
     color: #fff;
     text-decoration: none;
 }
 
-.login-btn {
+.login-btn-home {
     padding: 0.5rem 2rem;
     background-color: #2159C5;
     color: #fff;
@@ -42,7 +43,7 @@
     font-size: 1.3vw;
     
 }
-.logo{
+.logo-home{
     width: 7vw;
     height: auto;
 }

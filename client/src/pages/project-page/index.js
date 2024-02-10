@@ -7,6 +7,7 @@ import Collab from "./components/collab/collab";
 import "./style.css";
 import { getProjectById } from "../../api/project";
 import { useParams, Link } from "react-router-dom";
+import Github from "./components/github/Github";
 
 function ProjectName() {
   const [activeComponent, setActiveComponent] = useState("Description");
@@ -26,7 +27,7 @@ function ProjectName() {
     };
 
     fetchProject();
-  }, []);
+  }, [id]);
 
   const handleClick = (componentName) => {
     setActiveComponent(componentName);
@@ -53,12 +54,14 @@ function ProjectName() {
         <p onClick={() => handleClick("Collab")}>Collab</p>
         <p onClick={() => handleClick("Comments")}>Comments</p>
         <p onClick={() => handleClick("Media")}>Media</p>
+        <p onClick={() => handleClick("Git")}>Github</p>
       </div>
       {activeComponent === "Description" && <Description project={project} />}
       {activeComponent === "Outcomes" && <Outcomes project={project} />}
       {activeComponent === "Collab" && <Collab project={project} />}
       {activeComponent === "Comments" && <Comments project={project} />}
       {activeComponent === "Media" && <Media project={project} />}
+      {activeComponent === "Git" && <Github project={project} />}
     </div>
   );
 }

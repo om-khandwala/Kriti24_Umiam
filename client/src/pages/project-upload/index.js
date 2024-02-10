@@ -7,25 +7,25 @@ import { createProject } from '../../api/project';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-function ProjectUploadPage({user}) {
-  const [logo, setLogo] = useState('');
-  const [projectName, setProjectName] = useState('');
-  const [description, setDescription] = useState('');
+function ProjectUploadPage({ user }) {
+  const [logo, setLogo] = useState("");
+  const [projectName, setProjectName] = useState("");
+  const [description, setDescription] = useState("");
   const [projectImages, setProjectImages] = useState([]);
   const [selectedTags, setSelectedTags] = useState([]);
-  const [githubLink , setGithubLink] = useState('');
+  const [githubLink, setGithubLink] = useState("");
   const [projectOutcomes, setProjectOutcomes] = useState([]);
   const [isLogo, setIsLogo] = useState(false);
   const [isImages, setIsImages] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    setIsLogo(logo !== '');
+    setIsLogo(logo !== "");
   }, [logo]);
 
   useEffect(() => {
-    setIsImages(projectImages.length > 0)
-  },[projectImages])
+    setIsImages(projectImages.length > 0);
+  }, [projectImages]);
 
   const handleProjectName = (e) => {
     setProjectName(e.target.value);
@@ -36,12 +36,20 @@ function ProjectUploadPage({user}) {
   };
 
   const handleTagChange = (e) => {
-    const selectedOptions = Array.from(e.target.selectedOptions, (option) => option.value);
-    setSelectedTags(prevSelectedTags => [...prevSelectedTags, ...selectedOptions]);
+    const selectedOptions = Array.from(
+      e.target.selectedOptions,
+      (option) => option.value
+    );
+    setSelectedTags((prevSelectedTags) => [
+      ...prevSelectedTags,
+      ...selectedOptions,
+    ]);
   };
 
   const removeTag = (tagToRemove) => {
-    setSelectedTags(prevSelectedTags => prevSelectedTags.filter(tag => tag !== tagToRemove));
+    setSelectedTags((prevSelectedTags) =>
+      prevSelectedTags.filter((tag) => tag !== tagToRemove)
+    );
   };
 
   const handleOutcomeChange = (e) => {
@@ -89,7 +97,7 @@ function ProjectUploadPage({user}) {
       author: user._id,
       tags: selectedTags,
       logo: logo,
-      outcomes: projectOutcomes
+      outcomes: projectOutcomes,
     };
 
     try {
@@ -110,7 +118,8 @@ function ProjectUploadPage({user}) {
       navigate('/feed');
 
     } catch (error) {
-      console.error('Error creating project:', error);
+      alert("Project not created !");
+      console.error("Error creating project:", error);
     }
   };
 
@@ -133,8 +142,8 @@ function ProjectUploadPage({user}) {
         <img src='/images/logo.png' className='logo' alt='logo'/>
         <h2>Upload Project</h2>
         <p>
-          "Transform ideas into reality; craft innovative solutions 
-          that inspire and empower users worldwide."
+          "Transform ideas into reality; craft innovative solutions that inspire
+          and empower users worldwide."
         </p>
         <form>
           <div>
@@ -142,7 +151,7 @@ function ProjectUploadPage({user}) {
             <input
               type="text"
               id="projectName"
-              placeholder='Enter Project Name'
+              placeholder="Enter Project Name"
               value={projectName}
               onChange={handleProjectName}
               required
@@ -153,7 +162,7 @@ function ProjectUploadPage({user}) {
             <textarea
               id="description"
               value={description}
-              placeholder='Enter Description'
+              placeholder="Enter Description"
               onChange={handleDescription}
               required
             />
@@ -169,11 +178,7 @@ function ProjectUploadPage({user}) {
           </div>
           <div>
             <label htmlFor="tags">Tags</label>
-            <select
-              id="tags"
-              onChange={handleTagChange}
-              value={selectedTags}
-            >
+            <select id="tags" onChange={handleTagChange} value={selectedTags}>
               <option value="react">React</option>
               <option value="javascript">JavaScript</option>
               <option value="css">CSS</option>
@@ -185,7 +190,9 @@ function ProjectUploadPage({user}) {
           <div>
             <ul>
               {selectedTags.map((tag, index) => (
-                <li key={index} onClick={() => removeTag(tag)}>{tag}</li>
+                <li key={index} onClick={() => removeTag(tag)}>
+                  {tag}
+                </li>
               ))}
             </ul>
           </div>
@@ -193,7 +200,7 @@ function ProjectUploadPage({user}) {
             <label htmlFor="projectDirectory">Github Repository Link</label>
             <input
               type="text"
-              className='upload'
+              className="upload"
               onChange={handleRepoLink}
               id="projectDirectory"
               required
@@ -201,16 +208,16 @@ function ProjectUploadPage({user}) {
           </div>
           <FileUpload setProjectImages={setProjectImages} />
           <input type="checkbox" checked={isImages} readOnly />
-          <LogoUpload setLogo= {setLogo}/>
+          <LogoUpload setLogo={setLogo} />
           <input type="checkbox" checked={isLogo} readOnly />
          
           {/* <p>{projectImages}  {logo}</p> */}
-          <button type="submit" onClick={handleSubmit}>Upload Project</button>
+          <button type="submit" onClick={handleSubmit}>
+            Upload Project
+          </button>
         </form>
       </div>
-      <div className='right'>
-
-      </div>
+      <div className="right"></div>
     </div>
     </>
   );

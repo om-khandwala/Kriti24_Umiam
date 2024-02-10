@@ -5,7 +5,7 @@ function Profile({userData}){
         <div className="profile">
             <div class='profile-bg'></div>
             <div className = 'user-image'>
-                 <img src= '/images/user.jpg'  className="user-img" alt = 'user-img'/>
+                 <img src= {userData.logo}  className="user-img" alt = 'user-img'/>
             </div>
             <div className="user-details">
                 <h2>{userData.name.toLowerCase()}</h2>

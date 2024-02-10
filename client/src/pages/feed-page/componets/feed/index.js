@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Language from "../../../../componets/language";
 import "./style.css";
 import Star from "../../../../componets/star";
@@ -47,8 +48,8 @@ function Feed({ project, user }) {
     <div className="feed-container">
       <div className="heading">
         <div className="flex">
-          <img src={proj.logo} alt="Logo" />
-          <h3>{proj.projectName}</h3>
+        <Link to={`../project-feed/${project._id}`}><img src={proj.logo} alt="Logo" />
+          <h3>{proj.projectName}</h3></Link>
         </div>
 
         <div className="flex">

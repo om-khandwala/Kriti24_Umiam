@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import "./doubt-header.css";
 import { allDoubts, createDoubt } from "../../../api/doubt";
 import HorizontalLine from '../../../componets/line';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function DoubtHeader({ setDoubts, id }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -43,6 +45,8 @@ function DoubtHeader({ setDoubts, id }) {
     setIsModalOpen(false);
   };
 
+  const notify = (message) => toast(message);
+
   const handleSubmit = async () => {
     try {
       const data = {
@@ -58,13 +62,28 @@ function DoubtHeader({ setDoubts, id }) {
         (a, b) => new Date(b.created_at) - new Date(a.created_at)
       );
       setDoubts(allDoubtsData);
+      notify('Created doubt succesfully');
       closeModal();
     } catch (error) {
+      notify('Error in creating doubt succesfully');
       console.error("Error submitting doubt:", error);
     }
   };
 
   return (
+    <>
+    <ToastContainer
+      position="top-right"
+      autoClose={5000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      theme="light"
+    />
     <div className="doubt-header">
       <h3>Doubts Forum</h3>
       <div className="flex">
@@ -119,6 +138,7 @@ function DoubtHeader({ setDoubts, id }) {
         </div>
       )}
     </div>
+    </>
   );
 }
 
