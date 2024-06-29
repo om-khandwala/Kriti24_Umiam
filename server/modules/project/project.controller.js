@@ -44,7 +44,7 @@ export const userProjects = async (req, res) => {
 export const recentProject = async (req, res) => {
   try {
     const twentyFourHoursAgo = new Date();
-    twentyFourHoursAgo.setDate(twentyFourHoursAgo.getDate() - 1);
+    twentyFourHoursAgo.setDate(twentyFourHoursAgo.getDate() - 500);
 
     const projects = await Project.find({
       createdAt: { $gte: twentyFourHoursAgo },

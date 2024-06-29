@@ -62,23 +62,22 @@ export const redirect = async (req, res) => {
       newUser.save();
       console.log('Server is creating user in database');
       res.redirect('http://localhost:3000/user-form/');
+    }else{
+      res.cookie("user", existingUser, {
+        maxAge: 3073600,
+        secure: false,
+        expires: new Date(Date.now() + 3073600),
+        httpOnly: false,
+      });
+  
+      res.cookie("token", accessToken, {
+        maxAge: 3073600,
+        secure: false,
+        expires: new Date(Date.now() + 3073600),
+        httpOnly: false,
+      });
+       res.redirect("http://localhost:3000/feed/");
     }
-    //console.log(userData);
-
-    res.cookie("user", existingUser, {
-      maxAge: 3073600,
-      secure: false,
-      expires: new Date(Date.now() + 3073600),
-      httpOnly: false,
-    });
-
-    res.cookie("token", accessToken, {
-      maxAge: 3073600,
-      secure: false,
-      expires: new Date(Date.now() + 3073600),
-      httpOnly: false,
-    });
-     res.redirect("http://localhost:3000/feed/");
     // res.send('Login Successful!');
   } catch (error) {
     console.error("Error during redirect:", error);
